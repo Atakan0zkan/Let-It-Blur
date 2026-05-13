@@ -1,0 +1,32 @@
+# Codex / local agent context
+AGENTS.md
+agents.md
+Agents.md
+memory-bank/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Local browser/test artifacts
+.tmp-*/
+*.log
+*.crx
+*.zip
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

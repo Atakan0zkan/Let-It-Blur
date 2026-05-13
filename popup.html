@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Let It Blur - Screen Privacy</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Let It Blur</p>
+          <h1 id="popupTitle">Screen Privacy</h1>
+        </div>
+        <div class="top-actions" aria-label="Popup controls">
+          <button class="chip-action eng-action" id="englishFallback" type="button">ENG</button>
+          <button class="icon-action" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+            <svg class="icon moon-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M20 14.4A7.6 7.6 0 0 1 9.6 4a8.3 8.3 0 1 0 10.4 10.4Z"></path>
+            </svg>
+            <svg class="icon sun-icon" aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"></path>
+            </svg>
+          </button>
+          <button class="icon-action power-action" id="powerToggle" type="button" aria-label="Turn extension off" aria-pressed="true">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M12 2v10"></path>
+              <path d="M18.4 6.6a8 8 0 1 1-12.8 0"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="content-shell" id="contentShell">
+        <section class="primary-panel">
+          <button class="toggle" id="toggleBlur" type="button" aria-pressed="false">
+            <span id="toggleLabel">Blur page</span>
+          </button>
+        </section>
+
+        <section class="notice" id="restrictedNotice" hidden>
+          <p id="restrictedText">This page cannot be blurred directly.</p>
+          <button class="primary" id="openCurtain" type="button">Open Curtain Tab</button>
+        </section>
+
+        <section class="panel" id="pageControls">
+          <label class="field" for="blurAmount">
+            <span id="blurLabel">Blur</span>
+            <span class="range-line">
+              <input id="blurAmount" type="range" min="2" max="40" step="1">
+              <output id="blurAmountValue"></output>
+            </span>
+          </label>
+
+          <label class="field" for="tintOpacity">
+            <span id="dimLabel">Dim</span>
+            <span class="range-line">
+              <input id="tintOpacity" type="range" min="0" max="65" step="1">
+              <output id="tintOpacityValue"></output>
+            </span>
+          </label>
+        </section>
+
+        <section class="panel">
+          <label class="switch-row" for="autoAwayEnabled">
+            <span id="autoAwayLabel">Auto Away Timer</span>
+            <input id="autoAwayEnabled" type="checkbox" role="switch">
+          </label>
+
+          <label class="field" for="autoAwaySeconds">
+            <span id="afterLabel">After</span>
+            <select id="autoAwaySeconds">
+              <option value="15">15 seconds</option>
+              <option value="30">30 seconds</option>
+              <option value="60">1 minute</option>
+              <option value="120">2 minutes</option>
+              <option value="300">5 minutes</option>
+              <option value="600">10 minutes</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="panel shortcut-panel">
+          <div class="shortcut-heading">
+            <span id="shortcutLabel">Shortcut</span>
+            <button class="shortcut-edit" id="shortcutEdit" type="button">Edit</button>
+          </div>
+          <div class="shortcut-keys">
+            <span id="shortcutKeys"></span>
+          </div>
+          <p class="shortcut-note" id="shortcutNote">Works while a web page is focused.</p>
+        </section>
+
+        <footer class="footer">
+          <span id="saveStatus" role="status" aria-live="polite">Ready</span>
+        </footer>
+      </div>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
