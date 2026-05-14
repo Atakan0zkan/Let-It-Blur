@@ -6,7 +6,7 @@
   --accent-strong: #1d4ed8;
   --bg: #dbeafe;
   --bg-glow: rgba(37, 99, 235, 0.24);
-  --brand-text: #123b8f;
+  --brand-text: #0c2f73;
   --button-text: #ffffff;
   --card: rgba(248, 251, 255, 0.96);
   --card-border: rgba(37, 99, 235, 0.24);
@@ -46,7 +46,7 @@ body.theme-dark {
   --accent-strong: #93c5fd;
   --bg: #071527;
   --bg-glow: rgba(96, 165, 250, 0.24);
-  --brand-text: #f4f9ff;
+  --brand-text: #0b2f6b;
   --button-text: #031525;
   --card: rgba(15, 31, 55, 0.97);
   --card-border: rgba(147, 197, 253, 0.34);
@@ -108,6 +108,7 @@ p {
 }
 
 h1 {
+  color: var(--brand-text);
   font-size: 21px;
   line-height: 1.05;
 }
@@ -254,11 +255,13 @@ body.extension-off #themeToggle {
   border-radius: 8px;
   box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
   color: var(--button-text);
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 950;
   letter-spacing: 0;
-  min-height: 52px;
+  line-height: 1.1;
+  min-height: 58px;
   padding: 0 16px;
+  white-space: normal;
 }
 
 .toggle[aria-pressed="true"] {
@@ -322,25 +325,80 @@ select {
   appearance: none;
 }
 
-.timer-panel {
+.accordion-panel {
   gap: 8px;
 }
 
-.timer-heading {
+.accordion-heading {
   align-items: center;
   display: grid;
   gap: 8px;
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
-.timer-switch {
+.accordion-toggle {
   align-items: center;
+  background: transparent;
+  border-radius: 7px;
   color: var(--field-text);
-  display: grid;
-  font-size: 14px;
+  display: inline-grid;
+  font-size: 16px;
   font-weight: 950;
+  gap: 7px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 32px;
+  min-width: 0;
+  padding: 0 6px;
+  text-align: start;
+}
+
+.accordion-toggle:hover,
+.accordion-toggle:focus-visible {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--accent-strong);
+  outline: none;
+}
+
+body.theme-dark .accordion-toggle:hover,
+body.theme-dark .accordion-toggle:focus-visible {
+  background: rgba(147, 197, 253, 0.14);
+  color: #eaf4ff;
+}
+
+.accordion-caret {
+  color: var(--accent);
+  display: inline-block;
+  font-size: 16px;
+  line-height: 1;
+  transform-origin: 50% 50%;
+  transition: transform 140ms ease, color 140ms ease;
+}
+
+.accordion-toggle[aria-expanded="false"] .accordion-caret {
+  transform: rotate(-90deg);
+}
+
+.accordion-body {
+  display: grid;
+  gap: 8px;
+}
+
+.switch-control {
+  display: inline-flex;
+}
+
+.timer-controls {
+  align-items: end;
+  display: grid;
   gap: 8px;
   grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.timer-actions {
+  align-items: end;
+  display: inline-grid;
+  gap: 5px;
+  justify-items: end;
 }
 
 .timer-edit,
@@ -391,17 +449,11 @@ select {
   gap: 7px;
 }
 
-.shortcut-heading {
+.shortcut-control-row {
   align-items: center;
-  display: flex;
+  display: grid;
   gap: 8px;
-  justify-content: space-between;
-}
-
-.shortcut-heading > span {
-  color: var(--field-text);
-  font-size: 14px;
-  font-weight: 950;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .shortcut-keys {
@@ -425,6 +477,35 @@ select {
   white-space: nowrap;
 }
 
+.shortcut-actions {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.shortcut-cancel {
+  align-items: center;
+  background: var(--surface-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  color: var(--field-text);
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 950;
+  height: 26px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 26px;
+}
+
+.shortcut-cancel:hover,
+.shortcut-cancel:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
 .shortcut-note {
   color: var(--muted);
   font-size: 12px;
@@ -435,11 +516,19 @@ select {
 .footer {
   align-items: center;
   color: var(--muted);
-  display: flex;
+  display: grid;
   font-size: 13px;
   font-weight: 850;
-  justify-content: end;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
   min-height: 15px;
+}
+
+.version-number {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  opacity: 0.58;
 }
 
 button:disabled,

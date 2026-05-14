@@ -2,10 +2,34 @@
 
 A lightweight Chrome Manifest V3 extension that places a local blur curtain over web page content when the user clicks the toolbar action or when the computer becomes idle.
 
+## Chrome Web Store description
+
+Let It Blur - Screen Privacy is a free, fast and clean way to hide sensitive browser content from your Chrome toolbar.
+
+Open the popup to blur the current web page when you step away from your keyboard at work, in a cafe, in a library or in any shared space.
+
+What you get:
+
+1. One-click privacy blur for normal web pages
+2. Adjustable blur and dim levels
+3. Auto Away Timer for idle moments
+4. Editable keyboard shortcut for fast toggling
+5. Clean popup with dark mode, English fallback and browser-language support
+
+No account, no analytics, no remote servers, no personal data collection.
+
+Let It Blur keeps things simple: click, blur the page, step away with confidence, and get back to what you were doing.
+
+This extension is 100% open source and designed to be privacy-focused.
+https://github.com/Atakan0zkan/Let-It-Blur
+
+Free to use.
+
 ## What it does
 
 - Opens a compact toolbar popup for the privacy curtain controls.
 - Toggles a full-page blur overlay from the popup or keyboard shortcut.
+- Shows only the Let It Blur logo on the blurred page instead of a warning bar.
 - Provides blur and dim sliders in the popup.
 - Opens in dark mode by default and provides an icon-only light/dark toggle.
 - Provides an ENG fallback button for returning popup copy to English.

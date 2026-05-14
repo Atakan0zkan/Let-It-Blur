@@ -152,86 +152,48 @@
           display: flex;
         }
 
-        .control-bar {
+        .privacy-mark {
           align-items: center;
-          background: rgba(13, 18, 26, 0.86);
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          border-radius: 8px;
           bottom: 24px;
-          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+          border-radius: 14px;
+          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
           box-sizing: border-box;
-          display: grid;
-          gap: 12px;
-          grid-template-columns: 1fr auto;
+          display: flex;
+          height: 56px;
+          justify-content: center;
           left: 50%;
-          max-width: min(420px, calc(100vw - 32px));
-          padding: 12px;
+          pointer-events: none;
           position: fixed;
           transform: translateX(-50%);
-          width: min(420px, calc(100vw - 32px));
+          width: 56px;
         }
 
-        .label {
-          color: rgba(247, 250, 252, 0.82);
-          font-size: 13px;
-          min-width: 0;
-        }
-
-        button {
-          appearance: none;
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          border-radius: 7px;
-          color: #f7fafc;
-          cursor: pointer;
-          font: inherit;
-          min-height: 34px;
-          padding: 0 12px;
-          white-space: nowrap;
-        }
-
-        button:hover,
-        button:focus-visible {
-          background: rgba(255, 255, 255, 0.18);
-          outline: none;
-        }
-
-        .unlock {
-          background: #5eead4;
-          border-color: #5eead4;
-          color: #06211f;
-          font-weight: 700;
-        }
-
-        .unlock:hover,
-        .unlock:focus-visible {
-          background: #99f6e4;
-        }
-
-        @media (max-width: 420px) {
-          .control-bar {
-            grid-template-columns: 1fr;
-          }
+        .privacy-mark svg {
+          display: block;
+          height: 56px;
+          width: 56px;
         }
       </style>
 
-      <div class="curtain" role="dialog" aria-modal="true" aria-label="Screen blurred">
-        <div class="control-bar">
-          <div class="label">Screen hidden. Use the extension popup for controls.</div>
-          <button class="unlock" type="button">Unlock</button>
+      <div class="curtain" aria-label="Screen blurred">
+        <div class="privacy-mark" role="img" aria-label="Let It Blur">
+          <svg aria-hidden="true" viewBox="0 0 128 128">
+            <defs>
+              <linearGradient id="screen-blur-logo-bg" x1="22" y1="14" x2="108" y2="116" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#2563eb"></stop>
+                <stop offset="1" stop-color="#06b6d4"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="128" height="128" rx="30" fill="url(#screen-blur-logo-bg)"></rect>
+            <path d="M35 48H93M27 64H101M39 80H89" fill="none" stroke="#f8fbff" stroke-linecap="round" stroke-width="9"></path>
+          </svg>
         </div>
       </div>
     `;
 
     elements = {
-      curtain: shadow.querySelector(".curtain"),
-      unlock: shadow.querySelector(".unlock")
+      curtain: shadow.querySelector(".curtain")
     };
-
-    elements.unlock.addEventListener("click", () => {
-      setActive(false, "manualUnlock");
-      chrome.runtime.sendMessage({ type: "UNBLUR_ALL_TABS" });
-    });
 
     applySettings();
   }
@@ -244,12 +206,7 @@
     elements.curtain.classList.toggle("is-active", active);
     elements.curtain.dataset.reason = reason || "manual";
 
-    if (active) {
-      window.setTimeout(() => elements.unlock.focus(), 0);
-      return;
-    }
-
-    if (reason !== "extensionDisabled" && reason !== "autoAwayDisabled") {
+    if (!active && reason !== "extensionDisabled" && reason !== "autoAwayDisabled") {
       chrome.runtime.sendMessage({ type: "CLEAR_AWAY_LOCK" });
     }
   }

@@ -65,41 +65,62 @@
           </label>
         </section>
 
-        <section class="panel timer-panel">
-          <div class="timer-heading">
-            <label class="timer-switch" for="autoAwayEnabled">
+        <section class="panel accordion-panel timer-panel">
+          <div class="accordion-heading">
+            <button class="accordion-toggle" id="timerSectionToggle" type="button" aria-expanded="true" aria-controls="timerSectionBody">
+              <span class="accordion-caret" aria-hidden="true">▾</span>
               <span id="autoAwayLabel">Auto Away Timer</span>
-              <input id="autoAwayEnabled" type="checkbox" role="switch">
-            </label>
-            <button class="timer-edit" id="timerEdit" type="button">Edit</button>
+            </button>
           </div>
 
-          <label class="field" for="autoAwaySeconds">
-            <span id="afterLabel">After</span>
-            <select id="autoAwaySeconds"></select>
-          </label>
+          <div class="accordion-body" id="timerSectionBody">
+            <div class="timer-controls">
+              <label class="field" for="autoAwaySeconds">
+                <span id="afterLabel">After</span>
+                <select id="autoAwaySeconds"></select>
+              </label>
+              <div class="timer-actions">
+                <label class="switch-control" for="autoAwayEnabled">
+                  <input id="autoAwayEnabled" type="checkbox" role="switch" aria-labelledby="autoAwayLabel">
+                </label>
+                <button class="timer-edit" id="timerEdit" type="button">Edit</button>
+              </div>
+            </div>
 
-          <div class="timer-editor" id="timerEditor" hidden>
-            <input id="timerValue" type="number" min="1" max="3600" inputmode="numeric">
-            <select id="timerUnit"></select>
-            <button class="timer-save" id="timerSave" type="button">Save</button>
-            <button class="timer-cancel" id="timerCancel" type="button">Cancel</button>
+            <div class="timer-editor" id="timerEditor" hidden>
+              <input id="timerValue" type="number" min="1" max="3600" inputmode="numeric">
+              <select id="timerUnit"></select>
+              <button class="timer-save" id="timerSave" type="button">Save</button>
+              <button class="timer-cancel" id="timerCancel" type="button">Cancel</button>
+            </div>
           </div>
         </section>
 
-        <section class="panel shortcut-panel">
-          <div class="shortcut-heading">
-            <span id="shortcutLabel">Shortcut</span>
-            <button class="shortcut-edit" id="shortcutEdit" type="button">Edit</button>
+        <section class="panel accordion-panel shortcut-panel">
+          <div class="accordion-heading">
+            <button class="accordion-toggle" id="shortcutSectionToggle" type="button" aria-expanded="true" aria-controls="shortcutSectionBody">
+              <span class="accordion-caret" aria-hidden="true">▾</span>
+              <span id="shortcutLabel">Shortcut</span>
+            </button>
           </div>
-          <div class="shortcut-keys">
-            <span id="shortcutKeys"></span>
+
+          <div class="accordion-body" id="shortcutSectionBody">
+            <div class="shortcut-control-row">
+              <div class="shortcut-keys">
+                <span id="shortcutKeys"></span>
+              </div>
+              <div class="shortcut-actions">
+                <button class="shortcut-edit" id="shortcutEdit" type="button">Edit</button>
+                <button class="shortcut-cancel" id="shortcutCancel" type="button" hidden aria-label="Cancel">×</button>
+              </div>
+            </div>
+            <p class="shortcut-note" id="shortcutNote">Works while a web page is focused.</p>
           </div>
-          <p class="shortcut-note" id="shortcutNote">Works while a web page is focused.</p>
         </section>
 
         <footer class="footer">
           <span id="saveStatus" role="status" aria-live="polite">Ready</span>
+          <span class="version-number" id="versionNumber"></span>
         </footer>
       </div>
     </main>

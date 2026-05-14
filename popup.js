@@ -60,6 +60,8 @@ const elements = {
   tintOpacityValue: document.getElementById("tintOpacityValue"),
   autoAwayEnabled: document.getElementById("autoAwayEnabled"),
   autoAwaySeconds: document.getElementById("autoAwaySeconds"),
+  timerSectionToggle: document.getElementById("timerSectionToggle"),
+  timerSectionBody: document.getElementById("timerSectionBody"),
   timerEdit: document.getElementById("timerEdit"),
   timerEditor: document.getElementById("timerEditor"),
   timerValue: document.getElementById("timerValue"),
@@ -74,11 +76,15 @@ const elements = {
   dimLabel: document.getElementById("dimLabel"),
   autoAwayLabel: document.getElementById("autoAwayLabel"),
   afterLabel: document.getElementById("afterLabel"),
+  shortcutSectionToggle: document.getElementById("shortcutSectionToggle"),
+  shortcutSectionBody: document.getElementById("shortcutSectionBody"),
   shortcutLabel: document.getElementById("shortcutLabel"),
   shortcutEdit: document.getElementById("shortcutEdit"),
+  shortcutCancel: document.getElementById("shortcutCancel"),
   shortcutKeys: document.getElementById("shortcutKeys"),
   shortcutNote: document.getElementById("shortcutNote"),
-  saveStatus: document.getElementById("saveStatus")
+  saveStatus: document.getElementById("saveStatus"),
+  versionNumber: document.getElementById("versionNumber")
 };
 
 let active = false;
@@ -169,10 +175,13 @@ function attachListeners() {
 
   elements.autoAwayEnabled.addEventListener("change", queueSave);
   elements.autoAwaySeconds.addEventListener("change", queueSave);
+  elements.timerSectionToggle.addEventListener("click", () => toggleAccordion("timer"));
   elements.timerEdit.addEventListener("click", startTimerEdit);
   elements.timerSave.addEventListener("click", saveTimerEdit);
   elements.timerCancel.addEventListener("click", () => stopTimerEdit(false));
+  elements.shortcutSectionToggle.addEventListener("click", () => toggleAccordion("shortcut"));
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
+  elements.shortcutCancel.addEventListener("click", () => stopShortcutRecording(false));
 
   elements.themeToggle.addEventListener("click", () => {
     if (!extensionEnabled) {
@@ -324,8 +333,11 @@ function renderText() {
   elements.timerCancel.textContent = getCopy("cancel");
   elements.shortcutLabel.textContent = getCopy("shortcut");
   elements.shortcutEdit.textContent = recordingShortcut ? getCopy("pressShortcut") : getCopy("edit");
+  elements.shortcutCancel.setAttribute("aria-label", getCopy("cancel"));
+  elements.shortcutCancel.hidden = !recordingShortcut;
   elements.shortcutNote.textContent = recordingShortcut ? getCopy("pressShortcut") : getCopy("shortcutNote");
   elements.saveStatus.textContent = getCopy("ready");
+  renderVersion();
   elements.englishFallback.textContent = "ENG";
   elements.restrictedText.textContent = getCopy("restrictedFallback");
   renderTimerUnits();
@@ -363,6 +375,7 @@ function startTimerEdit() {
     return;
   }
 
+  setAccordionExpanded("timer", true);
   const seconds = Number(elements.autoAwaySeconds.value) || DEFAULT_SETTINGS.autoAwaySeconds;
   const useMinutes = seconds >= 60 && seconds % 60 === 0;
 
@@ -468,12 +481,15 @@ function getDisableableControls() {
     elements.tintOpacity,
     elements.autoAwayEnabled,
     elements.autoAwaySeconds,
+    elements.timerSectionToggle,
     elements.timerEdit,
     elements.timerValue,
     elements.timerUnit,
     elements.timerSave,
     elements.timerCancel,
-    elements.shortcutEdit
+    elements.shortcutSectionToggle,
+    elements.shortcutEdit,
+    elements.shortcutCancel
   ];
 }
 
@@ -482,16 +498,50 @@ function startShortcutRecording() {
     return;
   }
 
+  setAccordionExpanded("shortcut", true);
   recordingShortcut = true;
   elements.shortcutEdit.textContent = getCopy("pressShortcut");
+  elements.shortcutCancel.hidden = false;
   elements.shortcutNote.textContent = getCopy("pressShortcut");
   elements.shortcutEdit.focus();
+}
+
+function toggleAccordion(section) {
+  const accordion = getAccordion(section);
+  const isExpanded = accordion.toggle.getAttribute("aria-expanded") === "true";
+  setAccordionExpanded(section, !isExpanded);
+}
+
+function setAccordionExpanded(section, expanded) {
+  const accordion = getAccordion(section);
+  accordion.toggle.setAttribute("aria-expanded", String(expanded));
+  accordion.body.hidden = !expanded;
+}
+
+function getAccordion(section) {
+  if (section === "timer") {
+    return {
+      toggle: elements.timerSectionToggle,
+      body: elements.timerSectionBody
+    };
+  }
+
+  return {
+    toggle: elements.shortcutSectionToggle,
+    body: elements.shortcutSectionBody
+  };
 }
 
 function stopShortcutRecording(saved) {
   recordingShortcut = false;
   elements.shortcutEdit.textContent = getCopy("edit");
+  elements.shortcutCancel.hidden = true;
   elements.shortcutNote.textContent = saved ? getCopy("saved") : getCopy("shortcutNote");
+}
+
+function renderVersion() {
+  const version = chrome.runtime.getManifest?.().version;
+  elements.versionNumber.textContent = version ? `v${version}` : "";
 }
 
 function renderShortcut() {
