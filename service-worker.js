@@ -4,10 +4,10 @@ const DEFAULT_SETTINGS = {
   autoAwayEnabled: false,
   autoAwaySeconds: 60,
   popupTheme: "dark",
-  popupLanguage: "en",
+  popupLanguage: "auto",
   customShortcut: "Alt+Shift+X",
   extensionEnabled: true,
-  settingsSchemaVersion: 3,
+  settingsSchemaVersion: 4,
   awayLocked: false
 };
 
@@ -55,7 +55,7 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   }
 });
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (!message || typeof message.type !== "string") {
     return false;
   }
@@ -70,18 +70,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
 
-  if (message.type === "OPEN_CURTAIN_TAB") {
-    openCurtainForActiveTab().then(sendResponse);
-    return true;
-  }
-
   if (message.type === "SET_EXTENSION_ENABLED") {
     setExtensionEnabled(Boolean(message.enabled)).then(sendResponse);
-    return true;
-  }
-
-  if (message.type === "CLOSE_CURTAIN_TAB") {
-    closeSenderTab(sender).then(sendResponse);
     return true;
   }
 
@@ -118,7 +108,7 @@ async function getPopupState() {
       title: tab?.title || "",
       url: tab?.url || "",
       scriptable,
-      restrictedReason: scriptable ? "" : getRestrictedReason(tab?.url || "")
+      restrictedReason: scriptable ? "" : getRestrictedReason()
     },
     settings,
     active
@@ -137,11 +127,9 @@ async function setActiveTabBlur(active) {
   }
 
   if (!isScriptableUrl(tab.url)) {
-    await openCurtainTab(tab.id);
     return {
       ok: false,
-      openedCurtain: true,
-      error: getRestrictedReason(tab.url || "")
+      error: getRestrictedReason()
     };
   }
 
@@ -158,22 +146,6 @@ async function setActiveTabBlur(active) {
   };
 }
 
-async function openCurtainForActiveTab() {
-  const settings = await getSettings();
-  if (!settings.extensionEnabled) {
-    return { ok: false, error: "Extension is off." };
-  }
-
-  const tab = await getActiveTab();
-  if (!tab?.id) {
-    await createCurtainTab();
-    return { ok: true };
-  }
-
-  await openCurtainTab(tab.id);
-  return { ok: true };
-}
-
 async function setExtensionEnabled(enabled) {
   await storageSet({
     extensionEnabled: enabled,
@@ -185,15 +157,6 @@ async function setExtensionEnabled(enabled) {
   }
 
   return { ok: true, extensionEnabled: enabled };
-}
-
-async function closeSenderTab(sender) {
-  if (!sender?.tab?.id) {
-    return { ok: false, error: "No sender tab found." };
-  }
-
-  await tabsRemove(sender.tab.id);
-  return { ok: true };
 }
 
 async function ensureDefaults() {
@@ -208,6 +171,7 @@ async function ensureDefaults() {
 
   if (stored.settingsSchemaVersion !== DEFAULT_SETTINGS.settingsSchemaVersion) {
     updates.popupTheme = DEFAULT_SETTINGS.popupTheme;
+    updates.popupLanguage = DEFAULT_SETTINGS.popupLanguage;
     updates.settingsSchemaVersion = DEFAULT_SETTINGS.settingsSchemaVersion;
   }
 
@@ -248,22 +212,6 @@ async function getActiveTab() {
   return tabs[0] || null;
 }
 
-async function openCurtainTab(tabId) {
-  const url = chrome.runtime.getURL("curtain.html");
-  const tab = await tabsGet(tabId);
-
-  if (tab?.url && isBlankLikeUrl(tab.url)) {
-    await tabsUpdate(tabId, { url });
-    return;
-  }
-
-  await createCurtainTab();
-}
-
-async function createCurtainTab() {
-  await tabsCreate({ url: chrome.runtime.getURL("curtain.html") });
-}
-
 async function sendToTab(tabId, message, allowInjection) {
   const firstAttempt = await tabsSendMessage(tabId, message);
   if (firstAttempt.ok || !allowInjection) {
@@ -282,30 +230,8 @@ function isScriptableUrl(url = "") {
   return url.startsWith("http://") || url.startsWith("https://");
 }
 
-function isBlankLikeUrl(url = "") {
-  return (
-    url === "" ||
-    url === "about:blank" ||
-    url === "about:newtab" ||
-    url.startsWith("chrome://newtab") ||
-    url.startsWith("chrome://new-tab-page") ||
-    url.startsWith("brave://newtab") ||
-    url.startsWith("brave://new-tab-page") ||
-    url.startsWith("edge://newtab") ||
-    url.startsWith("edge://new-tab-page")
-  );
-}
-
-function getRestrictedReason(url = "") {
-  if (url.startsWith("brave://newtab") || url.startsWith("chrome://newtab")) {
-    return "New tab pages are controlled by the browser, so extensions cannot blur them directly.";
-  }
-
-  if (/^[a-z-]+:\/\//i.test(url) && !isScriptableUrl(url)) {
-    return "This browser-owned page does not allow page overlays from extensions.";
-  }
-
-  return "This page cannot be blurred directly.";
+function getRestrictedReason() {
+  return "This page can't be blurred because the browser doesn't allow extensions to edit it.";
 }
 
 function clampTimer(value) {
@@ -332,33 +258,6 @@ function storageSet(items) {
 function queryTabs(queryInfo) {
   return new Promise((resolve) => {
     chrome.tabs.query(queryInfo, (tabs) => resolve(tabs || []));
-  });
-}
-
-function tabsGet(tabId) {
-  return new Promise((resolve) => {
-    chrome.tabs.get(tabId, (tab) => {
-      const error = chrome.runtime.lastError;
-      resolve(error ? null : tab);
-    });
-  });
-}
-
-function tabsCreate(createProperties) {
-  return new Promise((resolve) => {
-    chrome.tabs.create(createProperties, (tab) => resolve(tab));
-  });
-}
-
-function tabsUpdate(tabId, updateProperties) {
-  return new Promise((resolve) => {
-    chrome.tabs.update(tabId, updateProperties, (tab) => resolve(tab));
-  });
-}
-
-function tabsRemove(tabId) {
-  return new Promise((resolve) => {
-    chrome.tabs.remove(tabId, resolve);
   });
 }
 

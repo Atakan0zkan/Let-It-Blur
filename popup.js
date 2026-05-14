@@ -4,47 +4,53 @@ const DEFAULT_SETTINGS = {
   autoAwayEnabled: false,
   autoAwaySeconds: 60,
   popupTheme: "dark",
-  popupLanguage: "en",
+  popupLanguage: "auto",
   customShortcut: "Alt+Shift+X",
   extensionEnabled: true,
-  settingsSchemaVersion: 3
+  settingsSchemaVersion: 4
 };
 
 const LIMITS = {
   blurAmount: { min: 2, max: 40 },
-  tintOpacityPercent: { min: 0, max: 65 }
+  tintOpacityPercent: { min: 0, max: 65 },
+  autoAwaySeconds: { min: 15, max: 3600 }
 };
 
-const TEXT = {
-  en: {
-    title: "Screen Privacy",
-    ready: "Ready",
-    openCurtain: "Open Curtain Tab",
-    restrictedFallback: "This page cannot be blurred directly.",
-    blurPage: "Blur page",
-    unblurPage: "Unblur page",
-    blur: "Blur",
-    dim: "Dim",
-    autoAway: "Auto Away Timer",
-    after: "After",
-    shortcut: "Shortcut",
-    edit: "Edit",
-    pressShortcut: "Press keys",
-    shortcutNote: "Works while a web page is focused.",
-    invalidShortcut: "Use at least one modifier plus one key.",
-    saving: "Saving",
-    saved: "Saved",
-    powerOn: "Turn extension on",
-    powerOff: "Turn extension off",
-    darkMode: "Turn dark mode on",
-    lightMode: "Turn light mode on"
-  }
+const DEFAULT_TIMER_OPTIONS = [15, 30, 60, 120, 300, 600];
+
+const EN_MESSAGES = {
+  popupTitle: "Screen Privacy",
+  ready: "Ready",
+  restrictedFallback: "This page can't be blurred because the browser doesn't allow extensions to edit it.",
+  blurPage: "Blur page",
+  unblurPage: "Unblur page",
+  notAvailable: "Not available",
+  blur: "Blur",
+  dim: "Dim",
+  autoAway: "Auto Away Timer",
+  after: "After",
+  shortcut: "Shortcut",
+  edit: "Edit",
+  pressShortcut: "Press keys",
+  shortcutNote: "Works while a web page is focused.",
+  invalidShortcut: "Use at least one modifier plus one key.",
+  saving: "Saving",
+  saved: "Saved",
+  save: "Save",
+  cancel: "Cancel",
+  seconds: "seconds",
+  second: "second",
+  minutes: "minutes",
+  minute: "minute",
+  powerOn: "Turn extension on",
+  powerOff: "Turn extension off",
+  darkMode: "Turn dark mode on",
+  lightMode: "Turn light mode on"
 };
 
 const elements = {
   restrictedNotice: document.getElementById("restrictedNotice"),
   restrictedText: document.getElementById("restrictedText"),
-  openCurtain: document.getElementById("openCurtain"),
   pageControls: document.getElementById("pageControls"),
   toggleBlur: document.getElementById("toggleBlur"),
   toggleLabel: document.getElementById("toggleLabel"),
@@ -54,11 +60,16 @@ const elements = {
   tintOpacityValue: document.getElementById("tintOpacityValue"),
   autoAwayEnabled: document.getElementById("autoAwayEnabled"),
   autoAwaySeconds: document.getElementById("autoAwaySeconds"),
+  timerEdit: document.getElementById("timerEdit"),
+  timerEditor: document.getElementById("timerEditor"),
+  timerValue: document.getElementById("timerValue"),
+  timerUnit: document.getElementById("timerUnit"),
+  timerSave: document.getElementById("timerSave"),
+  timerCancel: document.getElementById("timerCancel"),
   themeToggle: document.getElementById("themeToggle"),
   englishFallback: document.getElementById("englishFallback"),
   powerToggle: document.getElementById("powerToggle"),
   popupTitle: document.getElementById("popupTitle"),
-  contentShell: document.getElementById("contentShell"),
   blurLabel: document.getElementById("blurLabel"),
   dimLabel: document.getElementById("dimLabel"),
   autoAwayLabel: document.getElementById("autoAwayLabel"),
@@ -78,6 +89,7 @@ let popupTheme = DEFAULT_SETTINGS.popupTheme;
 let popupLanguage = DEFAULT_SETTINGS.popupLanguage;
 let customShortcut = DEFAULT_SETTINGS.customShortcut;
 let recordingShortcut = false;
+let editingTimer = false;
 
 init();
 
@@ -96,8 +108,9 @@ async function init() {
   renderSettings(settings);
   renderText();
   renderTheme();
+  renderLanguageDirection();
   renderExtensionEnabled();
-  renderPageState(state);
+  renderPageState();
 }
 
 function attachListeners() {
@@ -109,31 +122,24 @@ function attachListeners() {
     });
 
     if (!response?.ok) {
-      elements.saveStatus.textContent = getCopy().ready;
+      elements.saveStatus.textContent = getCopy("ready");
       return;
     }
 
     extensionEnabled = nextEnabled;
     if (!extensionEnabled) {
       active = false;
+      stopShortcutRecording(false);
+      stopTimerEdit(false);
     }
 
     renderExtensionEnabled();
     renderPageState();
-    elements.saveStatus.textContent = getCopy().saved;
-    window.setTimeout(() => {
-      elements.saveStatus.textContent = getCopy().ready;
-    }, 900);
+    showSavedStatus();
   });
 
   elements.toggleBlur.addEventListener("click", async () => {
-    if (!extensionEnabled) {
-      return;
-    }
-
-    if (!scriptable) {
-      await sendMessage({ type: "OPEN_CURTAIN_TAB" });
-      window.close();
+    if (!extensionEnabled || !scriptable) {
       return;
     }
 
@@ -146,17 +152,7 @@ function attachListeners() {
     if (response?.ok) {
       active = nextActive;
       renderToggle();
-      renderPageState();
     }
-  });
-
-  elements.openCurtain.addEventListener("click", async () => {
-    if (!extensionEnabled) {
-      return;
-    }
-
-    await sendMessage({ type: "OPEN_CURTAIN_TAB" });
-    window.close();
   });
 
   elements.blurAmount.addEventListener("input", () => {
@@ -173,6 +169,9 @@ function attachListeners() {
 
   elements.autoAwayEnabled.addEventListener("change", queueSave);
   elements.autoAwaySeconds.addEventListener("change", queueSave);
+  elements.timerEdit.addEventListener("click", startTimerEdit);
+  elements.timerSave.addEventListener("click", saveTimerEdit);
+  elements.timerCancel.addEventListener("click", () => stopTimerEdit(false));
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
 
   elements.themeToggle.addEventListener("click", () => {
@@ -192,6 +191,7 @@ function attachListeners() {
 
     popupLanguage = "en";
     renderText();
+    renderLanguageDirection();
     queueSave();
   });
 
@@ -210,7 +210,7 @@ function attachListeners() {
 
     const nextShortcut = normalizeShortcutEvent(event);
     if (!isValidShortcut(nextShortcut)) {
-      elements.shortcutNote.textContent = getCopy().invalidShortcut;
+      elements.shortcutNote.textContent = getCopy("invalidShortcut");
       return;
     }
 
@@ -222,24 +222,38 @@ function attachListeners() {
 }
 
 function renderSettings(settings) {
-  elements.blurAmount.value = String(settings.blurAmount);
-  elements.blurAmountValue.value = `${settings.blurAmount}px`;
-  elements.blurAmountValue.textContent = `${settings.blurAmount}px`;
+  const blurAmount = clampNumber(
+    settings.blurAmount,
+    LIMITS.blurAmount.min,
+    LIMITS.blurAmount.max,
+    DEFAULT_SETTINGS.blurAmount
+  );
+  const tintPercent = Math.round(
+    clampNumber(settings.tintOpacity, 0, 0.65, DEFAULT_SETTINGS.tintOpacity) * 100
+  );
+  const autoAwaySeconds = clampNumber(
+    settings.autoAwaySeconds,
+    LIMITS.autoAwaySeconds.min,
+    LIMITS.autoAwaySeconds.max,
+    DEFAULT_SETTINGS.autoAwaySeconds
+  );
 
-  const tintPercent = Math.round(Number(settings.tintOpacity) * 100);
+  elements.blurAmount.value = String(blurAmount);
+  elements.blurAmountValue.value = `${blurAmount}px`;
+  elements.blurAmountValue.textContent = `${blurAmount}px`;
+
   elements.tintOpacity.value = String(tintPercent);
   elements.tintOpacityValue.value = `${tintPercent}%`;
   elements.tintOpacityValue.textContent = `${tintPercent}%`;
 
   elements.autoAwayEnabled.checked = Boolean(settings.autoAwayEnabled);
-  elements.autoAwaySeconds.value = String(settings.autoAwaySeconds);
+  renderTimerOptions(autoAwaySeconds);
   customShortcut = normalizeShortcutString(settings.customShortcut);
   renderShortcut();
 }
 
-function renderPageState(state = null) {
+function renderPageState() {
   renderToggle();
-  const copy = getCopy();
 
   if (!extensionEnabled) {
     elements.restrictedNotice.hidden = true;
@@ -250,36 +264,48 @@ function renderPageState(state = null) {
   if (scriptable) {
     elements.restrictedNotice.hidden = true;
     elements.pageControls.hidden = false;
+    elements.toggleBlur.disabled = false;
     return;
   }
 
   elements.pageControls.hidden = true;
   elements.restrictedNotice.hidden = false;
-  elements.restrictedText.textContent =
-    state?.tab?.restrictedReason || copy.restrictedFallback;
+  elements.restrictedText.textContent = getCopy("restrictedFallback");
+  elements.toggleBlur.disabled = true;
 }
 
 function renderToggle() {
-  const copy = getCopy();
   elements.toggleBlur.setAttribute("aria-pressed", String(active));
-  elements.toggleLabel.textContent = active ? copy.unblurPage : copy.blurPage;
+  elements.toggleLabel.textContent = scriptable
+    ? active ? getCopy("unblurPage") : getCopy("blurPage")
+    : getCopy("notAvailable");
 }
 
 function renderTheme() {
   const isDark = popupTheme === "dark";
-  const copy = getCopy();
   document.body.classList.toggle("theme-dark", isDark);
   elements.themeToggle.setAttribute("aria-pressed", String(isDark));
-  elements.themeToggle.setAttribute("aria-label", isDark ? copy.lightMode : copy.darkMode);
+  elements.themeToggle.setAttribute(
+    "aria-label",
+    isDark ? getCopy("lightMode") : getCopy("darkMode")
+  );
+}
+
+function renderLanguageDirection() {
+  const locale = popupLanguage === "en" ? "en" : chrome.i18n.getUILanguage();
+  const language = locale.replace("_", "-");
+  const direction = /^(ar|fa)(-|$)/i.test(language) ? "rtl" : "ltr";
+
+  document.documentElement.lang = language;
+  document.documentElement.dir = direction;
 }
 
 function renderExtensionEnabled() {
-  const copy = getCopy();
   document.body.classList.toggle("extension-off", !extensionEnabled);
   elements.powerToggle.setAttribute("aria-pressed", String(extensionEnabled));
   elements.powerToggle.setAttribute(
     "aria-label",
-    extensionEnabled ? copy.powerOff : copy.powerOn
+    extensionEnabled ? getCopy("powerOff") : getCopy("powerOn")
   );
 
   for (const control of getDisableableControls()) {
@@ -288,22 +314,100 @@ function renderExtensionEnabled() {
 }
 
 function renderText() {
-  const copy = getCopy();
-  elements.popupTitle.textContent = copy.title;
-  elements.openCurtain.textContent = copy.openCurtain;
-  elements.blurLabel.textContent = copy.blur;
-  elements.dimLabel.textContent = copy.dim;
-  elements.autoAwayLabel.textContent = copy.autoAway;
-  elements.afterLabel.textContent = copy.after;
-  elements.shortcutLabel.textContent = copy.shortcut;
-  elements.shortcutEdit.textContent = recordingShortcut ? copy.pressShortcut : copy.edit;
-  elements.shortcutNote.textContent = recordingShortcut ? copy.pressShortcut : copy.shortcutNote;
-  elements.saveStatus.textContent = copy.ready;
+  elements.popupTitle.textContent = getCopy("popupTitle");
+  elements.blurLabel.textContent = getCopy("blur");
+  elements.dimLabel.textContent = getCopy("dim");
+  elements.autoAwayLabel.textContent = getCopy("autoAway");
+  elements.afterLabel.textContent = getCopy("after");
+  elements.timerEdit.textContent = getCopy("edit");
+  elements.timerSave.textContent = getCopy("save");
+  elements.timerCancel.textContent = getCopy("cancel");
+  elements.shortcutLabel.textContent = getCopy("shortcut");
+  elements.shortcutEdit.textContent = recordingShortcut ? getCopy("pressShortcut") : getCopy("edit");
+  elements.shortcutNote.textContent = recordingShortcut ? getCopy("pressShortcut") : getCopy("shortcutNote");
+  elements.saveStatus.textContent = getCopy("ready");
   elements.englishFallback.textContent = "ENG";
+  elements.restrictedText.textContent = getCopy("restrictedFallback");
+  renderTimerUnits();
+  renderTimerOptions(Number(elements.autoAwaySeconds.value) || DEFAULT_SETTINGS.autoAwaySeconds);
   renderShortcut();
   renderTheme();
   renderToggle();
   renderExtensionEnabled();
+}
+
+function renderTimerOptions(selectedSeconds) {
+  const selected = clampNumber(
+    selectedSeconds,
+    LIMITS.autoAwaySeconds.min,
+    LIMITS.autoAwaySeconds.max,
+    DEFAULT_SETTINGS.autoAwaySeconds
+  );
+  const options = [...new Set([...DEFAULT_TIMER_OPTIONS, selected])].sort((a, b) => a - b);
+
+  elements.autoAwaySeconds.replaceChildren(
+    ...options.map((seconds) => new Option(formatDuration(seconds), String(seconds)))
+  );
+  elements.autoAwaySeconds.value = String(selected);
+}
+
+function renderTimerUnits() {
+  elements.timerUnit.replaceChildren(
+    new Option(getCopy("seconds"), "seconds"),
+    new Option(getCopy("minutes"), "minutes")
+  );
+}
+
+function startTimerEdit() {
+  if (!extensionEnabled) {
+    return;
+  }
+
+  const seconds = Number(elements.autoAwaySeconds.value) || DEFAULT_SETTINGS.autoAwaySeconds;
+  const useMinutes = seconds >= 60 && seconds % 60 === 0;
+
+  editingTimer = true;
+  elements.timerEditor.hidden = false;
+  elements.timerValue.value = String(useMinutes ? seconds / 60 : seconds);
+  elements.timerUnit.value = useMinutes ? "minutes" : "seconds";
+  elements.timerValue.focus();
+}
+
+function saveTimerEdit() {
+  const rawValue = Math.max(1, Math.round(Number(elements.timerValue.value)));
+  if (!Number.isFinite(rawValue)) {
+    elements.timerValue.focus();
+    return;
+  }
+
+  const seconds = elements.timerUnit.value === "minutes" ? rawValue * 60 : rawValue;
+  const clamped = clampNumber(
+    seconds,
+    LIMITS.autoAwaySeconds.min,
+    LIMITS.autoAwaySeconds.max,
+    DEFAULT_SETTINGS.autoAwaySeconds
+  );
+
+  renderTimerOptions(clamped);
+  stopTimerEdit(true);
+  queueSave();
+}
+
+function stopTimerEdit(saved) {
+  editingTimer = false;
+  elements.timerEditor.hidden = true;
+  if (saved) {
+    showSavedStatus();
+  }
+}
+
+function formatDuration(seconds) {
+  if (seconds >= 60 && seconds % 60 === 0) {
+    const minutes = seconds / 60;
+    return `${minutes} ${getCopy(minutes === 1 ? "minute" : "minutes")}`;
+  }
+
+  return `${seconds} ${getCopy(seconds === 1 ? "second" : "seconds")}`;
 }
 
 function queueSave() {
@@ -312,7 +416,7 @@ function queueSave() {
   }
 
   window.clearTimeout(saveTimer);
-  elements.saveStatus.textContent = getCopy().saving;
+  elements.saveStatus.textContent = getCopy("saving");
   saveTimer = window.setTimeout(save, 120);
 }
 
@@ -332,7 +436,12 @@ function save() {
         DEFAULT_SETTINGS.tintOpacity * 100
       ) / 100,
     autoAwayEnabled: elements.autoAwayEnabled.checked,
-    autoAwaySeconds: Number(elements.autoAwaySeconds.value),
+    autoAwaySeconds: clampNumber(
+      elements.autoAwaySeconds.value,
+      LIMITS.autoAwaySeconds.min,
+      LIMITS.autoAwaySeconds.max,
+      DEFAULT_SETTINGS.autoAwaySeconds
+    ),
     popupTheme,
     popupLanguage,
     customShortcut,
@@ -340,24 +449,30 @@ function save() {
     settingsSchemaVersion: DEFAULT_SETTINGS.settingsSchemaVersion
   };
 
-  chrome.storage.local.set(payload, () => {
-    elements.saveStatus.textContent = getCopy().saved;
-    window.setTimeout(() => {
-      elements.saveStatus.textContent = getCopy().ready;
-    }, 900);
-  });
+  chrome.storage.local.set(payload, showSavedStatus);
+}
+
+function showSavedStatus() {
+  elements.saveStatus.textContent = getCopy("saved");
+  window.setTimeout(() => {
+    elements.saveStatus.textContent = getCopy("ready");
+  }, 900);
 }
 
 function getDisableableControls() {
   return [
     elements.englishFallback,
     elements.themeToggle,
-    elements.openCurtain,
     elements.toggleBlur,
     elements.blurAmount,
     elements.tintOpacity,
     elements.autoAwayEnabled,
     elements.autoAwaySeconds,
+    elements.timerEdit,
+    elements.timerValue,
+    elements.timerUnit,
+    elements.timerSave,
+    elements.timerCancel,
     elements.shortcutEdit
   ];
 }
@@ -368,23 +483,27 @@ function startShortcutRecording() {
   }
 
   recordingShortcut = true;
-  elements.shortcutEdit.textContent = getCopy().pressShortcut;
-  elements.shortcutNote.textContent = getCopy().pressShortcut;
+  elements.shortcutEdit.textContent = getCopy("pressShortcut");
+  elements.shortcutNote.textContent = getCopy("pressShortcut");
   elements.shortcutEdit.focus();
 }
 
 function stopShortcutRecording(saved) {
   recordingShortcut = false;
-  elements.shortcutEdit.textContent = getCopy().edit;
-  elements.shortcutNote.textContent = saved ? getCopy().saved : getCopy().shortcutNote;
+  elements.shortcutEdit.textContent = getCopy("edit");
+  elements.shortcutNote.textContent = saved ? getCopy("saved") : getCopy("shortcutNote");
 }
 
 function renderShortcut() {
   elements.shortcutKeys.textContent = customShortcut.replaceAll("+", " + ");
 }
 
-function getCopy() {
-  return TEXT[popupLanguage] || TEXT.en;
+function getCopy(key) {
+  if (popupLanguage === "en") {
+    return EN_MESSAGES[key] || key;
+  }
+
+  return chrome.i18n.getMessage(key) || EN_MESSAGES[key] || key;
 }
 
 function normalizeTheme(theme) {
@@ -392,7 +511,7 @@ function normalizeTheme(theme) {
 }
 
 function normalizeLanguage(language) {
-  return TEXT[language] ? language : "en";
+  return language === "en" ? "en" : "auto";
 }
 
 function normalizeShortcutString(shortcut) {

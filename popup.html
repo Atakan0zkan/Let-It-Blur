@@ -9,9 +9,12 @@
   <body>
     <main class="popup">
       <header class="header">
-        <div>
-          <p class="eyebrow">Let It Blur</p>
-          <h1 id="popupTitle">Screen Privacy</h1>
+        <div class="brand">
+          <img class="brand-logo" src="icons/logo.svg" width="42" height="42" alt="">
+          <div class="brand-text">
+            <p class="eyebrow">Let It Blur</p>
+            <h1 id="popupTitle">Screen Privacy</h1>
+          </div>
         </div>
         <div class="top-actions" aria-label="Popup controls">
           <button class="chip-action eng-action" id="englishFallback" type="button">ENG</button>
@@ -42,7 +45,6 @@
 
         <section class="notice" id="restrictedNotice" hidden>
           <p id="restrictedText">This page cannot be blurred directly.</p>
-          <button class="primary" id="openCurtain" type="button">Open Curtain Tab</button>
         </section>
 
         <section class="panel" id="pageControls">
@@ -63,23 +65,26 @@
           </label>
         </section>
 
-        <section class="panel">
-          <label class="switch-row" for="autoAwayEnabled">
-            <span id="autoAwayLabel">Auto Away Timer</span>
-            <input id="autoAwayEnabled" type="checkbox" role="switch">
-          </label>
+        <section class="panel timer-panel">
+          <div class="timer-heading">
+            <label class="timer-switch" for="autoAwayEnabled">
+              <span id="autoAwayLabel">Auto Away Timer</span>
+              <input id="autoAwayEnabled" type="checkbox" role="switch">
+            </label>
+            <button class="timer-edit" id="timerEdit" type="button">Edit</button>
+          </div>
 
           <label class="field" for="autoAwaySeconds">
             <span id="afterLabel">After</span>
-            <select id="autoAwaySeconds">
-              <option value="15">15 seconds</option>
-              <option value="30">30 seconds</option>
-              <option value="60">1 minute</option>
-              <option value="120">2 minutes</option>
-              <option value="300">5 minutes</option>
-              <option value="600">10 minutes</option>
-            </select>
+            <select id="autoAwaySeconds"></select>
           </label>
+
+          <div class="timer-editor" id="timerEditor" hidden>
+            <input id="timerValue" type="number" min="1" max="3600" inputmode="numeric">
+            <select id="timerUnit"></select>
+            <button class="timer-save" id="timerSave" type="button">Save</button>
+            <button class="timer-cancel" id="timerCancel" type="button">Cancel</button>
+          </div>
         </section>
 
         <section class="panel shortcut-panel">
