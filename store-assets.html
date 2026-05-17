@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background: #000; color: #fff; }
+        .canvas { position: relative; overflow: hidden; box-sizing: border-box; }
+        .screenshot { width: 1280px; height: 800px; }
+        .small-promo { width: 440px; height: 280px; }
+        .marquee-promo { width: 1400px; height: 560px; }
+        
+        .bg-gradient-1 { background: linear-gradient(135deg, #0A1128 0%, #162C5B 100%); }
+        .bg-gradient-2 { background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%); }
+        .bg-gradient-3 { background: linear-gradient(135deg, #0A192F 0%, #020C1B 100%); }
+        
+        .title { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 64px; line-height: 1.1; margin-bottom: 20px; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .subtitle { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 32px; color: #88C0D0; }
+        
+        .flex-center { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .flex-row { display: flex; flex-direction: row; align-items: center; justify-content: center; }
+        
+        .shadow-glow { box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 100px rgba(94, 129, 172, 0.3); border-radius: 12px; }
+        
+        /* Background Blobs */
+        .blob { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; opacity: 0.6; }
+        .blob-1 { width: 600px; height: 600px; background: #5E81AC; top: -200px; left: -200px; }
+        .blob-2 { width: 700px; height: 700px; background: #81A1C1; bottom: -300px; right: -200px; }
+
+        /* Images */
+        .popup-img { border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .popup-full { width: 350px; }
+        .popup-snippet { width: 450px; } /* Larger for snippets */
+        
+        /* Layout specific */
+        .text-container { z-index: 1; margin-bottom: 60px; }
+        .mockup-container { z-index: 1; display: flex; justify-content: center; align-items: center; }
+
+        /* Shot 1 */
+        /* Straightened image per feedback */
+        
+        /* Shot 2 */
+        #shot2 .bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) blur(2px); z-index: 0; }
+        #shot2 .content { position: relative; z-index: 1; background: rgba(10, 17, 40, 0.85); padding: 50px 80px; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); margin-top: 400px; }
+        
+        /* Focus areas (no overflow hidden, just show the cropped snippet) */
+        .mockup-wrapper { border-radius: 20px; position: relative; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); z-index: 1; display: flex; justify-content: center; background: #0b1120; padding: 0; overflow: hidden; }
+        .mockup-wrapper img { width: 450px; }
+
+        /* Small Promo */
+        #small_promo { flex-direction: column; align-items: center; justify-content: center; }
+        #small_promo img.logo { width: 90px; margin-bottom: 15px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+        #small_promo .title { font-size: 38px; margin-bottom: 5px; }
+        #small_promo .subtitle { font-size: 18px; }
+
+        /* Marquee Promo */
+        #marquee_promo { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 0 100px; }
+        #marquee_promo .text-content { max-width: 600px; text-align: left; z-index: 1; }
+        #marquee_promo .title { font-size: 64px; }
+        #marquee_promo .popup-img { width: 450px; transform: perspective(1000px) rotateY(-10deg); box-shadow: -20px 20px 50px rgba(0,0,0,0.6); z-index: 1; }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. Hero -->
+    <div id="shot1" class="canvas screenshot bg-gradient-1 flex-center">
+        <div class="blob blob-1"></div><div class="blob blob-2"></div>
+        <div class="text-container" style="margin-bottom: 40px;">
+            <div class="title">Privacy in a Single Click</div>
+            <div class="subtitle">Instantly hide your screen in shared workspaces</div>
+        </div>
+        <div class="mockup-container">
+            <img src="store-assets/dark-popup-full.png" class="popup-img shadow-glow" style="width: 420px; max-height: 560px; object-fit: contain;">
+        </div>
+    </div>
+
+    <!-- 2. Sliders -->
+    <div id="shot2" class="canvas screenshot bg-gradient-2 flex-center">
+        <div class="blob blob-1" style="background:#4C566A;"></div>
+        <div class="text-container">
+            <div class="title">Adjustable Blur & Dim</div>
+            <div class="subtitle">Fine-tune visibility to match your environment</div>
+        </div>
+        <div class="mockup-wrapper shadow-glow">
+            <img src="store-assets/dark-popup-blur.png">
+        </div>
+    </div>
+
+    <!-- 3. Timer -->
+    <div id="shot3" class="canvas screenshot bg-gradient-3 flex-center">
+        <div class="blob blob-2" style="background:#5E81AC;"></div>
+        <div class="text-container">
+            <div class="title">Smart Auto Away Timer</div>
+            <div class="subtitle">Automatically secure your screen when you forget</div>
+        </div>
+        <div class="mockup-wrapper shadow-glow">
+            <img src="store-assets/dark-popup-timer.png">
+        </div>
+    </div>
+
+    <!-- 4. Shortcut -->
+    <div id="shot4" class="canvas screenshot bg-gradient-1 flex-center">
+        <div class="blob blob-1"></div>
+        <div class="text-container">
+            <div class="title">Custom Keyboard Shortcuts</div>
+            <div class="subtitle">Toggle your privacy curtain at lightning speed</div>
+        </div>
+        <div class="mockup-wrapper shadow-glow">
+            <img src="store-assets/dark-popup-shortcut.png">
+        </div>
+    </div>
+
+    <!-- 5. Full Page Blur -->
+    <div id="shot5" class="canvas screenshot flex-center">
+        <img src=".tmp-logo-check/curtain.png" class="bg-image">
+        <div class="content flex-center">
+            <div class="title" style="font-size: 48px; margin-bottom: 10px;">Protect Your Tabs Instantly</div>
+            <div class="subtitle" style="font-size: 24px; color: #E5E9F0;">Zero distraction, pure privacy.</div>
+        </div>
+    </div>
+
+    <!-- Small Promo -->
+    <div id="small_promo" class="canvas small-promo bg-gradient-3 flex-center" style="overflow: hidden; position: relative;">
+        <div class="blob" style="width: 300px; height: 300px; background: #5E81AC; top: -100px; left: -100px; filter: blur(60px); opacity: 0.8;"></div>
+        <div class="blob" style="width: 300px; height: 300px; background: #81A1C1; bottom: -150px; right: -50px; filter: blur(70px); opacity: 0.6;"></div>
+        <div style="z-index: 1; display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%;">
+            <img src="icons/icon128.png" style="width: 110px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));">
+            <div style="text-align: left;">
+                <div style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 46px; line-height: 1; color: #fff; text-shadow: 0 4px 15px rgba(0,0,0,0.4);">Let It Blur</div>
+                <div style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 22px; color: #88C0D0; margin-top: 8px;">Screen Privacy</div>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40%; background: linear-gradient(to top, rgba(10, 17, 40, 0.9), transparent); z-index: 0;"></div>
+    </div>
+
+    <!-- Marquee Promo -->
+    <div id="marquee_promo" class="canvas marquee-promo bg-gradient-3">
+        <div class="blob blob-1"></div><div class="blob blob-2"></div>
+        <div class="text-content">
+            <div class="title">Instant Screen Privacy for Shared Workspaces</div>
+            <div class="subtitle" style="margin-top: 20px;">Protect your tabs with one click.</div>
+        </div>
+        <img src="store-assets/dark-popup-full.png" class="popup-img" style="transform: none; margin-right: 50px; max-height: 480px; width: auto; object-fit: contain; box-shadow: -15px 20px 40px rgba(0,0,0,0.6);">
+    </div>
+
+</body>
+</html>
