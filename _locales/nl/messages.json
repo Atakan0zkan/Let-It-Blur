@@ -1,5 +1,5 @@
 {
-  "extensionDescription": { "message": "Vervaag Chrome-pagina's met een lokaal privacyscherm wanneer je even weg bent." },
+  "extensionDescription": { "message": "Vervaag de inhoud van Chrome-pagina's met een lokaal privacyscherm wanneer je even weg bent." },
   "popupTitle": { "message": "Schermprivacy" },
   "ready": { "message": "Gereed" },
   "restrictedFallback": { "message": "Deze pagina kan niet worden vervaagd omdat de browser extensies niet toestaat haar te bewerken." },

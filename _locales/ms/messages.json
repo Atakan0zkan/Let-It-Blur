@@ -1,5 +1,5 @@
 {
-  "extensionDescription": { "message": "Kaburkan kandungan halaman Chrome dengan tirai privasi setempat apabila anda berjauhan." },
+  "extensionDescription": { "message": "Kaburkan kandungan halaman Chrome dengan tirai privasi setempat apabila anda meninggalkan peranti." },
   "popupTitle": { "message": "Privasi Skrin" },
   "ready": { "message": "Sedia" },
   "restrictedFallback": { "message": "Halaman ini tidak boleh dikaburkan kerana pelayar tidak membenarkan sambungan mengeditnya." },

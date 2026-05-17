@@ -4,6 +4,10 @@ A lightweight Chrome Manifest V3 extension that places a local blur curtain over
 
 ## Chrome Web Store description
 
+Chrome Web Store summary:
+
+> Blur Chrome page content with a local privacy curtain when you step away.
+
 Let It Blur - Screen Privacy is a free, fast and clean way to hide sensitive browser content from your Chrome toolbar.
 
 Open the popup to blur the current web page when you step away from your keyboard at work, in a cafe, in a library or in any shared space.
@@ -40,7 +44,7 @@ Free to use.
 - Supports a default in-page keyboard shortcut: `Alt+Shift+X`.
 - Lets users edit the in-page shortcut from the popup by pressing a new key combination.
 - Lets users edit the Auto Away Timer with custom values from 15 seconds to 60 minutes.
-- Uses the browser UI language automatically and includes popup localization for 24 locales.
+- Uses the browser UI language automatically and includes popup localization for 55 Chrome Web Store locales.
 - Optionally blurs open web pages after an idle timer using `chrome.idle`.
 - Shows a red popup warning on browser-owned pages that extensions cannot edit.
 
@@ -55,6 +59,21 @@ Chrome extensions cannot blur the operating system desktop, Chrome toolbar, addr
 3. Click Load unpacked.
 4. Select this project folder.
 5. Pin the extension and click the toolbar action to open the Let It Blur popup.
+
+## Package for Chrome Web Store
+
+Run `package-extension-store.bat` from the project root. It creates a store-ready ZIP in `dist/` with `manifest.json` at the ZIP root and excludes local agent memory, test profiles, generated promo assets, and development-only scripts.
+
+The package summary is localized through `_locales/<locale>/messages.json` using the `extensionDescription` key. The manifest version remains `1.0.0`.
+
+## Validation and security
+
+- No remote servers, analytics, telemetry, or account system.
+- No `eval`, dynamic function creation, external messaging, or network fetches in the runtime extension.
+- The blur curtain is rendered locally in a Shadow DOM overlay.
+- Runtime settings are stored only in `chrome.storage.local`.
+- The extension requests HTTP/HTTPS host access so the editable shortcut and Auto Away Timer can work on normal web pages.
+- Browser-owned pages, extension pages, Chrome Web Store pages, and browser PDF viewer pages are not modified; the popup shows a restricted-page warning instead.
 
 ## Privacy
 

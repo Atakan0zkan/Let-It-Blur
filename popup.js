@@ -303,7 +303,7 @@ function renderTheme() {
 function renderLanguageDirection() {
   const locale = popupLanguage === "en" ? "en" : chrome.i18n.getUILanguage();
   const language = locale.replace("_", "-");
-  const direction = /^(ar|fa)(-|$)/i.test(language) ? "rtl" : "ltr";
+  const direction = /^(ar|fa|he)(-|$)/i.test(language) ? "rtl" : "ltr";
 
   document.documentElement.lang = language;
   document.documentElement.dir = direction;

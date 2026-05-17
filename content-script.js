@@ -121,75 +121,12 @@
     if (!root) {
       root = document.createElement("div");
       root.id = ROOT_ID;
-      root.style.pointerEvents = "none";
       document.documentElement.appendChild(root);
     }
 
+    applyRootStyles(false);
     shadow = root.shadowRoot || root.attachShadow({ mode: "open" });
-    shadow.innerHTML = `
-      <style>
-        :host {
-          all: initial;
-        }
-
-        .curtain {
-          align-items: center;
-          background: rgba(8, 12, 18, var(--screen-blur-tint, 0.28));
-          backdrop-filter: blur(var(--screen-blur-amount, 16px));
-          -webkit-backdrop-filter: blur(var(--screen-blur-amount, 16px));
-          box-sizing: border-box;
-          color: #f7fafc;
-          display: none;
-          font: 13px/1.4 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-          inset: 0;
-          justify-content: center;
-          pointer-events: auto;
-          position: fixed;
-          z-index: 2147483647;
-        }
-
-        .curtain.is-active {
-          display: flex;
-        }
-
-        .privacy-mark {
-          align-items: center;
-          bottom: 24px;
-          border-radius: 14px;
-          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
-          box-sizing: border-box;
-          display: flex;
-          height: 56px;
-          justify-content: center;
-          left: 50%;
-          pointer-events: none;
-          position: fixed;
-          transform: translateX(-50%);
-          width: 56px;
-        }
-
-        .privacy-mark svg {
-          display: block;
-          height: 56px;
-          width: 56px;
-        }
-      </style>
-
-      <div class="curtain" aria-label="Screen blurred">
-        <div class="privacy-mark" role="img" aria-label="Let It Blur">
-          <svg aria-hidden="true" viewBox="0 0 128 128">
-            <defs>
-              <linearGradient id="screen-blur-logo-bg" x1="22" y1="14" x2="108" y2="116" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#2563eb"></stop>
-                <stop offset="1" stop-color="#06b6d4"></stop>
-              </linearGradient>
-            </defs>
-            <rect width="128" height="128" rx="30" fill="url(#screen-blur-logo-bg)"></rect>
-            <path d="M35 48H93M27 64H101M39 80H89" fill="none" stroke="#f8fbff" stroke-linecap="round" stroke-width="9"></path>
-          </svg>
-        </div>
-      </div>
-    `;
+    shadow.replaceChildren(createOverlayStyles(), createCurtain());
 
     elements = {
       curtain: shadow.querySelector(".curtain")
@@ -202,7 +139,7 @@
     ensureOverlay();
     active = Boolean(nextActive);
 
-    root.style.pointerEvents = active ? "auto" : "none";
+    applyRootStyles(active);
     elements.curtain.classList.toggle("is-active", active);
     elements.curtain.dataset.reason = reason || "manual";
 
@@ -221,6 +158,141 @@
 
     elements.curtain.style.setProperty("--screen-blur-amount", `${blurAmount}px`);
     elements.curtain.style.setProperty("--screen-blur-tint", String(tintOpacity));
+  }
+
+  function applyRootStyles(isActive) {
+    const importantStyles = {
+      all: "initial",
+      display: "block",
+      height: "100%",
+      inset: "0",
+      pointerEvents: isActive ? "auto" : "none",
+      position: "fixed",
+      visibility: "visible",
+      width: "100%",
+      zIndex: "2147483647"
+    };
+
+    for (const [property, value] of Object.entries(importantStyles)) {
+      root.style.setProperty(toKebabCase(property), value, "important");
+    }
+  }
+
+  function createOverlayStyles() {
+    const style = document.createElement("style");
+    style.textContent = `
+      :host {
+        all: initial;
+      }
+
+      .curtain {
+        align-items: center;
+        background: rgba(8, 12, 18, var(--screen-blur-tint, 0.28));
+        backdrop-filter: blur(var(--screen-blur-amount, 16px));
+        -webkit-backdrop-filter: blur(var(--screen-blur-amount, 16px));
+        box-sizing: border-box;
+        color: #f7fafc;
+        display: none;
+        font: 13px/1.4 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        inset: 0;
+        justify-content: center;
+        pointer-events: auto;
+        position: fixed;
+        z-index: 2147483647;
+      }
+
+      .curtain.is-active {
+        display: flex;
+      }
+
+      .privacy-mark {
+        align-items: center;
+        bottom: 24px;
+        border-radius: 14px;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+        box-sizing: border-box;
+        display: flex;
+        height: 56px;
+        justify-content: center;
+        left: 50%;
+        pointer-events: none;
+        position: fixed;
+        transform: translateX(-50%);
+        width: 56px;
+      }
+
+      .privacy-mark svg {
+        display: block;
+        height: 56px;
+        width: 56px;
+      }
+    `;
+    return style;
+  }
+
+  function createCurtain() {
+    const curtain = document.createElement("div");
+    curtain.className = "curtain";
+    curtain.setAttribute("aria-label", "Screen blurred");
+
+    const mark = document.createElement("div");
+    mark.className = "privacy-mark";
+    mark.setAttribute("role", "img");
+    mark.setAttribute("aria-label", "Let It Blur");
+    mark.append(createLogoSvg());
+
+    curtain.append(mark);
+    return curtain;
+  }
+
+  function createLogoSvg() {
+    const svg = createSvgElement("svg", {
+      "aria-hidden": "true",
+      viewBox: "0 0 128 128"
+    });
+    const defs = createSvgElement("defs");
+    const gradient = createSvgElement("linearGradient", {
+      gradientUnits: "userSpaceOnUse",
+      id: "screen-blur-logo-bg",
+      x1: "22",
+      x2: "108",
+      y1: "14",
+      y2: "116"
+    });
+    gradient.append(
+      createSvgElement("stop", { offset: "0", "stop-color": "#2563eb" }),
+      createSvgElement("stop", { offset: "1", "stop-color": "#06b6d4" })
+    );
+    defs.append(gradient);
+    svg.append(
+      defs,
+      createSvgElement("rect", {
+        fill: "url(#screen-blur-logo-bg)",
+        height: "128",
+        rx: "30",
+        width: "128"
+      }),
+      createSvgElement("path", {
+        d: "M35 48H93M27 64H101M39 80H89",
+        fill: "none",
+        stroke: "#f8fbff",
+        "stroke-linecap": "round",
+        "stroke-width": "9"
+      })
+    );
+    return svg;
+  }
+
+  function createSvgElement(tagName, attributes = {}) {
+    const element = document.createElementNS("http://www.w3.org/2000/svg", tagName);
+    for (const [name, value] of Object.entries(attributes)) {
+      element.setAttribute(name, value);
+    }
+    return element;
+  }
+
+  function toKebabCase(value) {
+    return value.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
   }
 
   function attachEventShields() {

@@ -1,5 +1,5 @@
 {
-  "extensionDescription": { "message": "Blende Chrome-Seiteninhalte mit einem lokalen Sichtschutz weich, wenn du kurz weg bist." },
+  "extensionDescription": { "message": "Mache Chrome-Seiteninhalte mit einem lokalen Sichtschutz unscharf, wenn du kurz weg bist." },
   "popupTitle": { "message": "Bildschirm-Privatsphäre" },
   "ready": { "message": "Bereit" },
   "restrictedFallback": { "message": "Diese Seite kann nicht weichgezeichnet werden, weil der Browser Erweiterungen hier keine Änderungen erlaubt." },
