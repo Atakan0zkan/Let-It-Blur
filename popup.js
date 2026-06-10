@@ -185,8 +185,8 @@ function attachListeners() {
     queueSave();
   });
 
-  elements.autoAwayEnabled.addEventListener("change", queueSave);
-  elements.autoAwaySeconds.addEventListener("change", queueSave);
+  elements.autoAwayEnabled.addEventListener("change", save);
+  elements.autoAwaySeconds.addEventListener("change", save);
   elements.timerSectionToggle.addEventListener("click", () => toggleAccordion("timer"));
   elements.timerEdit.addEventListener("click", startTimerEdit);
   elements.timerSave.addEventListener("click", saveTimerEdit);
@@ -195,8 +195,8 @@ function attachListeners() {
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
   elements.shortcutCancel.addEventListener("click", () => stopShortcutRecording(false));
   elements.preferencesSectionToggle.addEventListener("click", () => toggleAccordion("preferences"));
-  elements.muteOnBlur.addEventListener("change", queueSave);
-  elements.dblclickUnblur.addEventListener("change", queueSave);
+  elements.muteOnBlur.addEventListener("change", save);
+  elements.dblclickUnblur.addEventListener("change", save);
 
   elements.themeToggle.addEventListener("click", () => {
     if (!extensionEnabled) {
@@ -205,7 +205,7 @@ function attachListeners() {
 
     popupTheme = popupTheme === "dark" ? "light" : "dark";
     renderTheme();
-    queueSave();
+    save();
   });
 
   elements.englishFallback.addEventListener("click", () => {
@@ -216,7 +216,7 @@ function attachListeners() {
     popupLanguage = "en";
     renderText();
     renderLanguageDirection();
-    queueSave();
+    save();
   });
 
   window.addEventListener("keydown", (event) => {

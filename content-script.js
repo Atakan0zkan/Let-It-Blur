@@ -349,7 +349,7 @@
     }
 
     // Allow function keys (like F11 fullscreen, F5 refresh, F12 devtools)
-    if (/^F\d+$/.test(event.key)) {
+    if (/^F\d+$/.test(event.key) || (event.keyCode >= 112 && event.keyCode <= 123) || /^F\d+$/.test(event.code)) {
       return;
     }
 
