@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Homályosítsd el a Chrome-oldalak tartalmát helyi adatvédelmi függönnyel, amikor eltávolodsz." },
-  "popupTitle": { "message": "Képernyő adatvédelme" },
-  "ready": { "message": "Kész" },
-  "restrictedFallback": { "message": "Ez az oldal nem homályosítható el, mert a böngésző nem engedi, hogy a bővítmények módosítsák." },
-  "blurPage": { "message": "Oldal elhomályosítása" },
-  "unblurPage": { "message": "Homályosítás megszüntetése" },
-  "notAvailable": { "message": "Nem elérhető" },
-  "blur": { "message": "Homályosítás" },
-  "dim": { "message": "Sötétítés" },
-  "autoAway": { "message": "Automatikus távolléti időzítő" },
-  "after": { "message": "Ennyi után" },
-  "shortcut": { "message": "Gyorsbillentyű" },
-  "edit": { "message": "Szerkesztés" },
-  "pressShortcut": { "message": "Nyomj le billentyűket" },
-  "shortcutNote": { "message": "Akkor működik, amikor egy weboldal van fókuszban." },
-  "invalidShortcut": { "message": "Használj legalább egy módosítóbillentyűt és egy másik billentyűt." },
-  "saving": { "message": "Mentés" },
-  "saved": { "message": "Mentve" },
-  "save": { "message": "Mentés" },
-  "cancel": { "message": "Mégse" },
-  "seconds": { "message": "másodperc" },
-  "second": { "message": "másodperc" },
-  "minutes": { "message": "perc" },
-  "minute": { "message": "perc" },
-  "powerOn": { "message": "Bővítmény bekapcsolása" },
-  "powerOff": { "message": "Bővítmény kikapcsolása" },
-  "darkMode": { "message": "Sötét mód bekapcsolása" },
-  "lightMode": { "message": "Világos mód bekapcsolása" }
+  "extensionDescription": {
+    "message": "Homályosítsd el a Chrome-oldalak tartalmát helyi adatvédelmi függönnyel, amikor eltávolodsz."
+  },
+  "popupTitle": {
+    "message": "Képernyő adatvédelme"
+  },
+  "ready": {
+    "message": "Kész"
+  },
+  "restrictedFallback": {
+    "message": "Ez az oldal nem homályosítható el, mert a böngésző nem engedi, hogy a bővítmények módosítsák."
+  },
+  "blurPage": {
+    "message": "Oldal elhomályosítása"
+  },
+  "unblurPage": {
+    "message": "Homályosítás megszüntetése"
+  },
+  "notAvailable": {
+    "message": "Nem elérhető"
+  },
+  "blur": {
+    "message": "Homályosítás"
+  },
+  "dim": {
+    "message": "Sötétítés"
+  },
+  "autoAway": {
+    "message": "Automatikus távolléti időzítő"
+  },
+  "after": {
+    "message": "Ennyi után"
+  },
+  "shortcut": {
+    "message": "Gyorsbillentyű"
+  },
+  "edit": {
+    "message": "Szerkesztés"
+  },
+  "pressShortcut": {
+    "message": "Nyomj le billentyűket"
+  },
+  "shortcutNote": {
+    "message": "Akkor működik, amikor egy weboldal van fókuszban."
+  },
+  "invalidShortcut": {
+    "message": "Használj legalább egy módosítóbillentyűt és egy másik billentyűt."
+  },
+  "saving": {
+    "message": "Mentés"
+  },
+  "saved": {
+    "message": "Mentve"
+  },
+  "save": {
+    "message": "Mentés"
+  },
+  "cancel": {
+    "message": "Mégse"
+  },
+  "seconds": {
+    "message": "másodperc"
+  },
+  "second": {
+    "message": "másodperc"
+  },
+  "minutes": {
+    "message": "perc"
+  },
+  "minute": {
+    "message": "perc"
+  },
+  "powerOn": {
+    "message": "Bővítmény bekapcsolása"
+  },
+  "powerOff": {
+    "message": "Bővítmény kikapcsolása"
+  },
+  "darkMode": {
+    "message": "Sötét mód bekapcsolása"
+  },
+  "lightMode": {
+    "message": "Világos mód bekapcsolása"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

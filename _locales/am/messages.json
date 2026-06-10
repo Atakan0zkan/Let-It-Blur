@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "ከመሣሪያዎ ሲርቁ የChrome ገጽ ይዘትን በአካባቢያዊ የግላዊነት መጋረጃ ያደብዝዙ።" },
-  "popupTitle": { "message": "የማያ ግላዊነት" },
-  "ready": { "message": "ዝግጁ" },
-  "restrictedFallback": { "message": "አሳሹ ቅጥያዎች ይህን ገጽ እንዲቀይሩ ስለማይፈቅድ ይህ ገጽ ሊደበዝዝ አይችልም።" },
-  "blurPage": { "message": "ገጹን አደብዝዝ" },
-  "unblurPage": { "message": "ብዥታውን አስወግድ" },
-  "notAvailable": { "message": "አይገኝም" },
-  "blur": { "message": "ብዥታ" },
-  "dim": { "message": "ጨለማ" },
-  "autoAway": { "message": "ራስ-ሰር የመራቅ ሰዓት" },
-  "after": { "message": "ከ" },
-  "shortcut": { "message": "አቋራጭ" },
-  "edit": { "message": "አስተካክል" },
-  "pressShortcut": { "message": "ቁልፎችን ይጫኑ" },
-  "shortcutNote": { "message": "የድር ገጽ በትኩረት ላይ ሲሆን ይሰራል።" },
-  "invalidShortcut": { "message": "ቢያንስ አንድ መቀየሪያ ቁልፍ እና አንድ ሌላ ቁልፍ ይጠቀሙ።" },
-  "saving": { "message": "በማስቀመጥ ላይ" },
-  "saved": { "message": "ተቀምጧል" },
-  "save": { "message": "አስቀምጥ" },
-  "cancel": { "message": "ይቅር" },
-  "seconds": { "message": "ሰከንዶች" },
-  "second": { "message": "ሰከንድ" },
-  "minutes": { "message": "ደቂቃዎች" },
-  "minute": { "message": "ደቂቃ" },
-  "powerOn": { "message": "ቅጥያውን አብራ" },
-  "powerOff": { "message": "ቅጥያውን አጥፋ" },
-  "darkMode": { "message": "ጨለማ ሁነታን አብራ" },
-  "lightMode": { "message": "ብርሃን ሁነታን አብራ" }
+  "extensionDescription": {
+    "message": "ከመሣሪያዎ ሲርቁ የChrome ገጽ ይዘትን በአካባቢያዊ የግላዊነት መጋረጃ ያደብዝዙ።"
+  },
+  "popupTitle": {
+    "message": "የማያ ግላዊነት"
+  },
+  "ready": {
+    "message": "ዝግጁ"
+  },
+  "restrictedFallback": {
+    "message": "አሳሹ ቅጥያዎች ይህን ገጽ እንዲቀይሩ ስለማይፈቅድ ይህ ገጽ ሊደበዝዝ አይችልም።"
+  },
+  "blurPage": {
+    "message": "ገጹን አደብዝዝ"
+  },
+  "unblurPage": {
+    "message": "ብዥታውን አስወግድ"
+  },
+  "notAvailable": {
+    "message": "አይገኝም"
+  },
+  "blur": {
+    "message": "ብዥታ"
+  },
+  "dim": {
+    "message": "ጨለማ"
+  },
+  "autoAway": {
+    "message": "ራስ-ሰር የመራቅ ሰዓት"
+  },
+  "after": {
+    "message": "ከ"
+  },
+  "shortcut": {
+    "message": "አቋራጭ"
+  },
+  "edit": {
+    "message": "አስተካክል"
+  },
+  "pressShortcut": {
+    "message": "ቁልፎችን ይጫኑ"
+  },
+  "shortcutNote": {
+    "message": "የድር ገጽ በትኩረት ላይ ሲሆን ይሰራል።"
+  },
+  "invalidShortcut": {
+    "message": "ቢያንስ አንድ መቀየሪያ ቁልፍ እና አንድ ሌላ ቁልፍ ይጠቀሙ።"
+  },
+  "saving": {
+    "message": "በማስቀመጥ ላይ"
+  },
+  "saved": {
+    "message": "ተቀምጧል"
+  },
+  "save": {
+    "message": "አስቀምጥ"
+  },
+  "cancel": {
+    "message": "ይቅር"
+  },
+  "seconds": {
+    "message": "ሰከንዶች"
+  },
+  "second": {
+    "message": "ሰከንድ"
+  },
+  "minutes": {
+    "message": "ደቂቃዎች"
+  },
+  "minute": {
+    "message": "ደቂቃ"
+  },
+  "powerOn": {
+    "message": "ቅጥያውን አብራ"
+  },
+  "powerOff": {
+    "message": "ቅጥያውን አጥፋ"
+  },
+  "darkMode": {
+    "message": "ጨለማ ሁነታን አብራ"
+  },
+  "lightMode": {
+    "message": "ብርሃን ሁነታን አብራ"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

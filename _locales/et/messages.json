@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Hägusta Chrome'i lehe sisu kohaliku privaatsuskardinaga, kui arvutist eemaldud." },
-  "popupTitle": { "message": "Ekraani privaatsus" },
-  "ready": { "message": "Valmis" },
-  "restrictedFallback": { "message": "Seda lehte ei saa hägustada, sest brauser ei luba laiendustel seda muuta." },
-  "blurPage": { "message": "Hägusta leht" },
-  "unblurPage": { "message": "Eemalda hägustus" },
-  "notAvailable": { "message": "Pole saadaval" },
-  "blur": { "message": "Hägustus" },
-  "dim": { "message": "Hämardus" },
-  "autoAway": { "message": "Automaatne eemaloleku taimer" },
-  "after": { "message": "Pärast" },
-  "shortcut": { "message": "Otsetee" },
-  "edit": { "message": "Muuda" },
-  "pressShortcut": { "message": "Vajuta klahve" },
-  "shortcutNote": { "message": "Töötab, kui veebileht on fookuses." },
-  "invalidShortcut": { "message": "Kasuta vähemalt üht muuteklahvi ja üht muud klahvi." },
-  "saving": { "message": "Salvestamine" },
-  "saved": { "message": "Salvestatud" },
-  "save": { "message": "Salvesta" },
-  "cancel": { "message": "Tühista" },
-  "seconds": { "message": "sekundit" },
-  "second": { "message": "sekund" },
-  "minutes": { "message": "minutit" },
-  "minute": { "message": "minut" },
-  "powerOn": { "message": "Lülita laiendus sisse" },
-  "powerOff": { "message": "Lülita laiendus välja" },
-  "darkMode": { "message": "Lülita tume režiim sisse" },
-  "lightMode": { "message": "Lülita hele režiim sisse" }
+  "extensionDescription": {
+    "message": "Hägusta Chrome'i lehe sisu kohaliku privaatsuskardinaga, kui arvutist eemaldud."
+  },
+  "popupTitle": {
+    "message": "Ekraani privaatsus"
+  },
+  "ready": {
+    "message": "Valmis"
+  },
+  "restrictedFallback": {
+    "message": "Seda lehte ei saa hägustada, sest brauser ei luba laiendustel seda muuta."
+  },
+  "blurPage": {
+    "message": "Hägusta leht"
+  },
+  "unblurPage": {
+    "message": "Eemalda hägustus"
+  },
+  "notAvailable": {
+    "message": "Pole saadaval"
+  },
+  "blur": {
+    "message": "Hägustus"
+  },
+  "dim": {
+    "message": "Hämardus"
+  },
+  "autoAway": {
+    "message": "Automaatne eemaloleku taimer"
+  },
+  "after": {
+    "message": "Pärast"
+  },
+  "shortcut": {
+    "message": "Otsetee"
+  },
+  "edit": {
+    "message": "Muuda"
+  },
+  "pressShortcut": {
+    "message": "Vajuta klahve"
+  },
+  "shortcutNote": {
+    "message": "Töötab, kui veebileht on fookuses."
+  },
+  "invalidShortcut": {
+    "message": "Kasuta vähemalt üht muuteklahvi ja üht muud klahvi."
+  },
+  "saving": {
+    "message": "Salvestamine"
+  },
+  "saved": {
+    "message": "Salvestatud"
+  },
+  "save": {
+    "message": "Salvesta"
+  },
+  "cancel": {
+    "message": "Tühista"
+  },
+  "seconds": {
+    "message": "sekundit"
+  },
+  "second": {
+    "message": "sekund"
+  },
+  "minutes": {
+    "message": "minutit"
+  },
+  "minute": {
+    "message": "minut"
+  },
+  "powerOn": {
+    "message": "Lülita laiendus sisse"
+  },
+  "powerOff": {
+    "message": "Lülita laiendus välja"
+  },
+  "darkMode": {
+    "message": "Lülita tume režiim sisse"
+  },
+  "lightMode": {
+    "message": "Lülita hele režiim sisse"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

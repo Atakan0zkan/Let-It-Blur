@@ -7,8 +7,10 @@ const DEFAULT_SETTINGS = {
   popupLanguage: "auto",
   customShortcut: "Alt+Shift+X",
   extensionEnabled: true,
-  settingsSchemaVersion: 4,
-  awayLocked: false
+  settingsSchemaVersion: 5,
+  awayLocked: false,
+  muteOnBlur: false,
+  dblclickUnblur: false
 };
 
 const SETTING_KEYS = Object.keys(DEFAULT_SETTINGS);
@@ -55,9 +57,18 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   }
 });
 
-chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (!message || typeof message.type !== "string") {
     return false;
+  }
+
+  if (message.type === "TAB_BLUR_STATE_CHANGED") {
+    if (sender?.tab?.id) {
+      handleTabBlurStateChanged(sender.tab.id, message.active).then(() => sendResponse({ ok: true }));
+    } else {
+      sendResponse({ ok: false });
+    }
+    return true;
   }
 
   if (message.type === "GET_POPUP_STATE") {
@@ -170,8 +181,6 @@ async function ensureDefaults() {
   }
 
   if (stored.settingsSchemaVersion !== DEFAULT_SETTINGS.settingsSchemaVersion) {
-    updates.popupTheme = DEFAULT_SETTINGS.popupTheme;
-    updates.popupLanguage = DEFAULT_SETTINGS.popupLanguage;
     updates.settingsSchemaVersion = DEFAULT_SETTINGS.settingsSchemaVersion;
   }
 
@@ -290,4 +299,15 @@ function executeContentScript(tabId) {
       }
     );
   });
+}
+
+async function handleTabBlurStateChanged(tabId, active) {
+  const settings = await getSettings();
+  if (settings.extensionEnabled && settings.muteOnBlur) {
+    try {
+      await chrome.tabs.update(tabId, { muted: active });
+    } catch (e) {
+      console.warn("Failed to update tab mute state:", e.message);
+    }
+  }
 }

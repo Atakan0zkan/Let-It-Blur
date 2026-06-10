@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Blur Chrome page content with a local privacy curtain while you step away." },
-  "popupTitle": { "message": "Screen privacy" },
-  "ready": { "message": "Ready" },
-  "restrictedFallback": { "message": "This page cannot be blurred because the browser will not let extensions edit it." },
-  "blurPage": { "message": "Blur this page" },
-  "unblurPage": { "message": "Clear blur" },
-  "notAvailable": { "message": "Unavailable" },
-  "blur": { "message": "Blur" },
-  "dim": { "message": "Dim" },
-  "autoAway": { "message": "Auto-away timer" },
-  "after": { "message": "After" },
-  "shortcut": { "message": "Keyboard shortcut" },
-  "edit": { "message": "Edit" },
-  "pressShortcut": { "message": "Press keys" },
-  "shortcutNote": { "message": "Works when a web page has focus." },
-  "invalidShortcut": { "message": "Use a modifier key plus one other key." },
-  "saving": { "message": "Saving" },
-  "saved": { "message": "Saved" },
-  "save": { "message": "Save" },
-  "cancel": { "message": "Cancel" },
-  "seconds": { "message": "seconds" },
-  "second": { "message": "second" },
-  "minutes": { "message": "minutes" },
-  "minute": { "message": "minute" },
-  "powerOn": { "message": "Switch extension on" },
-  "powerOff": { "message": "Switch extension off" },
-  "darkMode": { "message": "Switch dark mode on" },
-  "lightMode": { "message": "Switch light mode on" }
+  "extensionDescription": {
+    "message": "Blur Chrome page content with a local privacy curtain while you step away."
+  },
+  "popupTitle": {
+    "message": "Screen privacy"
+  },
+  "ready": {
+    "message": "Ready"
+  },
+  "restrictedFallback": {
+    "message": "This page cannot be blurred because the browser will not let extensions edit it."
+  },
+  "blurPage": {
+    "message": "Blur this page"
+  },
+  "unblurPage": {
+    "message": "Clear blur"
+  },
+  "notAvailable": {
+    "message": "Unavailable"
+  },
+  "blur": {
+    "message": "Blur"
+  },
+  "dim": {
+    "message": "Dim"
+  },
+  "autoAway": {
+    "message": "Auto-away timer"
+  },
+  "after": {
+    "message": "After"
+  },
+  "shortcut": {
+    "message": "Keyboard shortcut"
+  },
+  "edit": {
+    "message": "Edit"
+  },
+  "pressShortcut": {
+    "message": "Press keys"
+  },
+  "shortcutNote": {
+    "message": "Works when a web page has focus."
+  },
+  "invalidShortcut": {
+    "message": "Use a modifier key plus one other key."
+  },
+  "saving": {
+    "message": "Saving"
+  },
+  "saved": {
+    "message": "Saved"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "seconds": {
+    "message": "seconds"
+  },
+  "second": {
+    "message": "second"
+  },
+  "minutes": {
+    "message": "minutes"
+  },
+  "minute": {
+    "message": "minute"
+  },
+  "powerOn": {
+    "message": "Switch extension on"
+  },
+  "powerOff": {
+    "message": "Switch extension off"
+  },
+  "darkMode": {
+    "message": "Switch dark mode on"
+  },
+  "lightMode": {
+    "message": "Switch light mode on"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

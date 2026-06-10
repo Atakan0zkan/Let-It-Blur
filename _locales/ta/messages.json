@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "நீங்கள் விலகிச் செல்லும்போது Chrome பக்க உள்ளடக்கத்தை உள்ளூர் தனியுரிமை திரையால் மங்கலாக்குங்கள்." },
-  "popupTitle": { "message": "திரை தனியுரிமை" },
-  "ready": { "message": "தயார்" },
-  "restrictedFallback": { "message": "உலாவி நீட்சிகள் இதைத் திருத்த அனுமதிக்காததால் இந்தப் பக்கத்தை மங்கலாக்க முடியாது." },
-  "blurPage": { "message": "பக்கத்தை மங்கலாக்கு" },
-  "unblurPage": { "message": "மங்கலை நீக்கு" },
-  "notAvailable": { "message": "கிடைக்கவில்லை" },
-  "blur": { "message": "மங்கல்" },
-  "dim": { "message": "இருள்" },
-  "autoAway": { "message": "தானியங்கி விலகல் டைமர்" },
-  "after": { "message": "பிறகு" },
-  "shortcut": { "message": "குறுக்குவழி" },
-  "edit": { "message": "திருத்து" },
-  "pressShortcut": { "message": "விசைகளை அழுத்தவும்" },
-  "shortcutNote": { "message": "ஒரு வலைப்பக்கம் கவனத்தில் இருக்கும் போது செயல்படும்." },
-  "invalidShortcut": { "message": "குறைந்தது ஒரு modifier விசையும் இன்னொரு விசையும் பயன்படுத்தவும்." },
-  "saving": { "message": "சேமிக்கிறது" },
-  "saved": { "message": "சேமிக்கப்பட்டது" },
-  "save": { "message": "சேமி" },
-  "cancel": { "message": "ரத்து" },
-  "seconds": { "message": "வினாடிகள்" },
-  "second": { "message": "வினாடி" },
-  "minutes": { "message": "நிமிடங்கள்" },
-  "minute": { "message": "நிமிடம்" },
-  "powerOn": { "message": "நீட்சியை இயக்கு" },
-  "powerOff": { "message": "நீட்சியை அணை" },
-  "darkMode": { "message": "இருண்ட முறையை இயக்கு" },
-  "lightMode": { "message": "ஒளி முறையை இயக்கு" }
+  "extensionDescription": {
+    "message": "நீங்கள் விலகிச் செல்லும்போது Chrome பக்க உள்ளடக்கத்தை உள்ளூர் தனியுரிமை திரையால் மங்கலாக்குங்கள்."
+  },
+  "popupTitle": {
+    "message": "திரை தனியுரிமை"
+  },
+  "ready": {
+    "message": "தயார்"
+  },
+  "restrictedFallback": {
+    "message": "உலாவி நீட்சிகள் இதைத் திருத்த அனுமதிக்காததால் இந்தப் பக்கத்தை மங்கலாக்க முடியாது."
+  },
+  "blurPage": {
+    "message": "பக்கத்தை மங்கலாக்கு"
+  },
+  "unblurPage": {
+    "message": "மங்கலை நீக்கு"
+  },
+  "notAvailable": {
+    "message": "கிடைக்கவில்லை"
+  },
+  "blur": {
+    "message": "மங்கல்"
+  },
+  "dim": {
+    "message": "இருள்"
+  },
+  "autoAway": {
+    "message": "தானியங்கி விலகல் டைமர்"
+  },
+  "after": {
+    "message": "பிறகு"
+  },
+  "shortcut": {
+    "message": "குறுக்குவழி"
+  },
+  "edit": {
+    "message": "திருத்து"
+  },
+  "pressShortcut": {
+    "message": "விசைகளை அழுத்தவும்"
+  },
+  "shortcutNote": {
+    "message": "ஒரு வலைப்பக்கம் கவனத்தில் இருக்கும் போது செயல்படும்."
+  },
+  "invalidShortcut": {
+    "message": "குறைந்தது ஒரு modifier விசையும் இன்னொரு விசையும் பயன்படுத்தவும்."
+  },
+  "saving": {
+    "message": "சேமிக்கிறது"
+  },
+  "saved": {
+    "message": "சேமிக்கப்பட்டது"
+  },
+  "save": {
+    "message": "சேமி"
+  },
+  "cancel": {
+    "message": "ரத்து"
+  },
+  "seconds": {
+    "message": "வினாடிகள்"
+  },
+  "second": {
+    "message": "வினாடி"
+  },
+  "minutes": {
+    "message": "நிமிடங்கள்"
+  },
+  "minute": {
+    "message": "நிமிடம்"
+  },
+  "powerOn": {
+    "message": "நீட்சியை இயக்கு"
+  },
+  "powerOff": {
+    "message": "நீட்சியை அணை"
+  },
+  "darkMode": {
+    "message": "இருண்ட முறையை இயக்கு"
+  },
+  "lightMode": {
+    "message": "ஒளி முறையை இயக்கு"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "तुम्ही दूर गेल्यावर Chrome पृष्ठातील सामग्री स्थानिक गोपनीयता पडद्याने धूसर करा." },
-  "popupTitle": { "message": "स्क्रीन गोपनीयता" },
-  "ready": { "message": "तयार" },
-  "restrictedFallback": { "message": "ब्राउझर विस्तारांना हे पृष्ठ बदलू देत नाही, म्हणून हे पृष्ठ धूसर करता येत नाही." },
-  "blurPage": { "message": "पृष्ठ धूसर करा" },
-  "unblurPage": { "message": "धूसरपणा काढा" },
-  "notAvailable": { "message": "उपलब्ध नाही" },
-  "blur": { "message": "धूसरपणा" },
-  "dim": { "message": "गडदपणा" },
-  "autoAway": { "message": "स्वयंचलित दूर टाइमर" },
-  "after": { "message": "नंतर" },
-  "shortcut": { "message": "शॉर्टकट" },
-  "edit": { "message": "संपादित करा" },
-  "pressShortcut": { "message": "कळा दाबा" },
-  "shortcutNote": { "message": "वेब पृष्ठ फोकसमध्ये असताना कार्य करते." },
-  "invalidShortcut": { "message": "किमान एक modifier कळ आणि आणखी एक कळ वापरा." },
-  "saving": { "message": "जतन करत आहे" },
-  "saved": { "message": "जतन झाले" },
-  "save": { "message": "जतन करा" },
-  "cancel": { "message": "रद्द करा" },
-  "seconds": { "message": "सेकंद" },
-  "second": { "message": "सेकंद" },
-  "minutes": { "message": "मिनिटे" },
-  "minute": { "message": "मिनिट" },
-  "powerOn": { "message": "विस्तार सुरू करा" },
-  "powerOff": { "message": "विस्तार बंद करा" },
-  "darkMode": { "message": "डार्क मोड सुरू करा" },
-  "lightMode": { "message": "लाइट मोड सुरू करा" }
+  "extensionDescription": {
+    "message": "तुम्ही दूर गेल्यावर Chrome पृष्ठातील सामग्री स्थानिक गोपनीयता पडद्याने धूसर करा."
+  },
+  "popupTitle": {
+    "message": "स्क्रीन गोपनीयता"
+  },
+  "ready": {
+    "message": "तयार"
+  },
+  "restrictedFallback": {
+    "message": "ब्राउझर विस्तारांना हे पृष्ठ बदलू देत नाही, म्हणून हे पृष्ठ धूसर करता येत नाही."
+  },
+  "blurPage": {
+    "message": "पृष्ठ धूसर करा"
+  },
+  "unblurPage": {
+    "message": "धूसरपणा काढा"
+  },
+  "notAvailable": {
+    "message": "उपलब्ध नाही"
+  },
+  "blur": {
+    "message": "धूसरपणा"
+  },
+  "dim": {
+    "message": "गडदपणा"
+  },
+  "autoAway": {
+    "message": "स्वयंचलित दूर टाइमर"
+  },
+  "after": {
+    "message": "नंतर"
+  },
+  "shortcut": {
+    "message": "शॉर्टकट"
+  },
+  "edit": {
+    "message": "संपादित करा"
+  },
+  "pressShortcut": {
+    "message": "कळा दाबा"
+  },
+  "shortcutNote": {
+    "message": "वेब पृष्ठ फोकसमध्ये असताना कार्य करते."
+  },
+  "invalidShortcut": {
+    "message": "किमान एक modifier कळ आणि आणखी एक कळ वापरा."
+  },
+  "saving": {
+    "message": "जतन करत आहे"
+  },
+  "saved": {
+    "message": "जतन झाले"
+  },
+  "save": {
+    "message": "जतन करा"
+  },
+  "cancel": {
+    "message": "रद्द करा"
+  },
+  "seconds": {
+    "message": "सेकंद"
+  },
+  "second": {
+    "message": "सेकंद"
+  },
+  "minutes": {
+    "message": "मिनिटे"
+  },
+  "minute": {
+    "message": "मिनिट"
+  },
+  "powerOn": {
+    "message": "विस्तार सुरू करा"
+  },
+  "powerOff": {
+    "message": "विस्तार बंद करा"
+  },
+  "darkMode": {
+    "message": "डार्क मोड सुरू करा"
+  },
+  "lightMode": {
+    "message": "लाइट मोड सुरू करा"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "טשטוש תוכן דפי Chrome בעזרת וילון פרטיות מקומי כשאתם מתרחקים מהמחשב." },
-  "popupTitle": { "message": "פרטיות מסך" },
-  "ready": { "message": "מוכן" },
-  "restrictedFallback": { "message": "אי אפשר לטשטש את הדף הזה כי הדפדפן לא מאפשר לתוספים לערוך אותו." },
-  "blurPage": { "message": "טשטוש הדף" },
-  "unblurPage": { "message": "הסרת הטשטוש" },
-  "notAvailable": { "message": "לא זמין" },
-  "blur": { "message": "טשטוש" },
-  "dim": { "message": "הכהיה" },
-  "autoAway": { "message": "טיימר היעדרות אוטומטי" },
-  "after": { "message": "אחרי" },
-  "shortcut": { "message": "קיצור מקשים" },
-  "edit": { "message": "עריכה" },
-  "pressShortcut": { "message": "לחצו על מקשים" },
-  "shortcutNote": { "message": "פועל כאשר דף אינטרנט נמצא במיקוד." },
-  "invalidShortcut": { "message": "השתמשו לפחות במקש משנה אחד ועוד מקש." },
-  "saving": { "message": "שומר" },
-  "saved": { "message": "נשמר" },
-  "save": { "message": "שמירה" },
-  "cancel": { "message": "ביטול" },
-  "seconds": { "message": "שניות" },
-  "second": { "message": "שנייה" },
-  "minutes": { "message": "דקות" },
-  "minute": { "message": "דקה" },
-  "powerOn": { "message": "הפעלת התוסף" },
-  "powerOff": { "message": "כיבוי התוסף" },
-  "darkMode": { "message": "הפעלת מצב כהה" },
-  "lightMode": { "message": "הפעלת מצב בהיר" }
+  "extensionDescription": {
+    "message": "טשטוש תוכן דפי Chrome בעזרת וילון פרטיות מקומי כשאתם מתרחקים מהמחשב."
+  },
+  "popupTitle": {
+    "message": "פרטיות מסך"
+  },
+  "ready": {
+    "message": "מוכן"
+  },
+  "restrictedFallback": {
+    "message": "אי אפשר לטשטש את הדף הזה כי הדפדפן לא מאפשר לתוספים לערוך אותו."
+  },
+  "blurPage": {
+    "message": "טשטוש הדף"
+  },
+  "unblurPage": {
+    "message": "הסרת הטשטוש"
+  },
+  "notAvailable": {
+    "message": "לא זמין"
+  },
+  "blur": {
+    "message": "טשטוש"
+  },
+  "dim": {
+    "message": "הכהיה"
+  },
+  "autoAway": {
+    "message": "טיימר היעדרות אוטומטי"
+  },
+  "after": {
+    "message": "אחרי"
+  },
+  "shortcut": {
+    "message": "קיצור מקשים"
+  },
+  "edit": {
+    "message": "עריכה"
+  },
+  "pressShortcut": {
+    "message": "לחצו על מקשים"
+  },
+  "shortcutNote": {
+    "message": "פועל כאשר דף אינטרנט נמצא במיקוד."
+  },
+  "invalidShortcut": {
+    "message": "השתמשו לפחות במקש משנה אחד ועוד מקש."
+  },
+  "saving": {
+    "message": "שומר"
+  },
+  "saved": {
+    "message": "נשמר"
+  },
+  "save": {
+    "message": "שמירה"
+  },
+  "cancel": {
+    "message": "ביטול"
+  },
+  "seconds": {
+    "message": "שניות"
+  },
+  "second": {
+    "message": "שנייה"
+  },
+  "minutes": {
+    "message": "דקות"
+  },
+  "minute": {
+    "message": "דקה"
+  },
+  "powerOn": {
+    "message": "הפעלת התוסף"
+  },
+  "powerOff": {
+    "message": "כיבוי התוסף"
+  },
+  "darkMode": {
+    "message": "הפעלת מצב כהה"
+  },
+  "lightMode": {
+    "message": "הפעלת מצב בהיר"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

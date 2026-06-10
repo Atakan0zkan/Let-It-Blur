@@ -513,6 +513,36 @@ body.theme-dark .accordion-toggle:focus-visible {
   line-height: 1.25;
 }
 
+.preferences-panel {
+  gap: 7px;
+}
+
+.pref-row {
+  align-items: center;
+  display: flex;
+  min-height: 32px;
+}
+
+.pref-label {
+  align-items: center;
+  color: var(--field-text);
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: 850;
+  gap: 10px;
+  user-select: none;
+  width: 100%;
+}
+
+.pref-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 18px;
+  margin: 0;
+  width: 18px;
+}
+
 .footer {
   align-items: center;
   color: var(--muted);

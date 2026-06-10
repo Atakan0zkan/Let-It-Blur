@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Desenfoca el contingut de les pàgines de Chrome amb una cortina local de privadesa quan t'allunyis." },
-  "popupTitle": { "message": "Privadesa de pantalla" },
-  "ready": { "message": "A punt" },
-  "restrictedFallback": { "message": "Aquesta pàgina no es pot desenfocar perquè el navegador no permet que les extensions la modifiquin." },
-  "blurPage": { "message": "Desenfoca la pàgina" },
-  "unblurPage": { "message": "Treu el desenfocament" },
-  "notAvailable": { "message": "No disponible" },
-  "blur": { "message": "Desenfocament" },
-  "dim": { "message": "Foscor" },
-  "autoAway": { "message": "Temporitzador d'absència" },
-  "after": { "message": "Després de" },
-  "shortcut": { "message": "Drecera" },
-  "edit": { "message": "Edita" },
-  "pressShortcut": { "message": "Prem les tecles" },
-  "shortcutNote": { "message": "Funciona quan una pàgina web té el focus." },
-  "invalidShortcut": { "message": "Fes servir almenys una tecla modificadora i una altra tecla." },
-  "saving": { "message": "Desant" },
-  "saved": { "message": "Desat" },
-  "save": { "message": "Desa" },
-  "cancel": { "message": "Cancel·la" },
-  "seconds": { "message": "segons" },
-  "second": { "message": "segon" },
-  "minutes": { "message": "minuts" },
-  "minute": { "message": "minut" },
-  "powerOn": { "message": "Activa l'extensió" },
-  "powerOff": { "message": "Desactiva l'extensió" },
-  "darkMode": { "message": "Activa el mode fosc" },
-  "lightMode": { "message": "Activa el mode clar" }
+  "extensionDescription": {
+    "message": "Desenfoca el contingut de les pàgines de Chrome amb una cortina local de privadesa quan t'allunyis."
+  },
+  "popupTitle": {
+    "message": "Privadesa de pantalla"
+  },
+  "ready": {
+    "message": "A punt"
+  },
+  "restrictedFallback": {
+    "message": "Aquesta pàgina no es pot desenfocar perquè el navegador no permet que les extensions la modifiquin."
+  },
+  "blurPage": {
+    "message": "Desenfoca la pàgina"
+  },
+  "unblurPage": {
+    "message": "Treu el desenfocament"
+  },
+  "notAvailable": {
+    "message": "No disponible"
+  },
+  "blur": {
+    "message": "Desenfocament"
+  },
+  "dim": {
+    "message": "Foscor"
+  },
+  "autoAway": {
+    "message": "Temporitzador d'absència"
+  },
+  "after": {
+    "message": "Després de"
+  },
+  "shortcut": {
+    "message": "Drecera"
+  },
+  "edit": {
+    "message": "Edita"
+  },
+  "pressShortcut": {
+    "message": "Prem les tecles"
+  },
+  "shortcutNote": {
+    "message": "Funciona quan una pàgina web té el focus."
+  },
+  "invalidShortcut": {
+    "message": "Fes servir almenys una tecla modificadora i una altra tecla."
+  },
+  "saving": {
+    "message": "Desant"
+  },
+  "saved": {
+    "message": "Desat"
+  },
+  "save": {
+    "message": "Desa"
+  },
+  "cancel": {
+    "message": "Cancel·la"
+  },
+  "seconds": {
+    "message": "segons"
+  },
+  "second": {
+    "message": "segon"
+  },
+  "minutes": {
+    "message": "minuts"
+  },
+  "minute": {
+    "message": "minut"
+  },
+  "powerOn": {
+    "message": "Activa l'extensió"
+  },
+  "powerOff": {
+    "message": "Desactiva l'extensió"
+  },
+  "darkMode": {
+    "message": "Activa el mode fosc"
+  },
+  "lightMode": {
+    "message": "Activa el mode clar"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

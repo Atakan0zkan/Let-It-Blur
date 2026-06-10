@@ -12,7 +12,9 @@
     autoAwaySeconds: 60,
     customShortcut: "Alt+Shift+X",
     extensionEnabled: true,
-    awayLocked: false
+    awayLocked: false,
+    muteOnBlur: false,
+    dblclickUnblur: false
   };
 
   const ROOT_ID = "screen-blur-root";
@@ -132,6 +134,12 @@
       curtain: shadow.querySelector(".curtain")
     };
 
+    elements.curtain.addEventListener("dblclick", () => {
+      if (settings.extensionEnabled && settings.dblclickUnblur) {
+        setActive(false, "dblclick");
+      }
+    });
+
     applySettings();
   }
 
@@ -142,6 +150,8 @@
     applyRootStyles(active);
     elements.curtain.classList.toggle("is-active", active);
     elements.curtain.dataset.reason = reason || "manual";
+
+    chrome.runtime.sendMessage({ type: "TAB_BLUR_STATE_CHANGED", active });
 
     if (!active && reason !== "extensionDisabled" && reason !== "autoAwayDisabled") {
       chrome.runtime.sendMessage({ type: "CLEAR_AWAY_LOCK" });
@@ -157,7 +167,7 @@
     const tintOpacity = clampNumber(settings.tintOpacity, 0, 0.65, DEFAULT_SETTINGS.tintOpacity);
 
     elements.curtain.style.setProperty("--screen-blur-amount", `${blurAmount}px`);
-    elements.curtain.style.setProperty("--screen-blur-tint", String(tintOpacity));
+    elements.curtain.style.backgroundColor = `rgba(8, 12, 18, ${tintOpacity})`;
   }
 
   function applyRootStyles(isActive) {
@@ -187,22 +197,24 @@
 
       .curtain {
         align-items: center;
-        background: rgba(8, 12, 18, var(--screen-blur-tint, 0.28));
+        background-color: rgba(8, 12, 18, 0.28);
         backdrop-filter: blur(var(--screen-blur-amount, 16px));
         -webkit-backdrop-filter: blur(var(--screen-blur-amount, 16px));
         box-sizing: border-box;
         color: #f7fafc;
-        display: none;
-        font: 13px/1.4 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
         inset: 0;
         justify-content: center;
-        pointer-events: auto;
         position: fixed;
         z-index: 2147483647;
       }
 
       .curtain.is-active {
-        display: flex;
+        opacity: 1;
+        pointer-events: auto;
       }
 
       .privacy-mark {
@@ -333,6 +345,16 @@
 
   function shieldKeyEvent(event) {
     if (!active || isOverlayEvent(event)) {
+      return;
+    }
+
+    // Allow function keys (like F11 fullscreen, F5 refresh, F12 devtools)
+    if (/^F\d+$/.test(event.key)) {
+      return;
+    }
+
+    // Allow browser refresh hotkeys (Ctrl+R, Cmd+R)
+    if ((event.ctrlKey || event.metaKey) && (event.key === "r" || event.key === "R")) {
       return;
     }
 

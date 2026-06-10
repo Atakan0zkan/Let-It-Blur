@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "ನೀವು ದೂರ ಹೋಗುವಾಗ Chrome ಪುಟದ ವಿಷಯವನ್ನು ಸ್ಥಳೀಯ ಗೌಪ್ಯತಾ ಪರದೆಯಿಂದ ಮಸುಕುಗೊಳಿಸಿ." },
-  "popupTitle": { "message": "ಪರದೆ ಗೌಪ್ಯತೆ" },
-  "ready": { "message": "ಸಿದ್ಧ" },
-  "restrictedFallback": { "message": "ಬ್ರೌಸರ್ ವಿಸ್ತರಣೆಗಳಿಗೆ ಇದನ್ನು ಸಂಪಾದಿಸಲು ಅನುಮತಿಸದ ಕಾರಣ ಈ ಪುಟವನ್ನು ಮಸುಕುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ." },
-  "blurPage": { "message": "ಪುಟವನ್ನು ಮಸುಕುಗೊಳಿಸಿ" },
-  "unblurPage": { "message": "ಮಸುಕನ್ನು ತೆಗೆದುಹಾಕಿ" },
-  "notAvailable": { "message": "ಲಭ್ಯವಿಲ್ಲ" },
-  "blur": { "message": "ಮಸುಕು" },
-  "dim": { "message": "ಕತ್ತಲೆ" },
-  "autoAway": { "message": "ಸ್ವಯಂ ದೂರ ಟೈಮರ್" },
-  "after": { "message": "ನಂತರ" },
-  "shortcut": { "message": "ಶಾರ್ಟ್‌ಕಟ್" },
-  "edit": { "message": "ಸಂಪಾದಿಸಿ" },
-  "pressShortcut": { "message": "ಕೀಲಿಗಳನ್ನು ಒತ್ತಿ" },
-  "shortcutNote": { "message": "ವೆಬ್ ಪುಟ ಫೋಕಸ್‌ನಲ್ಲಿದ್ದಾಗ ಕೆಲಸ ಮಾಡುತ್ತದೆ." },
-  "invalidShortcut": { "message": "ಕನಿಷ್ಠ ಒಂದು modifier ಕೀ ಮತ್ತು ಇನ್ನೊಂದು ಕೀ ಬಳಸಿ." },
-  "saving": { "message": "ಉಳಿಸಲಾಗುತ್ತಿದೆ" },
-  "saved": { "message": "ಉಳಿಸಲಾಗಿದೆ" },
-  "save": { "message": "ಉಳಿಸಿ" },
-  "cancel": { "message": "ರದ್ದು" },
-  "seconds": { "message": "ಸೆಕೆಂಡುಗಳು" },
-  "second": { "message": "ಸೆಕೆಂಡು" },
-  "minutes": { "message": "ನಿಮಿಷಗಳು" },
-  "minute": { "message": "ನಿಮಿಷ" },
-  "powerOn": { "message": "ವಿಸ್ತರಣೆಯನ್ನು ಆನ್ ಮಾಡಿ" },
-  "powerOff": { "message": "ವಿಸ್ತರಣೆಯನ್ನು ಆಫ್ ಮಾಡಿ" },
-  "darkMode": { "message": "ಡಾರ್ಕ್ ಮೋಡ್ ಆನ್ ಮಾಡಿ" },
-  "lightMode": { "message": "ಲೈಟ್ ಮೋಡ್ ಆನ್ ಮಾಡಿ" }
+  "extensionDescription": {
+    "message": "ನೀವು ದೂರ ಹೋಗುವಾಗ Chrome ಪುಟದ ವಿಷಯವನ್ನು ಸ್ಥಳೀಯ ಗೌಪ್ಯತಾ ಪರದೆಯಿಂದ ಮಸುಕುಗೊಳಿಸಿ."
+  },
+  "popupTitle": {
+    "message": "ಪರದೆ ಗೌಪ್ಯತೆ"
+  },
+  "ready": {
+    "message": "ಸಿದ್ಧ"
+  },
+  "restrictedFallback": {
+    "message": "ಬ್ರೌಸರ್ ವಿಸ್ತರಣೆಗಳಿಗೆ ಇದನ್ನು ಸಂಪಾದಿಸಲು ಅನುಮತಿಸದ ಕಾರಣ ಈ ಪುಟವನ್ನು ಮಸುಕುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ."
+  },
+  "blurPage": {
+    "message": "ಪುಟವನ್ನು ಮಸುಕುಗೊಳಿಸಿ"
+  },
+  "unblurPage": {
+    "message": "ಮಸುಕನ್ನು ತೆಗೆದುಹಾಕಿ"
+  },
+  "notAvailable": {
+    "message": "ಲಭ್ಯವಿಲ್ಲ"
+  },
+  "blur": {
+    "message": "ಮಸುಕು"
+  },
+  "dim": {
+    "message": "ಕತ್ತಲೆ"
+  },
+  "autoAway": {
+    "message": "ಸ್ವಯಂ ದೂರ ಟೈಮರ್"
+  },
+  "after": {
+    "message": "ನಂತರ"
+  },
+  "shortcut": {
+    "message": "ಶಾರ್ಟ್‌ಕಟ್"
+  },
+  "edit": {
+    "message": "ಸಂಪಾದಿಸಿ"
+  },
+  "pressShortcut": {
+    "message": "ಕೀಲಿಗಳನ್ನು ಒತ್ತಿ"
+  },
+  "shortcutNote": {
+    "message": "ವೆಬ್ ಪುಟ ಫೋಕಸ್‌ನಲ್ಲಿದ್ದಾಗ ಕೆಲಸ ಮಾಡುತ್ತದೆ."
+  },
+  "invalidShortcut": {
+    "message": "ಕನಿಷ್ಠ ಒಂದು modifier ಕೀ ಮತ್ತು ಇನ್ನೊಂದು ಕೀ ಬಳಸಿ."
+  },
+  "saving": {
+    "message": "ಉಳಿಸಲಾಗುತ್ತಿದೆ"
+  },
+  "saved": {
+    "message": "ಉಳಿಸಲಾಗಿದೆ"
+  },
+  "save": {
+    "message": "ಉಳಿಸಿ"
+  },
+  "cancel": {
+    "message": "ರದ್ದು"
+  },
+  "seconds": {
+    "message": "ಸೆಕೆಂಡುಗಳು"
+  },
+  "second": {
+    "message": "ಸೆಕೆಂಡು"
+  },
+  "minutes": {
+    "message": "ನಿಮಿಷಗಳು"
+  },
+  "minute": {
+    "message": "ನಿಮಿಷ"
+  },
+  "powerOn": {
+    "message": "ವಿಸ್ತರಣೆಯನ್ನು ಆನ್ ಮಾಡಿ"
+  },
+  "powerOff": {
+    "message": "ವಿಸ್ತರಣೆಯನ್ನು ಆಫ್ ಮಾಡಿ"
+  },
+  "darkMode": {
+    "message": "ಡಾರ್ಕ್ ಮೋಡ್ ಆನ್ ಮಾಡಿ"
+  },
+  "lightMode": {
+    "message": "ಲೈಟ್ ಮೋಡ್ ಆನ್ ಮಾಡಿ"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

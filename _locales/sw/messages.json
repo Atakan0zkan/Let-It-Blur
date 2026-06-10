@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Fifisha maudhui ya ukurasa wa Chrome kwa pazia la faragha la ndani unapokuwa mbali." },
-  "popupTitle": { "message": "Faragha ya Skrini" },
-  "ready": { "message": "Tayari" },
-  "restrictedFallback": { "message": "Ukurasa huu hauwezi kufifishwa kwa sababu kivinjari hakiruhusu viendelezi kuuhariri." },
-  "blurPage": { "message": "Fifisha ukurasa" },
-  "unblurPage": { "message": "Ondoa ufifishaji" },
-  "notAvailable": { "message": "Haipatikani" },
-  "blur": { "message": "Ufifishaji" },
-  "dim": { "message": "Giza" },
-  "autoAway": { "message": "Kipima muda cha kuondoka kiotomatiki" },
-  "after": { "message": "Baada ya" },
-  "shortcut": { "message": "Njia mkato" },
-  "edit": { "message": "Hariri" },
-  "pressShortcut": { "message": "Bonyeza vitufe" },
-  "shortcutNote": { "message": "Hufanya kazi ukurasa wa wavuti ukiwa umechaguliwa." },
-  "invalidShortcut": { "message": "Tumia angalau kitufe kimoja cha kurekebisha na kitufe kingine." },
-  "saving": { "message": "Inahifadhi" },
-  "saved": { "message": "Imehifadhiwa" },
-  "save": { "message": "Hifadhi" },
-  "cancel": { "message": "Ghairi" },
-  "seconds": { "message": "sekunde" },
-  "second": { "message": "sekunde" },
-  "minutes": { "message": "dakika" },
-  "minute": { "message": "dakika" },
-  "powerOn": { "message": "Washa kiendelezi" },
-  "powerOff": { "message": "Zima kiendelezi" },
-  "darkMode": { "message": "Washa hali ya giza" },
-  "lightMode": { "message": "Washa hali ya mwanga" }
+  "extensionDescription": {
+    "message": "Fifisha maudhui ya ukurasa wa Chrome kwa pazia la faragha la ndani unapokuwa mbali."
+  },
+  "popupTitle": {
+    "message": "Faragha ya Skrini"
+  },
+  "ready": {
+    "message": "Tayari"
+  },
+  "restrictedFallback": {
+    "message": "Ukurasa huu hauwezi kufifishwa kwa sababu kivinjari hakiruhusu viendelezi kuuhariri."
+  },
+  "blurPage": {
+    "message": "Fifisha ukurasa"
+  },
+  "unblurPage": {
+    "message": "Ondoa ufifishaji"
+  },
+  "notAvailable": {
+    "message": "Haipatikani"
+  },
+  "blur": {
+    "message": "Ufifishaji"
+  },
+  "dim": {
+    "message": "Giza"
+  },
+  "autoAway": {
+    "message": "Kipima muda cha kuondoka kiotomatiki"
+  },
+  "after": {
+    "message": "Baada ya"
+  },
+  "shortcut": {
+    "message": "Njia mkato"
+  },
+  "edit": {
+    "message": "Hariri"
+  },
+  "pressShortcut": {
+    "message": "Bonyeza vitufe"
+  },
+  "shortcutNote": {
+    "message": "Hufanya kazi ukurasa wa wavuti ukiwa umechaguliwa."
+  },
+  "invalidShortcut": {
+    "message": "Tumia angalau kitufe kimoja cha kurekebisha na kitufe kingine."
+  },
+  "saving": {
+    "message": "Inahifadhi"
+  },
+  "saved": {
+    "message": "Imehifadhiwa"
+  },
+  "save": {
+    "message": "Hifadhi"
+  },
+  "cancel": {
+    "message": "Ghairi"
+  },
+  "seconds": {
+    "message": "sekunde"
+  },
+  "second": {
+    "message": "sekunde"
+  },
+  "minutes": {
+    "message": "dakika"
+  },
+  "minute": {
+    "message": "dakika"
+  },
+  "powerOn": {
+    "message": "Washa kiendelezi"
+  },
+  "powerOff": {
+    "message": "Zima kiendelezi"
+  },
+  "darkMode": {
+    "message": "Washa hali ya giza"
+  },
+  "lightMode": {
+    "message": "Washa hali ya mwanga"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

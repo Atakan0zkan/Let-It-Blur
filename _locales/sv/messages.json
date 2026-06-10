@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Gör innehållet på Chrome-sidor suddigt med en lokal integritetsgardin när du går därifrån." },
-  "popupTitle": { "message": "Skärmintegritet" },
-  "ready": { "message": "Klar" },
-  "restrictedFallback": { "message": "Den här sidan kan inte göras suddig eftersom webbläsaren inte låter tillägg redigera den." },
-  "blurPage": { "message": "Gör sidan suddig" },
-  "unblurPage": { "message": "Ta bort suddighet" },
-  "notAvailable": { "message": "Inte tillgängligt" },
-  "blur": { "message": "Suddighet" },
-  "dim": { "message": "Nedtoning" },
-  "autoAway": { "message": "Automatisk bortatimer" },
-  "after": { "message": "Efter" },
-  "shortcut": { "message": "Kortkommando" },
-  "edit": { "message": "Redigera" },
-  "pressShortcut": { "message": "Tryck på tangenter" },
-  "shortcutNote": { "message": "Fungerar när en webbsida är i fokus." },
-  "invalidShortcut": { "message": "Använd minst en modifierartangent och en annan tangent." },
-  "saving": { "message": "Sparar" },
-  "saved": { "message": "Sparat" },
-  "save": { "message": "Spara" },
-  "cancel": { "message": "Avbryt" },
-  "seconds": { "message": "sekunder" },
-  "second": { "message": "sekund" },
-  "minutes": { "message": "minuter" },
-  "minute": { "message": "minut" },
-  "powerOn": { "message": "Slå på tillägget" },
-  "powerOff": { "message": "Stäng av tillägget" },
-  "darkMode": { "message": "Slå på mörkt läge" },
-  "lightMode": { "message": "Slå på ljust läge" }
+  "extensionDescription": {
+    "message": "Gör innehållet på Chrome-sidor suddigt med en lokal integritetsgardin när du går därifrån."
+  },
+  "popupTitle": {
+    "message": "Skärmintegritet"
+  },
+  "ready": {
+    "message": "Klar"
+  },
+  "restrictedFallback": {
+    "message": "Den här sidan kan inte göras suddig eftersom webbläsaren inte låter tillägg redigera den."
+  },
+  "blurPage": {
+    "message": "Gör sidan suddig"
+  },
+  "unblurPage": {
+    "message": "Ta bort suddighet"
+  },
+  "notAvailable": {
+    "message": "Inte tillgängligt"
+  },
+  "blur": {
+    "message": "Suddighet"
+  },
+  "dim": {
+    "message": "Nedtoning"
+  },
+  "autoAway": {
+    "message": "Automatisk bortatimer"
+  },
+  "after": {
+    "message": "Efter"
+  },
+  "shortcut": {
+    "message": "Kortkommando"
+  },
+  "edit": {
+    "message": "Redigera"
+  },
+  "pressShortcut": {
+    "message": "Tryck på tangenter"
+  },
+  "shortcutNote": {
+    "message": "Fungerar när en webbsida är i fokus."
+  },
+  "invalidShortcut": {
+    "message": "Använd minst en modifierartangent och en annan tangent."
+  },
+  "saving": {
+    "message": "Sparar"
+  },
+  "saved": {
+    "message": "Sparat"
+  },
+  "save": {
+    "message": "Spara"
+  },
+  "cancel": {
+    "message": "Avbryt"
+  },
+  "seconds": {
+    "message": "sekunder"
+  },
+  "second": {
+    "message": "sekund"
+  },
+  "minutes": {
+    "message": "minuter"
+  },
+  "minute": {
+    "message": "minut"
+  },
+  "powerOn": {
+    "message": "Slå på tillägget"
+  },
+  "powerOff": {
+    "message": "Stäng av tillägget"
+  },
+  "darkMode": {
+    "message": "Slå på mörkt läge"
+  },
+  "lightMode": {
+    "message": "Slå på ljust läge"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

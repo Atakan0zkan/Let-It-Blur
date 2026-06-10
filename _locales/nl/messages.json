@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Vervaag de inhoud van Chrome-pagina's met een lokaal privacyscherm wanneer je even weg bent." },
-  "popupTitle": { "message": "Schermprivacy" },
-  "ready": { "message": "Gereed" },
-  "restrictedFallback": { "message": "Deze pagina kan niet worden vervaagd omdat de browser extensies niet toestaat haar te bewerken." },
-  "blurPage": { "message": "Pagina vervagen" },
-  "unblurPage": { "message": "Vervaging uitzetten" },
-  "notAvailable": { "message": "Niet beschikbaar" },
-  "blur": { "message": "Vervaging" },
-  "dim": { "message": "Dimmen" },
-  "autoAway": { "message": "Automatische afwezigheidstimer" },
-  "after": { "message": "Na" },
-  "shortcut": { "message": "Sneltoets" },
-  "edit": { "message": "Bewerken" },
-  "pressShortcut": { "message": "Druk op toetsen" },
-  "shortcutNote": { "message": "Werkt wanneer een webpagina focus heeft." },
-  "invalidShortcut": { "message": "Gebruik minstens één modificatietoets plus één andere toets." },
-  "saving": { "message": "Opslaan" },
-  "saved": { "message": "Opgeslagen" },
-  "save": { "message": "Opslaan" },
-  "cancel": { "message": "Annuleren" },
-  "seconds": { "message": "seconden" },
-  "second": { "message": "seconde" },
-  "minutes": { "message": "minuten" },
-  "minute": { "message": "minuut" },
-  "powerOn": { "message": "Extensie inschakelen" },
-  "powerOff": { "message": "Extensie uitschakelen" },
-  "darkMode": { "message": "Donkere modus inschakelen" },
-  "lightMode": { "message": "Lichte modus inschakelen" }
+  "extensionDescription": {
+    "message": "Vervaag de inhoud van Chrome-pagina's met een lokaal privacyscherm wanneer je even weg bent."
+  },
+  "popupTitle": {
+    "message": "Schermprivacy"
+  },
+  "ready": {
+    "message": "Gereed"
+  },
+  "restrictedFallback": {
+    "message": "Deze pagina kan niet worden vervaagd omdat de browser extensies niet toestaat haar te bewerken."
+  },
+  "blurPage": {
+    "message": "Pagina vervagen"
+  },
+  "unblurPage": {
+    "message": "Vervaging uitzetten"
+  },
+  "notAvailable": {
+    "message": "Niet beschikbaar"
+  },
+  "blur": {
+    "message": "Vervaging"
+  },
+  "dim": {
+    "message": "Dimmen"
+  },
+  "autoAway": {
+    "message": "Automatische afwezigheidstimer"
+  },
+  "after": {
+    "message": "Na"
+  },
+  "shortcut": {
+    "message": "Sneltoets"
+  },
+  "edit": {
+    "message": "Bewerken"
+  },
+  "pressShortcut": {
+    "message": "Druk op toetsen"
+  },
+  "shortcutNote": {
+    "message": "Werkt wanneer een webpagina focus heeft."
+  },
+  "invalidShortcut": {
+    "message": "Gebruik minstens één modificatietoets plus één andere toets."
+  },
+  "saving": {
+    "message": "Opslaan"
+  },
+  "saved": {
+    "message": "Opgeslagen"
+  },
+  "save": {
+    "message": "Opslaan"
+  },
+  "cancel": {
+    "message": "Annuleren"
+  },
+  "seconds": {
+    "message": "seconden"
+  },
+  "second": {
+    "message": "seconde"
+  },
+  "minutes": {
+    "message": "minuten"
+  },
+  "minute": {
+    "message": "minuut"
+  },
+  "powerOn": {
+    "message": "Extensie inschakelen"
+  },
+  "powerOff": {
+    "message": "Extensie uitschakelen"
+  },
+  "darkMode": {
+    "message": "Donkere modus inschakelen"
+  },
+  "lightMode": {
+    "message": "Lichte modus inschakelen"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

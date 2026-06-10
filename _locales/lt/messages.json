@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Suliekite Chrome puslapio turinį vietine privatumo uždanga, kai atsitraukiate nuo kompiuterio." },
-  "popupTitle": { "message": "Ekrano privatumas" },
-  "ready": { "message": "Paruošta" },
-  "restrictedFallback": { "message": "Šio puslapio sulieti negalima, nes naršyklė neleidžia plėtiniams jo keisti." },
-  "blurPage": { "message": "Sulieti puslapį" },
-  "unblurPage": { "message": "Pašalinti suliejimą" },
-  "notAvailable": { "message": "Negalima" },
-  "blur": { "message": "Suliejimas" },
-  "dim": { "message": "Pritemdymas" },
-  "autoAway": { "message": "Automatinis nebuvimo laikmatis" },
-  "after": { "message": "Po" },
-  "shortcut": { "message": "Spartusis klavišas" },
-  "edit": { "message": "Redaguoti" },
-  "pressShortcut": { "message": "Paspauskite klavišus" },
-  "shortcutNote": { "message": "Veikia, kai aktyvus interneto puslapis." },
-  "invalidShortcut": { "message": "Naudokite bent vieną modifikavimo klavišą ir dar vieną klavišą." },
-  "saving": { "message": "Įrašoma" },
-  "saved": { "message": "Įrašyta" },
-  "save": { "message": "Įrašyti" },
-  "cancel": { "message": "Atšaukti" },
-  "seconds": { "message": "sek." },
-  "second": { "message": "sekundė" },
-  "minutes": { "message": "min." },
-  "minute": { "message": "minutė" },
-  "powerOn": { "message": "Įjungti plėtinį" },
-  "powerOff": { "message": "Išjungti plėtinį" },
-  "darkMode": { "message": "Įjungti tamsų režimą" },
-  "lightMode": { "message": "Įjungti šviesų režimą" }
+  "extensionDescription": {
+    "message": "Suliekite Chrome puslapio turinį vietine privatumo uždanga, kai atsitraukiate nuo kompiuterio."
+  },
+  "popupTitle": {
+    "message": "Ekrano privatumas"
+  },
+  "ready": {
+    "message": "Paruošta"
+  },
+  "restrictedFallback": {
+    "message": "Šio puslapio sulieti negalima, nes naršyklė neleidžia plėtiniams jo keisti."
+  },
+  "blurPage": {
+    "message": "Sulieti puslapį"
+  },
+  "unblurPage": {
+    "message": "Pašalinti suliejimą"
+  },
+  "notAvailable": {
+    "message": "Negalima"
+  },
+  "blur": {
+    "message": "Suliejimas"
+  },
+  "dim": {
+    "message": "Pritemdymas"
+  },
+  "autoAway": {
+    "message": "Automatinis nebuvimo laikmatis"
+  },
+  "after": {
+    "message": "Po"
+  },
+  "shortcut": {
+    "message": "Spartusis klavišas"
+  },
+  "edit": {
+    "message": "Redaguoti"
+  },
+  "pressShortcut": {
+    "message": "Paspauskite klavišus"
+  },
+  "shortcutNote": {
+    "message": "Veikia, kai aktyvus interneto puslapis."
+  },
+  "invalidShortcut": {
+    "message": "Naudokite bent vieną modifikavimo klavišą ir dar vieną klavišą."
+  },
+  "saving": {
+    "message": "Įrašoma"
+  },
+  "saved": {
+    "message": "Įrašyta"
+  },
+  "save": {
+    "message": "Įrašyti"
+  },
+  "cancel": {
+    "message": "Atšaukti"
+  },
+  "seconds": {
+    "message": "sek."
+  },
+  "second": {
+    "message": "sekundė"
+  },
+  "minutes": {
+    "message": "min."
+  },
+  "minute": {
+    "message": "minutė"
+  },
+  "powerOn": {
+    "message": "Įjungti plėtinį"
+  },
+  "powerOff": {
+    "message": "Išjungti plėtinį"
+  },
+  "darkMode": {
+    "message": "Įjungti tamsų režimą"
+  },
+  "lightMode": {
+    "message": "Įjungti šviesų režimą"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

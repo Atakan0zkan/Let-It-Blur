@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Palabuin ang nilalaman ng pahina sa Chrome gamit ang lokal na tabing sa privacy kapag lumayo ka." },
-  "popupTitle": { "message": "Privacy ng Screen" },
-  "ready": { "message": "Handa" },
-  "restrictedFallback": { "message": "Hindi mapapalabo ang page na ito dahil hindi pinapayagan ng browser ang mga extension na baguhin ito." },
-  "blurPage": { "message": "Palabuin ang page" },
-  "unblurPage": { "message": "Alisin ang blur" },
-  "notAvailable": { "message": "Hindi available" },
-  "blur": { "message": "Blur" },
-  "dim": { "message": "Dilim" },
-  "autoAway": { "message": "Auto Away Timer" },
-  "after": { "message": "Pagkalipas ng" },
-  "shortcut": { "message": "Shortcut" },
-  "edit": { "message": "I-edit" },
-  "pressShortcut": { "message": "Pindutin ang mga key" },
-  "shortcutNote": { "message": "Gumagana kapag naka-focus ang isang web page." },
-  "invalidShortcut": { "message": "Gumamit ng kahit isang modifier at isa pang key." },
-  "saving": { "message": "Sine-save" },
-  "saved": { "message": "Na-save" },
-  "save": { "message": "I-save" },
-  "cancel": { "message": "Kanselahin" },
-  "seconds": { "message": "segundo" },
-  "second": { "message": "segundo" },
-  "minutes": { "message": "minuto" },
-  "minute": { "message": "minuto" },
-  "powerOn": { "message": "I-on ang extension" },
-  "powerOff": { "message": "I-off ang extension" },
-  "darkMode": { "message": "I-on ang dark mode" },
-  "lightMode": { "message": "I-on ang light mode" }
+  "extensionDescription": {
+    "message": "Palabuin ang nilalaman ng pahina sa Chrome gamit ang lokal na tabing sa privacy kapag lumayo ka."
+  },
+  "popupTitle": {
+    "message": "Privacy ng Screen"
+  },
+  "ready": {
+    "message": "Handa"
+  },
+  "restrictedFallback": {
+    "message": "Hindi mapapalabo ang page na ito dahil hindi pinapayagan ng browser ang mga extension na baguhin ito."
+  },
+  "blurPage": {
+    "message": "Palabuin ang page"
+  },
+  "unblurPage": {
+    "message": "Alisin ang blur"
+  },
+  "notAvailable": {
+    "message": "Hindi available"
+  },
+  "blur": {
+    "message": "Blur"
+  },
+  "dim": {
+    "message": "Dilim"
+  },
+  "autoAway": {
+    "message": "Auto Away Timer"
+  },
+  "after": {
+    "message": "Pagkalipas ng"
+  },
+  "shortcut": {
+    "message": "Shortcut"
+  },
+  "edit": {
+    "message": "I-edit"
+  },
+  "pressShortcut": {
+    "message": "Pindutin ang mga key"
+  },
+  "shortcutNote": {
+    "message": "Gumagana kapag naka-focus ang isang web page."
+  },
+  "invalidShortcut": {
+    "message": "Gumamit ng kahit isang modifier at isa pang key."
+  },
+  "saving": {
+    "message": "Sine-save"
+  },
+  "saved": {
+    "message": "Na-save"
+  },
+  "save": {
+    "message": "I-save"
+  },
+  "cancel": {
+    "message": "Kanselahin"
+  },
+  "seconds": {
+    "message": "segundo"
+  },
+  "second": {
+    "message": "segundo"
+  },
+  "minutes": {
+    "message": "minuto"
+  },
+  "minute": {
+    "message": "minuto"
+  },
+  "powerOn": {
+    "message": "I-on ang extension"
+  },
+  "powerOff": {
+    "message": "I-off ang extension"
+  },
+  "darkMode": {
+    "message": "I-on ang dark mode"
+  },
+  "lightMode": {
+    "message": "I-on ang light mode"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "మీరు దూరంగా వెళ్లినప్పుడు Chrome పేజీ కంటెంట్‌ను స్థానిక గోప్యతా తెరతో మసకబార్చండి." },
-  "popupTitle": { "message": "స్క్రీన్ గోప్యత" },
-  "ready": { "message": "సిద్ధం" },
-  "restrictedFallback": { "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్‌లకు దీన్ని మార్చడానికి అనుమతించనందున ఈ పేజీని మసకబార్చలేము." },
-  "blurPage": { "message": "పేజీని మసకబార్చు" },
-  "unblurPage": { "message": "మసకను తొలగించు" },
-  "notAvailable": { "message": "అందుబాటులో లేదు" },
-  "blur": { "message": "మసక" },
-  "dim": { "message": "చీకటి" },
-  "autoAway": { "message": "స్వయంచాలక దూర టైమర్" },
-  "after": { "message": "తర్వాత" },
-  "shortcut": { "message": "షార్ట్‌కట్" },
-  "edit": { "message": "సవరించు" },
-  "pressShortcut": { "message": "కీలను నొక్కండి" },
-  "shortcutNote": { "message": "వెబ్ పేజీ ఫోకస్‌లో ఉన్నప్పుడు పనిచేస్తుంది." },
-  "invalidShortcut": { "message": "కనీసం ఒక modifier కీ మరియు ఇంకొక కీని ఉపయోగించండి." },
-  "saving": { "message": "సేవ్ చేస్తోంది" },
-  "saved": { "message": "సేవ్ అయింది" },
-  "save": { "message": "సేవ్ చేయి" },
-  "cancel": { "message": "రద్దు" },
-  "seconds": { "message": "సెకన్లు" },
-  "second": { "message": "సెకను" },
-  "minutes": { "message": "నిమిషాలు" },
-  "minute": { "message": "నిమిషం" },
-  "powerOn": { "message": "ఎక్స్‌టెన్షన్‌ను ఆన్ చేయి" },
-  "powerOff": { "message": "ఎక్స్‌టెన్షన్‌ను ఆఫ్ చేయి" },
-  "darkMode": { "message": "డార్క్ మోడ్‌ను ఆన్ చేయి" },
-  "lightMode": { "message": "లైట్ మోడ్‌ను ఆన్ చేయి" }
+  "extensionDescription": {
+    "message": "మీరు దూరంగా వెళ్లినప్పుడు Chrome పేజీ కంటెంట్‌ను స్థానిక గోప్యతా తెరతో మసకబార్చండి."
+  },
+  "popupTitle": {
+    "message": "స్క్రీన్ గోప్యత"
+  },
+  "ready": {
+    "message": "సిద్ధం"
+  },
+  "restrictedFallback": {
+    "message": "బ్రౌజర్ ఎక్స్‌టెన్షన్‌లకు దీన్ని మార్చడానికి అనుమతించనందున ఈ పేజీని మసకబార్చలేము."
+  },
+  "blurPage": {
+    "message": "పేజీని మసకబార్చు"
+  },
+  "unblurPage": {
+    "message": "మసకను తొలగించు"
+  },
+  "notAvailable": {
+    "message": "అందుబాటులో లేదు"
+  },
+  "blur": {
+    "message": "మసక"
+  },
+  "dim": {
+    "message": "చీకటి"
+  },
+  "autoAway": {
+    "message": "స్వయంచాలక దూర టైమర్"
+  },
+  "after": {
+    "message": "తర్వాత"
+  },
+  "shortcut": {
+    "message": "షార్ట్‌కట్"
+  },
+  "edit": {
+    "message": "సవరించు"
+  },
+  "pressShortcut": {
+    "message": "కీలను నొక్కండి"
+  },
+  "shortcutNote": {
+    "message": "వెబ్ పేజీ ఫోకస్‌లో ఉన్నప్పుడు పనిచేస్తుంది."
+  },
+  "invalidShortcut": {
+    "message": "కనీసం ఒక modifier కీ మరియు ఇంకొక కీని ఉపయోగించండి."
+  },
+  "saving": {
+    "message": "సేవ్ చేస్తోంది"
+  },
+  "saved": {
+    "message": "సేవ్ అయింది"
+  },
+  "save": {
+    "message": "సేవ్ చేయి"
+  },
+  "cancel": {
+    "message": "రద్దు"
+  },
+  "seconds": {
+    "message": "సెకన్లు"
+  },
+  "second": {
+    "message": "సెకను"
+  },
+  "minutes": {
+    "message": "నిమిషాలు"
+  },
+  "minute": {
+    "message": "నిమిషం"
+  },
+  "powerOn": {
+    "message": "ఎక్స్‌టెన్షన్‌ను ఆన్ చేయి"
+  },
+  "powerOff": {
+    "message": "ఎక్స్‌టెన్షన్‌ను ఆఫ్ చేయి"
+  },
+  "darkMode": {
+    "message": "డార్క్ మోడ్‌ను ఆన్ చేయి"
+  },
+  "lightMode": {
+    "message": "లైట్ మోడ్‌ను ఆన్ చేయి"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

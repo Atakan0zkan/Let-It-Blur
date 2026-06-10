@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Замъглявайте съдържанието на страниците в Chrome с локална завеса за поверителност, когато се отдалечите." },
-  "popupTitle": { "message": "Поверителност на екрана" },
-  "ready": { "message": "Готово" },
-  "restrictedFallback": { "message": "Тази страница не може да бъде замъглена, защото браузърът не позволява на разширенията да я променят." },
-  "blurPage": { "message": "Замъгли страницата" },
-  "unblurPage": { "message": "Премахни замъгляването" },
-  "notAvailable": { "message": "Недостъпно" },
-  "blur": { "message": "Замъгляване" },
-  "dim": { "message": "Затъмняване" },
-  "autoAway": { "message": "Автоматичен таймер при отсъствие" },
-  "after": { "message": "След" },
-  "shortcut": { "message": "Клавишна комбинация" },
-  "edit": { "message": "Редактирай" },
-  "pressShortcut": { "message": "Натиснете клавиши" },
-  "shortcutNote": { "message": "Работи, когато уеб страница е на фокус." },
-  "invalidShortcut": { "message": "Използвайте поне един модификатор и още един клавиш." },
-  "saving": { "message": "Запазване" },
-  "saved": { "message": "Запазено" },
-  "save": { "message": "Запази" },
-  "cancel": { "message": "Отказ" },
-  "seconds": { "message": "секунди" },
-  "second": { "message": "секунда" },
-  "minutes": { "message": "минути" },
-  "minute": { "message": "минута" },
-  "powerOn": { "message": "Включи разширението" },
-  "powerOff": { "message": "Изключи разширението" },
-  "darkMode": { "message": "Включи тъмен режим" },
-  "lightMode": { "message": "Включи светъл режим" }
+  "extensionDescription": {
+    "message": "Замъглявайте съдържанието на страниците в Chrome с локална завеса за поверителност, когато се отдалечите."
+  },
+  "popupTitle": {
+    "message": "Поверителност на екрана"
+  },
+  "ready": {
+    "message": "Готово"
+  },
+  "restrictedFallback": {
+    "message": "Тази страница не може да бъде замъглена, защото браузърът не позволява на разширенията да я променят."
+  },
+  "blurPage": {
+    "message": "Замъгли страницата"
+  },
+  "unblurPage": {
+    "message": "Премахни замъгляването"
+  },
+  "notAvailable": {
+    "message": "Недостъпно"
+  },
+  "blur": {
+    "message": "Замъгляване"
+  },
+  "dim": {
+    "message": "Затъмняване"
+  },
+  "autoAway": {
+    "message": "Автоматичен таймер при отсъствие"
+  },
+  "after": {
+    "message": "След"
+  },
+  "shortcut": {
+    "message": "Клавишна комбинация"
+  },
+  "edit": {
+    "message": "Редактирай"
+  },
+  "pressShortcut": {
+    "message": "Натиснете клавиши"
+  },
+  "shortcutNote": {
+    "message": "Работи, когато уеб страница е на фокус."
+  },
+  "invalidShortcut": {
+    "message": "Използвайте поне един модификатор и още един клавиш."
+  },
+  "saving": {
+    "message": "Запазване"
+  },
+  "saved": {
+    "message": "Запазено"
+  },
+  "save": {
+    "message": "Запази"
+  },
+  "cancel": {
+    "message": "Отказ"
+  },
+  "seconds": {
+    "message": "секунди"
+  },
+  "second": {
+    "message": "секунда"
+  },
+  "minutes": {
+    "message": "минути"
+  },
+  "minute": {
+    "message": "минута"
+  },
+  "powerOn": {
+    "message": "Включи разширението"
+  },
+  "powerOff": {
+    "message": "Изключи разширението"
+  },
+  "darkMode": {
+    "message": "Включи тъмен режим"
+  },
+  "lightMode": {
+    "message": "Включи светъл режим"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

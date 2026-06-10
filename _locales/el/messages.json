@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Θολώστε το περιεχόμενο σελίδων του Chrome με μια τοπική κουρτίνα απορρήτου όταν απομακρύνεστε." },
-  "popupTitle": { "message": "Απόρρητο οθόνης" },
-  "ready": { "message": "Έτοιμο" },
-  "restrictedFallback": { "message": "Αυτή η σελίδα δεν μπορεί να θολωθεί, επειδή το πρόγραμμα περιήγησης δεν επιτρέπει στις επεκτάσεις να την επεξεργαστούν." },
-  "blurPage": { "message": "Θόλωσε τη σελίδα" },
-  "unblurPage": { "message": "Αφαίρεση θολώματος" },
-  "notAvailable": { "message": "Μη διαθέσιμο" },
-  "blur": { "message": "Θόλωμα" },
-  "dim": { "message": "Σκίαση" },
-  "autoAway": { "message": "Χρονοδιακόπτης αυτόματης απουσίας" },
-  "after": { "message": "Μετά από" },
-  "shortcut": { "message": "Συντόμευση" },
-  "edit": { "message": "Επεξεργασία" },
-  "pressShortcut": { "message": "Πατήστε πλήκτρα" },
-  "shortcutNote": { "message": "Λειτουργεί όταν μια ιστοσελίδα έχει εστίαση." },
-  "invalidShortcut": { "message": "Χρησιμοποιήστε τουλάχιστον ένα πλήκτρο τροποποίησης και ένα ακόμη πλήκτρο." },
-  "saving": { "message": "Αποθήκευση" },
-  "saved": { "message": "Αποθηκεύτηκε" },
-  "save": { "message": "Αποθήκευση" },
-  "cancel": { "message": "Άκυρο" },
-  "seconds": { "message": "δευτερόλεπτα" },
-  "second": { "message": "δευτερόλεπτο" },
-  "minutes": { "message": "λεπτά" },
-  "minute": { "message": "λεπτό" },
-  "powerOn": { "message": "Ενεργοποίηση επέκτασης" },
-  "powerOff": { "message": "Απενεργοποίηση επέκτασης" },
-  "darkMode": { "message": "Ενεργοποίηση σκοτεινής λειτουργίας" },
-  "lightMode": { "message": "Ενεργοποίηση φωτεινής λειτουργίας" }
+  "extensionDescription": {
+    "message": "Θολώστε το περιεχόμενο σελίδων του Chrome με μια τοπική κουρτίνα απορρήτου όταν απομακρύνεστε."
+  },
+  "popupTitle": {
+    "message": "Απόρρητο οθόνης"
+  },
+  "ready": {
+    "message": "Έτοιμο"
+  },
+  "restrictedFallback": {
+    "message": "Αυτή η σελίδα δεν μπορεί να θολωθεί, επειδή το πρόγραμμα περιήγησης δεν επιτρέπει στις επεκτάσεις να την επεξεργαστούν."
+  },
+  "blurPage": {
+    "message": "Θόλωσε τη σελίδα"
+  },
+  "unblurPage": {
+    "message": "Αφαίρεση θολώματος"
+  },
+  "notAvailable": {
+    "message": "Μη διαθέσιμο"
+  },
+  "blur": {
+    "message": "Θόλωμα"
+  },
+  "dim": {
+    "message": "Σκίαση"
+  },
+  "autoAway": {
+    "message": "Χρονοδιακόπτης αυτόματης απουσίας"
+  },
+  "after": {
+    "message": "Μετά από"
+  },
+  "shortcut": {
+    "message": "Συντόμευση"
+  },
+  "edit": {
+    "message": "Επεξεργασία"
+  },
+  "pressShortcut": {
+    "message": "Πατήστε πλήκτρα"
+  },
+  "shortcutNote": {
+    "message": "Λειτουργεί όταν μια ιστοσελίδα έχει εστίαση."
+  },
+  "invalidShortcut": {
+    "message": "Χρησιμοποιήστε τουλάχιστον ένα πλήκτρο τροποποίησης και ένα ακόμη πλήκτρο."
+  },
+  "saving": {
+    "message": "Αποθήκευση"
+  },
+  "saved": {
+    "message": "Αποθηκεύτηκε"
+  },
+  "save": {
+    "message": "Αποθήκευση"
+  },
+  "cancel": {
+    "message": "Άκυρο"
+  },
+  "seconds": {
+    "message": "δευτερόλεπτα"
+  },
+  "second": {
+    "message": "δευτερόλεπτο"
+  },
+  "minutes": {
+    "message": "λεπτά"
+  },
+  "minute": {
+    "message": "λεπτό"
+  },
+  "powerOn": {
+    "message": "Ενεργοποίηση επέκτασης"
+  },
+  "powerOff": {
+    "message": "Απενεργοποίηση επέκτασης"
+  },
+  "darkMode": {
+    "message": "Ενεργοποίηση σκοτεινής λειτουργίας"
+  },
+  "lightMode": {
+    "message": "Ενεργοποίηση φωτεινής λειτουργίας"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

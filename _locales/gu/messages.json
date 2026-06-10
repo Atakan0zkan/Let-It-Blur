@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "તમે દૂર જાઓ ત્યારે Chrome પેજની સામગ્રીને સ્થાનિક ગોપનીયતા પડદા વડે ધૂંધળી કરો." },
-  "popupTitle": { "message": "સ્ક્રીન ગોપનીયતા" },
-  "ready": { "message": "તૈયાર" },
-  "restrictedFallback": { "message": "બ્રાઉઝર એક્સ્ટેન્શનને આ પેજમાં ફેરફાર કરવાની મંજૂરી આપતું નથી, તેથી આ પેજ ધૂંધળું કરી શકાતું નથી." },
-  "blurPage": { "message": "પેજ ધૂંધળું કરો" },
-  "unblurPage": { "message": "ધૂંધળાપો દૂર કરો" },
-  "notAvailable": { "message": "ઉપલબ્ધ નથી" },
-  "blur": { "message": "ધૂંધળાપો" },
-  "dim": { "message": "અંધારું" },
-  "autoAway": { "message": "આપમેળે દૂર ટાઈમર" },
-  "after": { "message": "પછી" },
-  "shortcut": { "message": "શોર્ટકટ" },
-  "edit": { "message": "ફેરફાર કરો" },
-  "pressShortcut": { "message": "કી દબાવો" },
-  "shortcutNote": { "message": "વેબ પેજ ફોકસમાં હોય ત્યારે કામ કરે છે." },
-  "invalidShortcut": { "message": "ઓછામાં ઓછો એક મોડિફાયર અને એક બીજી કી વાપરો." },
-  "saving": { "message": "સાચવી રહ્યું છે" },
-  "saved": { "message": "સાચવાયું" },
-  "save": { "message": "સાચવો" },
-  "cancel": { "message": "રદ કરો" },
-  "seconds": { "message": "સેકન્ડ" },
-  "second": { "message": "સેકન્ડ" },
-  "minutes": { "message": "મિનિટ" },
-  "minute": { "message": "મિનિટ" },
-  "powerOn": { "message": "એક્સ્ટેન્શન ચાલુ કરો" },
-  "powerOff": { "message": "એક્સ્ટેન્શન બંધ કરો" },
-  "darkMode": { "message": "ડાર્ક મોડ ચાલુ કરો" },
-  "lightMode": { "message": "લાઇટ મોડ ચાલુ કરો" }
+  "extensionDescription": {
+    "message": "તમે દૂર જાઓ ત્યારે Chrome પેજની સામગ્રીને સ્થાનિક ગોપનીયતા પડદા વડે ધૂંધળી કરો."
+  },
+  "popupTitle": {
+    "message": "સ્ક્રીન ગોપનીયતા"
+  },
+  "ready": {
+    "message": "તૈયાર"
+  },
+  "restrictedFallback": {
+    "message": "બ્રાઉઝર એક્સ્ટેન્શનને આ પેજમાં ફેરફાર કરવાની મંજૂરી આપતું નથી, તેથી આ પેજ ધૂંધળું કરી શકાતું નથી."
+  },
+  "blurPage": {
+    "message": "પેજ ધૂંધળું કરો"
+  },
+  "unblurPage": {
+    "message": "ધૂંધળાપો દૂર કરો"
+  },
+  "notAvailable": {
+    "message": "ઉપલબ્ધ નથી"
+  },
+  "blur": {
+    "message": "ધૂંધળાપો"
+  },
+  "dim": {
+    "message": "અંધારું"
+  },
+  "autoAway": {
+    "message": "આપમેળે દૂર ટાઈમર"
+  },
+  "after": {
+    "message": "પછી"
+  },
+  "shortcut": {
+    "message": "શોર્ટકટ"
+  },
+  "edit": {
+    "message": "ફેરફાર કરો"
+  },
+  "pressShortcut": {
+    "message": "કી દબાવો"
+  },
+  "shortcutNote": {
+    "message": "વેબ પેજ ફોકસમાં હોય ત્યારે કામ કરે છે."
+  },
+  "invalidShortcut": {
+    "message": "ઓછામાં ઓછો એક મોડિફાયર અને એક બીજી કી વાપરો."
+  },
+  "saving": {
+    "message": "સાચવી રહ્યું છે"
+  },
+  "saved": {
+    "message": "સાચવાયું"
+  },
+  "save": {
+    "message": "સાચવો"
+  },
+  "cancel": {
+    "message": "રદ કરો"
+  },
+  "seconds": {
+    "message": "સેકન્ડ"
+  },
+  "second": {
+    "message": "સેકન્ડ"
+  },
+  "minutes": {
+    "message": "મિનિટ"
+  },
+  "minute": {
+    "message": "મિનિટ"
+  },
+  "powerOn": {
+    "message": "એક્સ્ટેન્શન ચાલુ કરો"
+  },
+  "powerOff": {
+    "message": "એક્સ્ટેન્શન બંધ કરો"
+  },
+  "darkMode": {
+    "message": "ડાર્ક મોડ ચાલુ કરો"
+  },
+  "lightMode": {
+    "message": "લાઇટ મોડ ચાલુ કરો"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

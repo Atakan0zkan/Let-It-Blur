@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Kad aizejat prom, aizmiglojiet Chrome lapas saturu ar lokālu privātuma aizkaru." },
-  "popupTitle": { "message": "Ekrāna privātums" },
-  "ready": { "message": "Gatavs" },
-  "restrictedFallback": { "message": "Šo lapu nevar aizmiglot, jo pārlūks neļauj paplašinājumiem to rediģēt." },
-  "blurPage": { "message": "Aizmiglot lapu" },
-  "unblurPage": { "message": "Noņemt aizmiglojumu" },
-  "notAvailable": { "message": "Nav pieejams" },
-  "blur": { "message": "Aizmiglojums" },
-  "dim": { "message": "Aptumšojums" },
-  "autoAway": { "message": "Automātisks prombūtnes taimeris" },
-  "after": { "message": "Pēc" },
-  "shortcut": { "message": "Saīsne" },
-  "edit": { "message": "Rediģēt" },
-  "pressShortcut": { "message": "Nospiediet taustiņus" },
-  "shortcutNote": { "message": "Darbojas, kad tīmekļa lapa ir fokusā." },
-  "invalidShortcut": { "message": "Izmantojiet vismaz vienu modificējošo taustiņu un vēl vienu taustiņu." },
-  "saving": { "message": "Saglabā" },
-  "saved": { "message": "Saglabāts" },
-  "save": { "message": "Saglabāt" },
-  "cancel": { "message": "Atcelt" },
-  "seconds": { "message": "sekundes" },
-  "second": { "message": "sekunde" },
-  "minutes": { "message": "minūtes" },
-  "minute": { "message": "minūte" },
-  "powerOn": { "message": "Ieslēgt paplašinājumu" },
-  "powerOff": { "message": "Izslēgt paplašinājumu" },
-  "darkMode": { "message": "Ieslēgt tumšo režīmu" },
-  "lightMode": { "message": "Ieslēgt gaišo režīmu" }
+  "extensionDescription": {
+    "message": "Kad aizejat prom, aizmiglojiet Chrome lapas saturu ar lokālu privātuma aizkaru."
+  },
+  "popupTitle": {
+    "message": "Ekrāna privātums"
+  },
+  "ready": {
+    "message": "Gatavs"
+  },
+  "restrictedFallback": {
+    "message": "Šo lapu nevar aizmiglot, jo pārlūks neļauj paplašinājumiem to rediģēt."
+  },
+  "blurPage": {
+    "message": "Aizmiglot lapu"
+  },
+  "unblurPage": {
+    "message": "Noņemt aizmiglojumu"
+  },
+  "notAvailable": {
+    "message": "Nav pieejams"
+  },
+  "blur": {
+    "message": "Aizmiglojums"
+  },
+  "dim": {
+    "message": "Aptumšojums"
+  },
+  "autoAway": {
+    "message": "Automātisks prombūtnes taimeris"
+  },
+  "after": {
+    "message": "Pēc"
+  },
+  "shortcut": {
+    "message": "Saīsne"
+  },
+  "edit": {
+    "message": "Rediģēt"
+  },
+  "pressShortcut": {
+    "message": "Nospiediet taustiņus"
+  },
+  "shortcutNote": {
+    "message": "Darbojas, kad tīmekļa lapa ir fokusā."
+  },
+  "invalidShortcut": {
+    "message": "Izmantojiet vismaz vienu modificējošo taustiņu un vēl vienu taustiņu."
+  },
+  "saving": {
+    "message": "Saglabā"
+  },
+  "saved": {
+    "message": "Saglabāts"
+  },
+  "save": {
+    "message": "Saglabāt"
+  },
+  "cancel": {
+    "message": "Atcelt"
+  },
+  "seconds": {
+    "message": "sekundes"
+  },
+  "second": {
+    "message": "sekunde"
+  },
+  "minutes": {
+    "message": "minūtes"
+  },
+  "minute": {
+    "message": "minūte"
+  },
+  "powerOn": {
+    "message": "Ieslēgt paplašinājumu"
+  },
+  "powerOff": {
+    "message": "Izslēgt paplašinājumu"
+  },
+  "darkMode": {
+    "message": "Ieslēgt tumšo režīmu"
+  },
+  "lightMode": {
+    "message": "Ieslēgt gaišo režīmu"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

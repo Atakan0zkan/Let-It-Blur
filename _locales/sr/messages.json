@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Замути садржај Chrome странице локалном завесом приватности када се удаљиш." },
-  "popupTitle": { "message": "Приватност екрана" },
-  "ready": { "message": "Спремно" },
-  "restrictedFallback": { "message": "Ову страницу није могуће замутити јер прегледач не дозвољава проширењима да је мењају." },
-  "blurPage": { "message": "Замути страницу" },
-  "unblurPage": { "message": "Уклони замућење" },
-  "notAvailable": { "message": "Није доступно" },
-  "blur": { "message": "Замућење" },
-  "dim": { "message": "Затамњење" },
-  "autoAway": { "message": "Аутоматски тајмер одсуства" },
-  "after": { "message": "После" },
-  "shortcut": { "message": "Пречица" },
-  "edit": { "message": "Уреди" },
-  "pressShortcut": { "message": "Притисните тастере" },
-  "shortcutNote": { "message": "Ради када је веб страница у фокусу." },
-  "invalidShortcut": { "message": "Употребите бар један модификатор и још један тастер." },
-  "saving": { "message": "Чување" },
-  "saved": { "message": "Сачувано" },
-  "save": { "message": "Сачувај" },
-  "cancel": { "message": "Откажи" },
-  "seconds": { "message": "секунди" },
-  "second": { "message": "секунда" },
-  "minutes": { "message": "минута" },
-  "minute": { "message": "минут" },
-  "powerOn": { "message": "Укључи проширење" },
-  "powerOff": { "message": "Искључи проширење" },
-  "darkMode": { "message": "Укључи тамни режим" },
-  "lightMode": { "message": "Укључи светли режим" }
+  "extensionDescription": {
+    "message": "Замути садржај Chrome странице локалном завесом приватности када се удаљиш."
+  },
+  "popupTitle": {
+    "message": "Приватност екрана"
+  },
+  "ready": {
+    "message": "Спремно"
+  },
+  "restrictedFallback": {
+    "message": "Ову страницу није могуће замутити јер прегледач не дозвољава проширењима да је мењају."
+  },
+  "blurPage": {
+    "message": "Замути страницу"
+  },
+  "unblurPage": {
+    "message": "Уклони замућење"
+  },
+  "notAvailable": {
+    "message": "Није доступно"
+  },
+  "blur": {
+    "message": "Замућење"
+  },
+  "dim": {
+    "message": "Затамњење"
+  },
+  "autoAway": {
+    "message": "Аутоматски тајмер одсуства"
+  },
+  "after": {
+    "message": "После"
+  },
+  "shortcut": {
+    "message": "Пречица"
+  },
+  "edit": {
+    "message": "Уреди"
+  },
+  "pressShortcut": {
+    "message": "Притисните тастере"
+  },
+  "shortcutNote": {
+    "message": "Ради када је веб страница у фокусу."
+  },
+  "invalidShortcut": {
+    "message": "Употребите бар један модификатор и још један тастер."
+  },
+  "saving": {
+    "message": "Чување"
+  },
+  "saved": {
+    "message": "Сачувано"
+  },
+  "save": {
+    "message": "Сачувај"
+  },
+  "cancel": {
+    "message": "Откажи"
+  },
+  "seconds": {
+    "message": "секунди"
+  },
+  "second": {
+    "message": "секунда"
+  },
+  "minutes": {
+    "message": "минута"
+  },
+  "minute": {
+    "message": "минут"
+  },
+  "powerOn": {
+    "message": "Укључи проширење"
+  },
+  "powerOff": {
+    "message": "Искључи проширење"
+  },
+  "darkMode": {
+    "message": "Укључи тамни режим"
+  },
+  "lightMode": {
+    "message": "Укључи светли режим"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

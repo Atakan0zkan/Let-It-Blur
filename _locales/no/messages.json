@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Slør innholdet på Chrome-sider med et lokalt personverngardin når du går bort." },
-  "popupTitle": { "message": "Skjermpersonvern" },
-  "ready": { "message": "Klar" },
-  "restrictedFallback": { "message": "Denne siden kan ikke sløres fordi nettleseren ikke lar utvidelser redigere den." },
-  "blurPage": { "message": "Slør siden" },
-  "unblurPage": { "message": "Fjern sløring" },
-  "notAvailable": { "message": "Ikke tilgjengelig" },
-  "blur": { "message": "Sløring" },
-  "dim": { "message": "Demping" },
-  "autoAway": { "message": "Automatisk borte-timer" },
-  "after": { "message": "Etter" },
-  "shortcut": { "message": "Snarvei" },
-  "edit": { "message": "Rediger" },
-  "pressShortcut": { "message": "Trykk på taster" },
-  "shortcutNote": { "message": "Fungerer når en nettside er i fokus." },
-  "invalidShortcut": { "message": "Bruk minst én modifikatortast og én annen tast." },
-  "saving": { "message": "Lagrer" },
-  "saved": { "message": "Lagret" },
-  "save": { "message": "Lagre" },
-  "cancel": { "message": "Avbryt" },
-  "seconds": { "message": "sekunder" },
-  "second": { "message": "sekund" },
-  "minutes": { "message": "minutter" },
-  "minute": { "message": "minutt" },
-  "powerOn": { "message": "Slå på utvidelsen" },
-  "powerOff": { "message": "Slå av utvidelsen" },
-  "darkMode": { "message": "Slå på mørk modus" },
-  "lightMode": { "message": "Slå på lys modus" }
+  "extensionDescription": {
+    "message": "Slør innholdet på Chrome-sider med et lokalt personverngardin når du går bort."
+  },
+  "popupTitle": {
+    "message": "Skjermpersonvern"
+  },
+  "ready": {
+    "message": "Klar"
+  },
+  "restrictedFallback": {
+    "message": "Denne siden kan ikke sløres fordi nettleseren ikke lar utvidelser redigere den."
+  },
+  "blurPage": {
+    "message": "Slør siden"
+  },
+  "unblurPage": {
+    "message": "Fjern sløring"
+  },
+  "notAvailable": {
+    "message": "Ikke tilgjengelig"
+  },
+  "blur": {
+    "message": "Sløring"
+  },
+  "dim": {
+    "message": "Demping"
+  },
+  "autoAway": {
+    "message": "Automatisk borte-timer"
+  },
+  "after": {
+    "message": "Etter"
+  },
+  "shortcut": {
+    "message": "Snarvei"
+  },
+  "edit": {
+    "message": "Rediger"
+  },
+  "pressShortcut": {
+    "message": "Trykk på taster"
+  },
+  "shortcutNote": {
+    "message": "Fungerer når en nettside er i fokus."
+  },
+  "invalidShortcut": {
+    "message": "Bruk minst én modifikatortast og én annen tast."
+  },
+  "saving": {
+    "message": "Lagrer"
+  },
+  "saved": {
+    "message": "Lagret"
+  },
+  "save": {
+    "message": "Lagre"
+  },
+  "cancel": {
+    "message": "Avbryt"
+  },
+  "seconds": {
+    "message": "sekunder"
+  },
+  "second": {
+    "message": "sekund"
+  },
+  "minutes": {
+    "message": "minutter"
+  },
+  "minute": {
+    "message": "minutt"
+  },
+  "powerOn": {
+    "message": "Slå på utvidelsen"
+  },
+  "powerOff": {
+    "message": "Slå av utvidelsen"
+  },
+  "darkMode": {
+    "message": "Slå på mørk modus"
+  },
+  "lightMode": {
+    "message": "Slå på lys modus"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "നിങ്ങൾ മാറിനിൽക്കുമ്പോൾ Chrome പേജ് ഉള്ളടക്കം പ്രാദേശിക സ്വകാര്യതാ മറയിലൂടെ മങ്ങിയതാക്കുക." },
-  "popupTitle": { "message": "സ്ക്രീൻ സ്വകാര്യത" },
-  "ready": { "message": "തയ്യാർ" },
-  "restrictedFallback": { "message": "ബ്രൗസർ എക്സ്റ്റൻഷനുകൾക്ക് ഇത് മാറ്റാൻ അനുവദിക്കാത്തതിനാൽ ഈ പേജ് മങ്ങിയതാക്കാനാകില്ല." },
-  "blurPage": { "message": "പേജ് മങ്ങിയതാക്കുക" },
-  "unblurPage": { "message": "മങ്ങൽ നീക്കുക" },
-  "notAvailable": { "message": "ലഭ്യമല്ല" },
-  "blur": { "message": "മങ്ങൽ" },
-  "dim": { "message": "ഇരുണ്ടാക്കൽ" },
-  "autoAway": { "message": "സ്വയം അകലെയുള്ള ടൈമർ" },
-  "after": { "message": "ശേഷം" },
-  "shortcut": { "message": "ഷോർട്ട്കട്ട്" },
-  "edit": { "message": "തിരുത്തുക" },
-  "pressShortcut": { "message": "കീകൾ അമർത്തുക" },
-  "shortcutNote": { "message": "ഒരു വെബ് പേജ് ഫോക്കസിലുള്ളപ്പോൾ പ്രവർത്തിക്കുന്നു." },
-  "invalidShortcut": { "message": "കുറഞ്ഞത് ഒരു മോഡിഫയർ കിയും മറ്റൊരു കിയും ഉപയോഗിക്കുക." },
-  "saving": { "message": "സംരക്ഷിക്കുന്നു" },
-  "saved": { "message": "സംരക്ഷിച്ചു" },
-  "save": { "message": "സംരക്ഷിക്കുക" },
-  "cancel": { "message": "റദ്ദാക്കുക" },
-  "seconds": { "message": "സെക്കൻഡ്" },
-  "second": { "message": "സെക്കൻഡ്" },
-  "minutes": { "message": "മിനിറ്റ്" },
-  "minute": { "message": "മിനിറ്റ്" },
-  "powerOn": { "message": "എക്സ്റ്റൻഷൻ ഓൺ ചെയ്യുക" },
-  "powerOff": { "message": "എക്സ്റ്റൻഷൻ ഓഫ് ചെയ്യുക" },
-  "darkMode": { "message": "ഡാർക്ക് മോഡ് ഓൺ ചെയ്യുക" },
-  "lightMode": { "message": "ലൈറ്റ് മോഡ് ഓൺ ചെയ്യുക" }
+  "extensionDescription": {
+    "message": "നിങ്ങൾ മാറിനിൽക്കുമ്പോൾ Chrome പേജ് ഉള്ളടക്കം പ്രാദേശിക സ്വകാര്യതാ മറയിലൂടെ മങ്ങിയതാക്കുക."
+  },
+  "popupTitle": {
+    "message": "സ്ക്രീൻ സ്വകാര്യത"
+  },
+  "ready": {
+    "message": "തയ്യാർ"
+  },
+  "restrictedFallback": {
+    "message": "ബ്രൗസർ എക്സ്റ്റൻഷനുകൾക്ക് ഇത് മാറ്റാൻ അനുവദിക്കാത്തതിനാൽ ഈ പേജ് മങ്ങിയതാക്കാനാകില്ല."
+  },
+  "blurPage": {
+    "message": "പേജ് മങ്ങിയതാക്കുക"
+  },
+  "unblurPage": {
+    "message": "മങ്ങൽ നീക്കുക"
+  },
+  "notAvailable": {
+    "message": "ലഭ്യമല്ല"
+  },
+  "blur": {
+    "message": "മങ്ങൽ"
+  },
+  "dim": {
+    "message": "ഇരുണ്ടാക്കൽ"
+  },
+  "autoAway": {
+    "message": "സ്വയം അകലെയുള്ള ടൈമർ"
+  },
+  "after": {
+    "message": "ശേഷം"
+  },
+  "shortcut": {
+    "message": "ഷോർട്ട്കട്ട്"
+  },
+  "edit": {
+    "message": "തിരുത്തുക"
+  },
+  "pressShortcut": {
+    "message": "കീകൾ അമർത്തുക"
+  },
+  "shortcutNote": {
+    "message": "ഒരു വെബ് പേജ് ഫോക്കസിലുള്ളപ്പോൾ പ്രവർത്തിക്കുന്നു."
+  },
+  "invalidShortcut": {
+    "message": "കുറഞ്ഞത് ഒരു മോഡിഫയർ കിയും മറ്റൊരു കിയും ഉപയോഗിക്കുക."
+  },
+  "saving": {
+    "message": "സംരക്ഷിക്കുന്നു"
+  },
+  "saved": {
+    "message": "സംരക്ഷിച്ചു"
+  },
+  "save": {
+    "message": "സംരക്ഷിക്കുക"
+  },
+  "cancel": {
+    "message": "റദ്ദാക്കുക"
+  },
+  "seconds": {
+    "message": "സെക്കൻഡ്"
+  },
+  "second": {
+    "message": "സെക്കൻഡ്"
+  },
+  "minutes": {
+    "message": "മിനിറ്റ്"
+  },
+  "minute": {
+    "message": "മിനിറ്റ്"
+  },
+  "powerOn": {
+    "message": "എക്സ്റ്റൻഷൻ ഓൺ ചെയ്യുക"
+  },
+  "powerOff": {
+    "message": "എക്സ്റ്റൻഷൻ ഓഫ് ചെയ്യുക"
+  },
+  "darkMode": {
+    "message": "ഡാർക്ക് മോഡ് ഓൺ ചെയ്യുക"
+  },
+  "lightMode": {
+    "message": "ലൈറ്റ് മോഡ് ഓൺ ചെയ്യുക"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

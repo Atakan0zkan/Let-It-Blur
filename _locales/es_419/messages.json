@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Desenfoca el contenido de las páginas de Chrome con una cortina de privacidad local cuando te alejes." },
-  "popupTitle": { "message": "Privacidad de pantalla" },
-  "ready": { "message": "Listo" },
-  "restrictedFallback": { "message": "Esta página no se puede desenfocar porque el navegador no permite que las extensiones la modifiquen." },
-  "blurPage": { "message": "Desenfocar página" },
-  "unblurPage": { "message": "Quitar desenfoque" },
-  "notAvailable": { "message": "No disponible" },
-  "blur": { "message": "Desenfoque" },
-  "dim": { "message": "Oscurecer" },
-  "autoAway": { "message": "Temporizador automático de ausencia" },
-  "after": { "message": "Después de" },
-  "shortcut": { "message": "Atajo" },
-  "edit": { "message": "Editar" },
-  "pressShortcut": { "message": "Presiona las teclas" },
-  "shortcutNote": { "message": "Funciona cuando una página web está enfocada." },
-  "invalidShortcut": { "message": "Usa al menos una tecla modificadora y otra tecla." },
-  "saving": { "message": "Guardando" },
-  "saved": { "message": "Guardado" },
-  "save": { "message": "Guardar" },
-  "cancel": { "message": "Cancelar" },
-  "seconds": { "message": "segundos" },
-  "second": { "message": "segundo" },
-  "minutes": { "message": "minutos" },
-  "minute": { "message": "minuto" },
-  "powerOn": { "message": "Activar extensión" },
-  "powerOff": { "message": "Desactivar extensión" },
-  "darkMode": { "message": "Activar modo oscuro" },
-  "lightMode": { "message": "Activar modo claro" }
+  "extensionDescription": {
+    "message": "Desenfoca el contenido de las páginas de Chrome con una cortina de privacidad local cuando te alejes."
+  },
+  "popupTitle": {
+    "message": "Privacidad de pantalla"
+  },
+  "ready": {
+    "message": "Listo"
+  },
+  "restrictedFallback": {
+    "message": "Esta página no se puede desenfocar porque el navegador no permite que las extensiones la modifiquen."
+  },
+  "blurPage": {
+    "message": "Desenfocar página"
+  },
+  "unblurPage": {
+    "message": "Quitar desenfoque"
+  },
+  "notAvailable": {
+    "message": "No disponible"
+  },
+  "blur": {
+    "message": "Desenfoque"
+  },
+  "dim": {
+    "message": "Oscurecer"
+  },
+  "autoAway": {
+    "message": "Temporizador automático de ausencia"
+  },
+  "after": {
+    "message": "Después de"
+  },
+  "shortcut": {
+    "message": "Atajo"
+  },
+  "edit": {
+    "message": "Editar"
+  },
+  "pressShortcut": {
+    "message": "Presiona las teclas"
+  },
+  "shortcutNote": {
+    "message": "Funciona cuando una página web está enfocada."
+  },
+  "invalidShortcut": {
+    "message": "Usa al menos una tecla modificadora y otra tecla."
+  },
+  "saving": {
+    "message": "Guardando"
+  },
+  "saved": {
+    "message": "Guardado"
+  },
+  "save": {
+    "message": "Guardar"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "seconds": {
+    "message": "segundos"
+  },
+  "second": {
+    "message": "segundo"
+  },
+  "minutes": {
+    "message": "minutos"
+  },
+  "minute": {
+    "message": "minuto"
+  },
+  "powerOn": {
+    "message": "Activar extensión"
+  },
+  "powerOff": {
+    "message": "Desactivar extensión"
+  },
+  "darkMode": {
+    "message": "Activar modo oscuro"
+  },
+  "lightMode": {
+    "message": "Activar modo claro"
+  },
+  "preferences": {
+    "message": "Preferencias"
+  },
+  "muteOnBlur": {
+    "message": "Silenciar audio al desenfocar"
+  },
+  "dblclickUnblur": {
+    "message": "Doble clic para desenfocar"
+  }
 }

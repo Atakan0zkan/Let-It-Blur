@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Ko se oddaljite, z lokalno zaveso za zasebnost zameglite vsebino strani Chrome." },
-  "popupTitle": { "message": "Zasebnost zaslona" },
-  "ready": { "message": "Pripravljeno" },
-  "restrictedFallback": { "message": "Te strani ni mogoče zamegliti, ker brskalnik razširitvam ne dovoli, da jo spreminjajo." },
-  "blurPage": { "message": "Zamegli stran" },
-  "unblurPage": { "message": "Odstrani zameglitev" },
-  "notAvailable": { "message": "Ni na voljo" },
-  "blur": { "message": "Zameglitev" },
-  "dim": { "message": "Zatemnitev" },
-  "autoAway": { "message": "Samodejni časovnik odsotnosti" },
-  "after": { "message": "Po" },
-  "shortcut": { "message": "Bližnjica" },
-  "edit": { "message": "Uredi" },
-  "pressShortcut": { "message": "Pritisnite tipke" },
-  "shortcutNote": { "message": "Deluje, ko je spletna stran v fokusu." },
-  "invalidShortcut": { "message": "Uporabite vsaj eno modifikacijsko tipko in še eno tipko." },
-  "saving": { "message": "Shranjevanje" },
-  "saved": { "message": "Shranjeno" },
-  "save": { "message": "Shrani" },
-  "cancel": { "message": "Prekliči" },
-  "seconds": { "message": "sekund" },
-  "second": { "message": "sekunda" },
-  "minutes": { "message": "minut" },
-  "minute": { "message": "minuta" },
-  "powerOn": { "message": "Vklopi razširitev" },
-  "powerOff": { "message": "Izklopi razširitev" },
-  "darkMode": { "message": "Vklopi temni način" },
-  "lightMode": { "message": "Vklopi svetli način" }
+  "extensionDescription": {
+    "message": "Ko se oddaljite, z lokalno zaveso za zasebnost zameglite vsebino strani Chrome."
+  },
+  "popupTitle": {
+    "message": "Zasebnost zaslona"
+  },
+  "ready": {
+    "message": "Pripravljeno"
+  },
+  "restrictedFallback": {
+    "message": "Te strani ni mogoče zamegliti, ker brskalnik razširitvam ne dovoli, da jo spreminjajo."
+  },
+  "blurPage": {
+    "message": "Zamegli stran"
+  },
+  "unblurPage": {
+    "message": "Odstrani zameglitev"
+  },
+  "notAvailable": {
+    "message": "Ni na voljo"
+  },
+  "blur": {
+    "message": "Zameglitev"
+  },
+  "dim": {
+    "message": "Zatemnitev"
+  },
+  "autoAway": {
+    "message": "Samodejni časovnik odsotnosti"
+  },
+  "after": {
+    "message": "Po"
+  },
+  "shortcut": {
+    "message": "Bližnjica"
+  },
+  "edit": {
+    "message": "Uredi"
+  },
+  "pressShortcut": {
+    "message": "Pritisnite tipke"
+  },
+  "shortcutNote": {
+    "message": "Deluje, ko je spletna stran v fokusu."
+  },
+  "invalidShortcut": {
+    "message": "Uporabite vsaj eno modifikacijsko tipko in še eno tipko."
+  },
+  "saving": {
+    "message": "Shranjevanje"
+  },
+  "saved": {
+    "message": "Shranjeno"
+  },
+  "save": {
+    "message": "Shrani"
+  },
+  "cancel": {
+    "message": "Prekliči"
+  },
+  "seconds": {
+    "message": "sekund"
+  },
+  "second": {
+    "message": "sekunda"
+  },
+  "minutes": {
+    "message": "minut"
+  },
+  "minute": {
+    "message": "minuta"
+  },
+  "powerOn": {
+    "message": "Vklopi razširitev"
+  },
+  "powerOff": {
+    "message": "Izklopi razširitev"
+  },
+  "darkMode": {
+    "message": "Vklopi temni način"
+  },
+  "lightMode": {
+    "message": "Vklopi svetli način"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

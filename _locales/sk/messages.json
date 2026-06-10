@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Rozostrite obsah stránok v Chrome lokálnou clonou súkromia, keď odídete od počítača." },
-  "popupTitle": { "message": "Súkromie obrazovky" },
-  "ready": { "message": "Pripravené" },
-  "restrictedFallback": { "message": "Túto stránku nemožno rozostriť, pretože prehliadač nedovoľuje rozšíreniam ju upravovať." },
-  "blurPage": { "message": "Rozostriť stránku" },
-  "unblurPage": { "message": "Zrušiť rozostrenie" },
-  "notAvailable": { "message": "Nedostupné" },
-  "blur": { "message": "Rozostrenie" },
-  "dim": { "message": "Stmavenie" },
-  "autoAway": { "message": "Automatický časovač neprítomnosti" },
-  "after": { "message": "Po" },
-  "shortcut": { "message": "Skratka" },
-  "edit": { "message": "Upraviť" },
-  "pressShortcut": { "message": "Stlačte klávesy" },
-  "shortcutNote": { "message": "Funguje, keď je webová stránka aktívna." },
-  "invalidShortcut": { "message": "Použite aspoň jeden modifikačný kláves a jeden ďalší kláves." },
-  "saving": { "message": "Ukladá sa" },
-  "saved": { "message": "Uložené" },
-  "save": { "message": "Uložiť" },
-  "cancel": { "message": "Zrušiť" },
-  "seconds": { "message": "sekúnd" },
-  "second": { "message": "sekunda" },
-  "minutes": { "message": "minút" },
-  "minute": { "message": "minúta" },
-  "powerOn": { "message": "Zapnúť rozšírenie" },
-  "powerOff": { "message": "Vypnúť rozšírenie" },
-  "darkMode": { "message": "Zapnúť tmavý režim" },
-  "lightMode": { "message": "Zapnúť svetlý režim" }
+  "extensionDescription": {
+    "message": "Rozostrite obsah stránok v Chrome lokálnou clonou súkromia, keď odídete od počítača."
+  },
+  "popupTitle": {
+    "message": "Súkromie obrazovky"
+  },
+  "ready": {
+    "message": "Pripravené"
+  },
+  "restrictedFallback": {
+    "message": "Túto stránku nemožno rozostriť, pretože prehliadač nedovoľuje rozšíreniam ju upravovať."
+  },
+  "blurPage": {
+    "message": "Rozostriť stránku"
+  },
+  "unblurPage": {
+    "message": "Zrušiť rozostrenie"
+  },
+  "notAvailable": {
+    "message": "Nedostupné"
+  },
+  "blur": {
+    "message": "Rozostrenie"
+  },
+  "dim": {
+    "message": "Stmavenie"
+  },
+  "autoAway": {
+    "message": "Automatický časovač neprítomnosti"
+  },
+  "after": {
+    "message": "Po"
+  },
+  "shortcut": {
+    "message": "Skratka"
+  },
+  "edit": {
+    "message": "Upraviť"
+  },
+  "pressShortcut": {
+    "message": "Stlačte klávesy"
+  },
+  "shortcutNote": {
+    "message": "Funguje, keď je webová stránka aktívna."
+  },
+  "invalidShortcut": {
+    "message": "Použite aspoň jeden modifikačný kláves a jeden ďalší kláves."
+  },
+  "saving": {
+    "message": "Ukladá sa"
+  },
+  "saved": {
+    "message": "Uložené"
+  },
+  "save": {
+    "message": "Uložiť"
+  },
+  "cancel": {
+    "message": "Zrušiť"
+  },
+  "seconds": {
+    "message": "sekúnd"
+  },
+  "second": {
+    "message": "sekunda"
+  },
+  "minutes": {
+    "message": "minút"
+  },
+  "minute": {
+    "message": "minúta"
+  },
+  "powerOn": {
+    "message": "Zapnúť rozšírenie"
+  },
+  "powerOff": {
+    "message": "Vypnúť rozšírenie"
+  },
+  "darkMode": {
+    "message": "Zapnúť tmavý režim"
+  },
+  "lightMode": {
+    "message": "Zapnúť svetlý režim"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

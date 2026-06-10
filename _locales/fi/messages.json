@@ -1,30 +1,95 @@
 {
-  "extensionDescription": { "message": "Sumenna Chromen sivusisältö paikallisella yksityisyysverholla, kun poistut koneelta." },
-  "popupTitle": { "message": "Näytön yksityisyys" },
-  "ready": { "message": "Valmis" },
-  "restrictedFallback": { "message": "Tätä sivua ei voi sumentaa, koska selain ei salli laajennusten muokata sitä." },
-  "blurPage": { "message": "Sumenna sivu" },
-  "unblurPage": { "message": "Poista sumennus" },
-  "notAvailable": { "message": "Ei käytettävissä" },
-  "blur": { "message": "Sumennus" },
-  "dim": { "message": "Tummennus" },
-  "autoAway": { "message": "Automaattinen poissaoloajastin" },
-  "after": { "message": "Jälkeen" },
-  "shortcut": { "message": "Pikanäppäin" },
-  "edit": { "message": "Muokkaa" },
-  "pressShortcut": { "message": "Paina näppäimiä" },
-  "shortcutNote": { "message": "Toimii, kun verkkosivu on aktiivisena." },
-  "invalidShortcut": { "message": "Käytä vähintään yhtä muokkausnäppäintä ja yhtä muuta näppäintä." },
-  "saving": { "message": "Tallennetaan" },
-  "saved": { "message": "Tallennettu" },
-  "save": { "message": "Tallenna" },
-  "cancel": { "message": "Peruuta" },
-  "seconds": { "message": "sekuntia" },
-  "second": { "message": "sekunti" },
-  "minutes": { "message": "minuuttia" },
-  "minute": { "message": "minuutti" },
-  "powerOn": { "message": "Ota laajennus käyttöön" },
-  "powerOff": { "message": "Poista laajennus käytöstä" },
-  "darkMode": { "message": "Ota tumma tila käyttöön" },
-  "lightMode": { "message": "Ota vaalea tila käyttöön" }
+  "extensionDescription": {
+    "message": "Sumenna Chromen sivusisältö paikallisella yksityisyysverholla, kun poistut koneelta."
+  },
+  "popupTitle": {
+    "message": "Näytön yksityisyys"
+  },
+  "ready": {
+    "message": "Valmis"
+  },
+  "restrictedFallback": {
+    "message": "Tätä sivua ei voi sumentaa, koska selain ei salli laajennusten muokata sitä."
+  },
+  "blurPage": {
+    "message": "Sumenna sivu"
+  },
+  "unblurPage": {
+    "message": "Poista sumennus"
+  },
+  "notAvailable": {
+    "message": "Ei käytettävissä"
+  },
+  "blur": {
+    "message": "Sumennus"
+  },
+  "dim": {
+    "message": "Tummennus"
+  },
+  "autoAway": {
+    "message": "Automaattinen poissaoloajastin"
+  },
+  "after": {
+    "message": "Jälkeen"
+  },
+  "shortcut": {
+    "message": "Pikanäppäin"
+  },
+  "edit": {
+    "message": "Muokkaa"
+  },
+  "pressShortcut": {
+    "message": "Paina näppäimiä"
+  },
+  "shortcutNote": {
+    "message": "Toimii, kun verkkosivu on aktiivisena."
+  },
+  "invalidShortcut": {
+    "message": "Käytä vähintään yhtä muokkausnäppäintä ja yhtä muuta näppäintä."
+  },
+  "saving": {
+    "message": "Tallennetaan"
+  },
+  "saved": {
+    "message": "Tallennettu"
+  },
+  "save": {
+    "message": "Tallenna"
+  },
+  "cancel": {
+    "message": "Peruuta"
+  },
+  "seconds": {
+    "message": "sekuntia"
+  },
+  "second": {
+    "message": "sekunti"
+  },
+  "minutes": {
+    "message": "minuuttia"
+  },
+  "minute": {
+    "message": "minuutti"
+  },
+  "powerOn": {
+    "message": "Ota laajennus käyttöön"
+  },
+  "powerOff": {
+    "message": "Poista laajennus käytöstä"
+  },
+  "darkMode": {
+    "message": "Ota tumma tila käyttöön"
+  },
+  "lightMode": {
+    "message": "Ota vaalea tila käyttöön"
+  },
+  "preferences": {
+    "message": "Preferences"
+  },
+  "muteOnBlur": {
+    "message": "Mute audio when blurred"
+  },
+  "dblclickUnblur": {
+    "message": "Double-click curtain to unblur"
+  }
 }

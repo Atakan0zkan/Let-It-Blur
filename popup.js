@@ -7,7 +7,9 @@ const DEFAULT_SETTINGS = {
   popupLanguage: "auto",
   customShortcut: "Alt+Shift+X",
   extensionEnabled: true,
-  settingsSchemaVersion: 4
+  settingsSchemaVersion: 5,
+  muteOnBlur: false,
+  dblclickUnblur: false
 };
 
 const LIMITS = {
@@ -45,7 +47,10 @@ const EN_MESSAGES = {
   powerOn: "Turn extension on",
   powerOff: "Turn extension off",
   darkMode: "Turn dark mode on",
-  lightMode: "Turn light mode on"
+  lightMode: "Turn light mode on",
+  preferences: "Preferences",
+  muteOnBlur: "Mute audio when blurred",
+  dblclickUnblur: "Double-click curtain to unblur"
 };
 
 const elements = {
@@ -84,7 +89,14 @@ const elements = {
   shortcutKeys: document.getElementById("shortcutKeys"),
   shortcutNote: document.getElementById("shortcutNote"),
   saveStatus: document.getElementById("saveStatus"),
-  versionNumber: document.getElementById("versionNumber")
+  versionNumber: document.getElementById("versionNumber"),
+  preferencesSectionToggle: document.getElementById("preferencesSectionToggle"),
+  preferencesSectionBody: document.getElementById("preferencesSectionBody"),
+  preferencesLabel: document.getElementById("preferencesLabel"),
+  muteOnBlur: document.getElementById("muteOnBlur"),
+  muteOnBlurLabel: document.getElementById("muteOnBlurLabel"),
+  dblclickUnblur: document.getElementById("dblclickUnblur"),
+  dblclickUnblurLabel: document.getElementById("dblclickUnblurLabel")
 };
 
 let active = false;
@@ -182,6 +194,9 @@ function attachListeners() {
   elements.shortcutSectionToggle.addEventListener("click", () => toggleAccordion("shortcut"));
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
   elements.shortcutCancel.addEventListener("click", () => stopShortcutRecording(false));
+  elements.preferencesSectionToggle.addEventListener("click", () => toggleAccordion("preferences"));
+  elements.muteOnBlur.addEventListener("change", queueSave);
+  elements.dblclickUnblur.addEventListener("change", queueSave);
 
   elements.themeToggle.addEventListener("click", () => {
     if (!extensionEnabled) {
@@ -259,6 +274,9 @@ function renderSettings(settings) {
   renderTimerOptions(autoAwaySeconds);
   customShortcut = normalizeShortcutString(settings.customShortcut);
   renderShortcut();
+
+  elements.muteOnBlur.checked = Boolean(settings.muteOnBlur);
+  elements.dblclickUnblur.checked = Boolean(settings.dblclickUnblur);
 }
 
 function renderPageState() {
@@ -340,6 +358,9 @@ function renderText() {
   renderVersion();
   elements.englishFallback.textContent = "ENG";
   elements.restrictedText.textContent = getCopy("restrictedFallback");
+  elements.preferencesLabel.textContent = getCopy("preferences");
+  elements.muteOnBlurLabel.textContent = getCopy("muteOnBlur");
+  elements.dblclickUnblurLabel.textContent = getCopy("dblclickUnblur");
   renderTimerUnits();
   renderTimerOptions(Number(elements.autoAwaySeconds.value) || DEFAULT_SETTINGS.autoAwaySeconds);
   renderShortcut();
@@ -459,6 +480,8 @@ function save() {
     popupLanguage,
     customShortcut,
     extensionEnabled,
+    muteOnBlur: elements.muteOnBlur.checked,
+    dblclickUnblur: elements.dblclickUnblur.checked,
     settingsSchemaVersion: DEFAULT_SETTINGS.settingsSchemaVersion
   };
 
@@ -489,7 +512,10 @@ function getDisableableControls() {
     elements.timerCancel,
     elements.shortcutSectionToggle,
     elements.shortcutEdit,
-    elements.shortcutCancel
+    elements.shortcutCancel,
+    elements.preferencesSectionToggle,
+    elements.muteOnBlur,
+    elements.dblclickUnblur
   ];
 }
 
@@ -523,6 +549,12 @@ function getAccordion(section) {
     return {
       toggle: elements.timerSectionToggle,
       body: elements.timerSectionBody
+    };
+  }
+  if (section === "preferences") {
+    return {
+      toggle: elements.preferencesSectionToggle,
+      body: elements.preferencesSectionBody
     };
   }
 

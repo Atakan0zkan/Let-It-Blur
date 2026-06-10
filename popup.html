@@ -118,6 +118,30 @@
           </div>
         </section>
 
+        <section class="panel accordion-panel preferences-panel">
+          <div class="accordion-heading">
+            <button class="accordion-toggle" id="preferencesSectionToggle" type="button" aria-expanded="true" aria-controls="preferencesSectionBody">
+              <span class="accordion-caret" aria-hidden="true">▾</span>
+              <span id="preferencesLabel">Preferences</span>
+            </button>
+          </div>
+
+          <div class="accordion-body" id="preferencesSectionBody">
+            <div class="pref-row">
+              <label class="pref-label" for="muteOnBlur">
+                <input id="muteOnBlur" type="checkbox">
+                <span id="muteOnBlurLabel">Mute audio when blurred</span>
+              </label>
+            </div>
+            <div class="pref-row">
+              <label class="pref-label" for="dblclickUnblur">
+                <input id="dblclickUnblur" type="checkbox">
+                <span id="dblclickUnblurLabel">Double-click curtain to unblur</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
         <footer class="footer">
           <span id="saveStatus" role="status" aria-live="polite">Ready</span>
           <span class="version-number" id="versionNumber"></span>
