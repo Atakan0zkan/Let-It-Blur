@@ -64,7 +64,7 @@ Chrome extensions cannot blur the operating system desktop, Chrome toolbar, addr
 
 Run `package-extension-store.bat` from the project root. It creates a store-ready ZIP in `dist/` with `manifest.json` at the ZIP root and excludes local agent memory, test profiles, generated promo assets, and development-only scripts.
 
-The package summary is localized through `_locales/<locale>/messages.json` using the `extensionDescription` key. The manifest version remains `1.0.0`.
+The package summary is localized through `_locales/<locale>/messages.json` using the `extensionDescription` key. The manifest version is `1.1.0`.
 
 ## Validation and security
 

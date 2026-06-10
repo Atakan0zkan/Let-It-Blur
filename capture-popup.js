@@ -14,7 +14,7 @@ async function capture() {
     await page.evaluateOnNewDocument(() => {
         window.chrome = {
             runtime: {
-                getManifest: () => ({ version: "1.0.0" }),
+                getManifest: () => ({ version: "1.1.0" }),
                 sendMessage: (msg, cb) => cb && cb({ active: false, tab: { scriptable: true } }),
                 lastError: null,
                 onMessage: { addListener: () => {} }
@@ -35,7 +35,7 @@ async function capture() {
                             popupLanguage: "auto",
                             customShortcut: "Alt+Shift+X",
                             extensionEnabled: true,
-                            settingsSchemaVersion: 4
+                            settingsSchemaVersion: 5
                         };
                         setTimeout(() => cb(fallback), 0);
                     },
