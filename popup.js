@@ -176,12 +176,14 @@ function attachListeners() {
   elements.blurAmount.addEventListener("input", () => {
     elements.blurAmountValue.value = `${elements.blurAmount.value}px`;
     elements.blurAmountValue.textContent = `${elements.blurAmount.value}px`;
+    updateSliderProgress(elements.blurAmount);
     queueSave();
   });
 
   elements.tintOpacity.addEventListener("input", () => {
     elements.tintOpacityValue.value = `${elements.tintOpacity.value}%`;
     elements.tintOpacityValue.textContent = `${elements.tintOpacity.value}%`;
+    updateSliderProgress(elements.tintOpacity);
     queueSave();
   });
 
@@ -277,6 +279,9 @@ function renderSettings(settings) {
 
   elements.muteOnBlur.checked = Boolean(settings.muteOnBlur);
   elements.dblclickUnblur.checked = Boolean(settings.dblclickUnblur);
+
+  updateSliderProgress(elements.blurAmount);
+  updateSliderProgress(elements.tintOpacity);
 }
 
 function renderPageState() {
@@ -683,4 +688,15 @@ function sendMessage(message) {
       resolve(error ? { ok: false, error: error.message } : response || null);
     });
   });
+}
+
+function updateSliderProgress(element) {
+  if (!element) {
+    return;
+  }
+  const min = Number(element.min) || 0;
+  const max = Number(element.max) || 100;
+  const val = Number(element.value) || 0;
+  const percent = ((val - min) / (max - min)) * 100;
+  element.style.setProperty("--value-percent", `${percent}%`);
 }
