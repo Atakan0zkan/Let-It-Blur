@@ -50,7 +50,8 @@ const EN_MESSAGES = {
   lightMode: "Turn light mode on",
   preferences: "Preferences",
   muteOnBlur: "Mute audio when blurred",
-  dblclickUnblur: "Double-click curtain to unblur"
+  dblclickUnblur: "Double-click curtain to unblur",
+  invalidTimer: "Enter a value greater than 0."
 };
 
 const elements = {
@@ -103,6 +104,7 @@ let active = false;
 let scriptable = false;
 let extensionEnabled = DEFAULT_SETTINGS.extensionEnabled;
 let saveTimer = null;
+let statusTimer = null;
 let popupTheme = DEFAULT_SETTINGS.popupTheme;
 let popupLanguage = DEFAULT_SETTINGS.popupLanguage;
 let customShortcut = DEFAULT_SETTINGS.customShortcut;
@@ -193,6 +195,9 @@ function attachListeners() {
   elements.timerEdit.addEventListener("click", startTimerEdit);
   elements.timerSave.addEventListener("click", saveTimerEdit);
   elements.timerCancel.addEventListener("click", () => stopTimerEdit(false));
+  elements.timerValue.addEventListener("input", () => {
+    elements.timerValue.setCustomValidity("");
+  });
   elements.shortcutSectionToggle.addEventListener("click", () => toggleAccordion("shortcut"));
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
   elements.shortcutCancel.addEventListener("click", () => stopShortcutRecording(false));
@@ -219,6 +224,13 @@ function attachListeners() {
     renderText();
     renderLanguageDirection();
     save();
+  });
+
+  window.addEventListener("pagehide", flushQueuedSave);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      flushQueuedSave();
+    }
   });
 
   window.addEventListener("keydown", (event) => {
@@ -413,13 +425,21 @@ function startTimerEdit() {
 }
 
 function saveTimerEdit() {
-  const rawValue = Math.max(1, Math.round(Number(elements.timerValue.value)));
-  if (!Number.isFinite(rawValue)) {
-    elements.timerValue.focus();
+  const rawInput = elements.timerValue.value.trim();
+  const rawValue = Number(rawInput);
+
+  if (!rawInput || !Number.isFinite(rawValue) || rawValue <= 0) {
+    rejectTimerInput();
     return;
   }
 
-  const seconds = elements.timerUnit.value === "minutes" ? rawValue * 60 : rawValue;
+  const wholeValue = Math.round(rawValue);
+  if (wholeValue < 1) {
+    rejectTimerInput();
+    return;
+  }
+
+  const seconds = elements.timerUnit.value === "minutes" ? wholeValue * 60 : wholeValue;
   const clamped = clampNumber(
     seconds,
     LIMITS.autoAwaySeconds.min,
@@ -454,12 +474,18 @@ function queueSave() {
     return;
   }
 
-  window.clearTimeout(saveTimer);
+  clearSaveTimer();
+  clearStatusTimer();
   elements.saveStatus.textContent = getCopy("saving");
-  saveTimer = window.setTimeout(save, 120);
+  saveTimer = window.setTimeout(() => {
+    saveTimer = null;
+    save();
+  }, 120);
 }
 
 function save() {
+  clearSaveTimer();
+
   const payload = {
     blurAmount: clampNumber(
       elements.blurAmount.value,
@@ -490,14 +516,58 @@ function save() {
     settingsSchemaVersion: DEFAULT_SETTINGS.settingsSchemaVersion
   };
 
-  chrome.storage.local.set(payload, showSavedStatus);
+  chrome.storage.local.set(payload, () => {
+    const error = chrome.runtime.lastError;
+    if (error) {
+      clearStatusTimer();
+      elements.saveStatus.textContent = getCopy("ready");
+      return;
+    }
+
+    showSavedStatus();
+  });
 }
 
 function showSavedStatus() {
+  clearStatusTimer();
   elements.saveStatus.textContent = getCopy("saved");
-  window.setTimeout(() => {
+  statusTimer = window.setTimeout(() => {
     elements.saveStatus.textContent = getCopy("ready");
+    statusTimer = null;
   }, 900);
+}
+
+function flushQueuedSave() {
+  if (saveTimer === null) {
+    return;
+  }
+
+  save();
+}
+
+function clearSaveTimer() {
+  if (saveTimer === null) {
+    return;
+  }
+
+  window.clearTimeout(saveTimer);
+  saveTimer = null;
+}
+
+function clearStatusTimer() {
+  if (statusTimer === null) {
+    return;
+  }
+
+  window.clearTimeout(statusTimer);
+  statusTimer = null;
+}
+
+function rejectTimerInput() {
+  elements.timerValue.setCustomValidity(getCopy("invalidTimer"));
+  elements.timerValue.reportValidity();
+  elements.timerValue.focus();
+  elements.timerValue.select();
 }
 
 function getDisableableControls() {

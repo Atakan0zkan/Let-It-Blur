@@ -16,25 +16,29 @@ const DEFAULT_SETTINGS = {
 const SETTING_KEYS = Object.keys(DEFAULT_SETTINGS);
 
 chrome.runtime.onInstalled.addListener(() => {
-  ensureDefaults().then(configureIdleFromStorage);
+  ensureDefaults().then(configureIdleFromStorage).catch(logError);
 });
 
 chrome.runtime.onStartup.addListener(() => {
-  ensureDefaults().then(configureIdleFromStorage);
+  ensureDefaults().then(configureIdleFromStorage).catch(logError);
 });
 
 chrome.idle.onStateChanged.addListener(async (state) => {
-  if (state !== "idle" && state !== "locked") {
-    return;
-  }
+  try {
+    if (state !== "idle" && state !== "locked") {
+      return;
+    }
 
-  const settings = await getSettings();
-  if (!settings.extensionEnabled || !settings.autoAwayEnabled) {
-    return;
-  }
+    const settings = await getSettings();
+    if (!settings.extensionEnabled || !settings.autoAwayEnabled) {
+      return;
+    }
 
-  await storageSet({ awayLocked: true });
-  await setBlurOnAllTabs(true, "autoAway");
+    await storageSet({ awayLocked: true });
+    await setBlurOnAllTabs(true, "autoAway");
+  } catch (error) {
+    logError(error);
+  }
 });
 
 chrome.storage.onChanged.addListener((changes, areaName) => {
@@ -43,17 +47,17 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   }
 
   if (changes.autoAwayEnabled || changes.autoAwaySeconds) {
-    configureIdleFromStorage();
+    configureIdleFromStorage().catch(logError);
   }
 
   if (changes.extensionEnabled?.newValue === false) {
-    storageSet({ awayLocked: false });
-    setBlurOnAllTabs(false, "extensionDisabled");
+    storageSet({ awayLocked: false }).catch(logError);
+    setBlurOnAllTabs(false, "extensionDisabled").catch(logError);
   }
 
   if (changes.autoAwayEnabled?.newValue === false) {
-    storageSet({ awayLocked: false });
-    setBlurOnAllTabs(false, "autoAwayDisabled");
+    storageSet({ awayLocked: false }).catch(logError);
+    setBlurOnAllTabs(false, "autoAwayDisabled").catch(logError);
   }
 });
 
@@ -64,38 +68,42 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   if (message.type === "TAB_BLUR_STATE_CHANGED") {
     if (sender?.tab?.id) {
-      handleTabBlurStateChanged(sender.tab.id, message.active).then(() => sendResponse({ ok: true }));
+      return respondWith(
+        sendResponse,
+        handleTabBlurStateChanged(sender.tab.id, message.active).then(() => ({ ok: true }))
+      );
     } else {
       sendResponse({ ok: false });
     }
-    return true;
+    return false;
   }
 
   if (message.type === "GET_POPUP_STATE") {
-    getPopupState().then(sendResponse);
-    return true;
+    return respondWith(sendResponse, getPopupState());
   }
 
   if (message.type === "SET_ACTIVE_TAB_BLUR") {
-    setActiveTabBlur(Boolean(message.active)).then(sendResponse);
-    return true;
+    return respondWith(sendResponse, setActiveTabBlur(Boolean(message.active)));
   }
 
   if (message.type === "SET_EXTENSION_ENABLED") {
-    setExtensionEnabled(Boolean(message.enabled)).then(sendResponse);
-    return true;
+    return respondWith(sendResponse, setExtensionEnabled(Boolean(message.enabled)));
   }
 
   if (message.type === "CLEAR_AWAY_LOCK") {
-    storageSet({ awayLocked: false }).then(() => sendResponse({ ok: true }));
-    return true;
+    return respondWith(
+      sendResponse,
+      storageSet({ awayLocked: false }).then(() => ({ ok: true }))
+    );
   }
 
   if (message.type === "UNBLUR_ALL_TABS") {
-    storageSet({ awayLocked: false })
-      .then(() => setBlurOnAllTabs(false, "manualUnlock"))
-      .then(() => sendResponse({ ok: true }));
-    return true;
+    return respondWith(
+      sendResponse,
+      storageSet({ awayLocked: false })
+        .then(() => setBlurOnAllTabs(false, "manualUnlock"))
+        .then(() => ({ ok: true }))
+    );
   }
 
   return false;
@@ -253,20 +261,44 @@ function clampTimer(value) {
 }
 
 function storageGet(keys) {
-  return new Promise((resolve) => {
-    chrome.storage.local.get(keys, (items) => resolve(items || {}));
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get(keys, (items) => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve(items || {});
+    });
   });
 }
 
 function storageSet(items) {
-  return new Promise((resolve) => {
-    chrome.storage.local.set(items, resolve);
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.set(items, () => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve();
+    });
   });
 }
 
 function queryTabs(queryInfo) {
-  return new Promise((resolve) => {
-    chrome.tabs.query(queryInfo, (tabs) => resolve(tabs || []));
+  return new Promise((resolve, reject) => {
+    chrome.tabs.query(queryInfo, (tabs) => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve(tabs || []);
+    });
   });
 }
 
@@ -299,6 +331,24 @@ function executeContentScript(tabId) {
       }
     );
   });
+}
+
+function respondWith(sendResponse, promise) {
+  Promise.resolve(promise)
+    .then((response) => sendResponse(response))
+    .catch((error) => {
+      logError(error);
+      sendResponse({
+        ok: false,
+        error: error?.message || "Unexpected extension error."
+      });
+    });
+
+  return true;
+}
+
+function logError(error) {
+  console.warn("Let It Blur background error:", error?.message || error);
 }
 
 async function handleTabBlurStateChanged(tabId, active) {

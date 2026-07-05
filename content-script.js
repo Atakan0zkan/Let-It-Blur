@@ -17,7 +17,8 @@
     dblclickUnblur: false
   };
 
-  const ROOT_ID = "screen-blur-root";
+  const ROOT_ID = "let-it-blur-root";
+  const ROOT_ATTRIBUTE = "data-let-it-blur-root";
   const KEY_EVENTS = ["keydown", "keyup", "keypress"];
   const POINTER_EVENTS = [
     "click",
@@ -119,13 +120,14 @@
       return;
     }
 
-    root = document.getElementById(ROOT_ID);
+    root = getExtensionRoot();
     if (!root) {
       root = document.createElement("div");
-      root.id = ROOT_ID;
+      root.setAttribute(ROOT_ATTRIBUTE, "true");
       document.documentElement.appendChild(root);
     }
 
+    root.id = ROOT_ID;
     applyRootStyles(false);
     shadow = root.shadowRoot || root.attachShadow({ mode: "open" });
     shadow.replaceChildren(createOverlayStyles(), createCurtain());
@@ -151,10 +153,10 @@
     elements.curtain.classList.toggle("is-active", active);
     elements.curtain.dataset.reason = reason || "manual";
 
-    chrome.runtime.sendMessage({ type: "TAB_BLUR_STATE_CHANGED", active });
+    sendRuntimeMessage({ type: "TAB_BLUR_STATE_CHANGED", active });
 
     if (!active && reason !== "extensionDisabled" && reason !== "autoAwayDisabled") {
-      chrome.runtime.sendMessage({ type: "CLEAR_AWAY_LOCK" });
+      sendRuntimeMessage({ type: "CLEAR_AWAY_LOCK" });
     }
   }
 
@@ -240,6 +242,21 @@
       }
     `;
     return style;
+  }
+
+  function getExtensionRoot() {
+    return document.querySelector(`[${ROOT_ATTRIBUTE}="true"]`);
+  }
+
+  function sendRuntimeMessage(message) {
+    try {
+      chrome.runtime.sendMessage(message, () => {
+        // Reading lastError intentionally suppresses benign disconnect noise.
+        void chrome.runtime.lastError;
+      });
+    } catch (_error) {
+      // The page or extension context may be torn down during navigation.
+    }
   }
 
   function createCurtain() {
