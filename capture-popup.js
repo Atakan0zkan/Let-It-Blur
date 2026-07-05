@@ -14,7 +14,7 @@ async function capture() {
     await page.evaluateOnNewDocument(() => {
         window.chrome = {
             runtime: {
-                getManifest: () => ({ version: "1.1.0" }),
+                getManifest: () => ({ version: "1.2.0" }),
                 sendMessage: (msg, cb) => cb && cb({ active: false, tab: { scriptable: true } }),
                 lastError: null,
                 onMessage: { addListener: () => {} }
