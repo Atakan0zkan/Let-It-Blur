@@ -50,8 +50,7 @@ const EN_MESSAGES = {
   lightMode: "Turn light mode on",
   preferences: "Preferences",
   muteOnBlur: "Mute audio when blurred",
-  dblclickUnblur: "Double-click curtain to unblur",
-  invalidTimer: "Enter a value greater than 0."
+  dblclickUnblur: "Double-click curtain to unblur"
 };
 
 const elements = {
@@ -564,7 +563,7 @@ function clearStatusTimer() {
 }
 
 function rejectTimerInput() {
-  elements.timerValue.setCustomValidity(getCopy("invalidTimer"));
+  elements.timerValue.setCustomValidity("");
   elements.timerValue.reportValidity();
   elements.timerValue.focus();
   elements.timerValue.select();
