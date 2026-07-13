@@ -90,6 +90,6 @@
     "message": "Silenciar audio al desenfocar"
   },
   "dblclickUnblur": {
-    "message": "Doble clic para desenfocar"
+    "message": "Doble clic para quitar el desenfoque"
   }
 }

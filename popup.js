@@ -48,6 +48,7 @@ const EN_MESSAGES = {
   powerOff: "Turn extension off",
   darkMode: "Turn dark mode on",
   lightMode: "Turn light mode on",
+  saveFailed: "Couldn't save",
   preferences: "Preferences",
   muteOnBlur: "Mute audio when blurred",
   dblclickUnblur: "Double-click curtain to unblur"
@@ -141,7 +142,7 @@ function attachListeners() {
     });
 
     if (!response?.ok) {
-      elements.saveStatus.textContent = getCopy("ready");
+      elements.saveStatus.textContent = getCopy("saveFailed");
       return;
     }
 
@@ -197,6 +198,7 @@ function attachListeners() {
   elements.timerValue.addEventListener("input", () => {
     elements.timerValue.setCustomValidity("");
   });
+  elements.timerUnit.addEventListener("change", renderTimerEditorLimits);
   elements.shortcutSectionToggle.addEventListener("click", () => toggleAccordion("shortcut"));
   elements.shortcutEdit.addEventListener("click", startShortcutRecording);
   elements.shortcutCancel.addEventListener("click", () => stopShortcutRecording(false));
@@ -219,7 +221,7 @@ function attachListeners() {
       return;
     }
 
-    popupLanguage = "en";
+    popupLanguage = popupLanguage === "en" ? "auto" : "en";
     renderText();
     renderLanguageDirection();
     save();
@@ -343,6 +345,15 @@ function renderLanguageDirection() {
   document.documentElement.dir = direction;
 }
 
+function renderLanguageToggle() {
+  const usingEnglish = popupLanguage === "en";
+  const actionText = usingEnglish ? "Use browser language" : "Use English";
+
+  elements.englishFallback.setAttribute("aria-pressed", String(usingEnglish));
+  elements.englishFallback.setAttribute("aria-label", actionText);
+  elements.englishFallback.title = actionText;
+}
+
 function renderExtensionEnabled() {
   document.body.classList.toggle("extension-off", !extensionEnabled);
   elements.powerToggle.setAttribute("aria-pressed", String(extensionEnabled));
@@ -373,6 +384,7 @@ function renderText() {
   elements.saveStatus.textContent = getCopy("ready");
   renderVersion();
   elements.englishFallback.textContent = "ENG";
+  renderLanguageToggle();
   elements.restrictedText.textContent = getCopy("restrictedFallback");
   elements.preferencesLabel.textContent = getCopy("preferences");
   elements.muteOnBlurLabel.textContent = getCopy("muteOnBlur");
@@ -401,10 +413,13 @@ function renderTimerOptions(selectedSeconds) {
 }
 
 function renderTimerUnits() {
+  const selectedUnit = elements.timerUnit.value === "minutes" ? "minutes" : "seconds";
   elements.timerUnit.replaceChildren(
     new Option(getCopy("seconds"), "seconds"),
     new Option(getCopy("minutes"), "minutes")
   );
+  elements.timerUnit.value = selectedUnit;
+  renderTimerEditorLimits();
 }
 
 function startTimerEdit() {
@@ -420,6 +435,7 @@ function startTimerEdit() {
   elements.timerEditor.hidden = false;
   elements.timerValue.value = String(useMinutes ? seconds / 60 : seconds);
   elements.timerUnit.value = useMinutes ? "minutes" : "seconds";
+  renderTimerEditorLimits();
   elements.timerValue.focus();
 }
 
@@ -427,7 +443,7 @@ function saveTimerEdit() {
   const rawInput = elements.timerValue.value.trim();
   const rawValue = Number(rawInput);
 
-  if (!rawInput || !Number.isFinite(rawValue) || rawValue <= 0) {
+  if (!rawInput || !Number.isFinite(rawValue) || rawValue <= 0 || !elements.timerValue.checkValidity()) {
     rejectTimerInput();
     return;
   }
@@ -449,6 +465,13 @@ function saveTimerEdit() {
   renderTimerOptions(clamped);
   stopTimerEdit(true);
   queueSave();
+}
+
+function renderTimerEditorLimits() {
+  const useMinutes = elements.timerUnit.value === "minutes";
+  elements.timerValue.min = useMinutes ? "1" : String(LIMITS.autoAwaySeconds.min);
+  elements.timerValue.max = useMinutes ? "60" : String(LIMITS.autoAwaySeconds.max);
+  elements.timerValue.setCustomValidity("");
 }
 
 function stopTimerEdit(saved) {
@@ -519,7 +542,7 @@ function save() {
     const error = chrome.runtime.lastError;
     if (error) {
       clearStatusTimer();
-      elements.saveStatus.textContent = getCopy("ready");
+      elements.saveStatus.textContent = getCopy("saveFailed");
       return;
     }
 

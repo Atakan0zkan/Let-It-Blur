@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="top-actions" aria-label="Popup controls">
-          <button class="chip-action eng-action" id="englishFallback" type="button">ENG</button>
+          <button class="chip-action eng-action" id="englishFallback" type="button" title="Use English" aria-label="Use English" aria-pressed="false">ENG</button>
           <button class="icon-action" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
             <svg class="icon moon-icon" aria-hidden="true" viewBox="0 0 24 24">
               <path d="M20 14.4A7.6 7.6 0 0 1 9.6 4a8.3 8.3 0 1 0 10.4 10.4Z"></path>
@@ -88,8 +88,8 @@
             </div>
 
             <div class="timer-editor" id="timerEditor" hidden>
-              <input id="timerValue" type="number" min="1" max="3600" inputmode="numeric" required>
-              <select id="timerUnit"></select>
+              <input id="timerValue" type="number" min="15" max="3600" inputmode="numeric" aria-label="Timer value" required>
+              <select id="timerUnit" aria-label="Timer unit"></select>
               <button class="timer-save" id="timerSave" type="button">Save</button>
               <button class="timer-cancel" id="timerCancel" type="button">Cancel</button>
             </div>

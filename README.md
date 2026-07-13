@@ -62,9 +62,11 @@ Chrome extensions cannot blur the operating system desktop, Chrome toolbar, addr
 
 ## Package for Chrome Web Store
 
-Run `package-extension-store.bat` from the project root. It creates a store-ready ZIP in `dist/` with `manifest.json` at the ZIP root and excludes local agent memory, test profiles, generated promo assets, and development-only scripts.
+Run `package-extension-store.bat` from the project root. It creates a store-ready ZIP in `dist/` with `manifest.json` at the ZIP root. Packaging uses an exact allowlist for runtime files, icon filenames, and the single `messages.json` file in each supported locale; unexpected descendants and reparse points are rejected.
 
-The package summary is localized through `_locales/<locale>/messages.json` using the `extensionDescription` key. The manifest version is `1.2.0`.
+Run `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\test-package-extension-store.ps1` to verify that unexpected locale/icon descendants are rejected while the legitimate package remains buildable.
+
+The package summary is localized through `_locales/<locale>/messages.json` using the `extensionDescription` key. The manifest version is `1.2.1`.
 
 ## Validation and security
 

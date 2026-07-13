@@ -117,15 +117,15 @@
 
   function ensureOverlay() {
     if (root && shadow && elements) {
+      if (!root.isConnected) {
+        document.documentElement.appendChild(root);
+      }
       return;
     }
 
-    root = getExtensionRoot();
-    if (!root) {
-      root = document.createElement("div");
-      root.setAttribute(ROOT_ATTRIBUTE, "true");
-      document.documentElement.appendChild(root);
-    }
+    root = document.createElement("div");
+    root.setAttribute(ROOT_ATTRIBUTE, "true");
+    document.documentElement.appendChild(root);
 
     root.id = ROOT_ID;
     applyRootStyles(false);
@@ -136,8 +136,8 @@
       curtain: shadow.querySelector(".curtain")
     };
 
-    elements.curtain.addEventListener("dblclick", () => {
-      if (settings.extensionEnabled && settings.dblclickUnblur) {
+    elements.curtain.addEventListener("dblclick", (event) => {
+      if (event.isTrusted && settings.extensionEnabled && settings.dblclickUnblur) {
         setActive(false, "dblclick");
       }
     });
@@ -244,9 +244,6 @@
     return style;
   }
 
-  function getExtensionRoot() {
-    return document.querySelector(`[${ROOT_ATTRIBUTE}="true"]`);
-  }
 
   function sendRuntimeMessage(message) {
     try {
@@ -337,7 +334,7 @@
   }
 
   function handleShortcutKeydown(event) {
-    if (!settings.extensionEnabled || event.repeat || event.isComposing) {
+    if (!event.isTrusted || !settings.extensionEnabled || event.repeat || event.isComposing) {
       return;
     }
 
@@ -375,7 +372,7 @@
       return;
     }
 
-    if (event.key === "Escape" && event.type === "keydown") {
+    if (event.isTrusted && event.key === "Escape" && event.type === "keydown") {
       setActive(false, "escape");
     }
 

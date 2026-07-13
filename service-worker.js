@@ -14,6 +14,8 @@ const DEFAULT_SETTINGS = {
 };
 
 const SETTING_KEYS = Object.keys(DEFAULT_SETTINGS);
+const MUTE_STATE_KEY = "extensionMutedTabs";
+let muteUpdateQueue = Promise.resolve();
 
 chrome.runtime.onInstalled.addListener(() => {
   ensureDefaults().then(configureIdleFromStorage).catch(logError);
@@ -53,12 +55,21 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   if (changes.extensionEnabled?.newValue === false) {
     storageSet({ awayLocked: false }).catch(logError);
     setBlurOnAllTabs(false, "extensionDisabled").catch(logError);
+    restoreAllExtensionMutedTabs().catch(logError);
+  }
+
+  if (changes.muteOnBlur?.newValue === false) {
+    restoreAllExtensionMutedTabs().catch(logError);
   }
 
   if (changes.autoAwayEnabled?.newValue === false) {
     storageSet({ awayLocked: false }).catch(logError);
     setBlurOnAllTabs(false, "autoAwayDisabled").catch(logError);
   }
+});
+
+chrome.tabs.onRemoved.addListener((tabId) => {
+  forgetExtensionMutedTab(tabId).catch(logError);
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -288,6 +299,34 @@ function storageSet(items) {
   });
 }
 
+function sessionStorageGet(key) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.session.get(key, (items) => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve(items?.[key] || {});
+    });
+  });
+}
+
+function sessionStorageSet(items) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.session.set(items, () => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve();
+    });
+  });
+}
+
 function queryTabs(queryInfo) {
   return new Promise((resolve, reject) => {
     chrome.tabs.query(queryInfo, (tabs) => {
@@ -298,6 +337,29 @@ function queryTabs(queryInfo) {
       }
 
       resolve(tabs || []);
+    });
+  });
+}
+
+function getTabById(tabId) {
+  return new Promise((resolve) => {
+    chrome.tabs.get(tabId, (tab) => {
+      const error = chrome.runtime.lastError;
+      resolve(error ? null : tab || null);
+    });
+  });
+}
+
+function updateTabMuted(tabId, muted) {
+  return new Promise((resolve, reject) => {
+    chrome.tabs.update(tabId, { muted }, (tab) => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+
+      resolve(tab || null);
     });
   });
 }
@@ -351,13 +413,110 @@ function logError(error) {
   console.warn("Let It Blur background error:", error?.message || error);
 }
 
-async function handleTabBlurStateChanged(tabId, active) {
+function enqueueMuteUpdate(task) {
+  const operation = muteUpdateQueue.then(task, task);
+  muteUpdateQueue = operation.catch(() => {});
+  return operation;
+}
+
+function getExtensionMutedTabs() {
+  return sessionStorageGet(MUTE_STATE_KEY).then((stored) =>
+    stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {}
+  );
+}
+
+function saveExtensionMutedTabs(tabs) {
+  return sessionStorageSet({ [MUTE_STATE_KEY]: tabs });
+}
+
+async function muteTabForBlur(tabId) {
   const settings = await getSettings();
-  if (settings.extensionEnabled && settings.muteOnBlur) {
-    try {
-      await chrome.tabs.update(tabId, { muted: active });
-    } catch (e) {
-      console.warn("Failed to update tab mute state:", e.message);
-    }
+  if (!settings.extensionEnabled || !settings.muteOnBlur) {
+    return;
   }
+
+  const trackedTabs = await getExtensionMutedTabs();
+  const key = String(tabId);
+  if (trackedTabs[key]) {
+    return;
+  }
+
+  const tab = await getTabById(tabId);
+  if (!tab || tab.mutedInfo?.muted) {
+    return;
+  }
+
+  trackedTabs[key] = true;
+  await saveExtensionMutedTabs(trackedTabs);
+
+  try {
+    await updateTabMuted(tabId, true);
+  } catch (error) {
+    delete trackedTabs[key];
+    await saveExtensionMutedTabs(trackedTabs);
+    throw error;
+  }
+}
+
+async function restoreExtensionMutedTab(tabId) {
+  const trackedTabs = await getExtensionMutedTabs();
+  const key = String(tabId);
+  if (!trackedTabs[key]) {
+    return;
+  }
+
+  const tab = await getTabById(tabId);
+  const mutedByThisExtension =
+    tab?.mutedInfo?.muted &&
+    tab.mutedInfo.reason === "extension" &&
+    tab.mutedInfo.extensionId === chrome.runtime.id;
+
+  if (mutedByThisExtension) {
+    await updateTabMuted(tabId, false);
+  }
+
+  delete trackedTabs[key];
+  await saveExtensionMutedTabs(trackedTabs);
+}
+
+function restoreAllExtensionMutedTabs() {
+  return enqueueMuteUpdate(async () => {
+    const trackedTabs = await getExtensionMutedTabs();
+
+    for (const key of Object.keys(trackedTabs)) {
+      const tabId = Number(key);
+      const tab = Number.isInteger(tabId) ? await getTabById(tabId) : null;
+      const mutedByThisExtension =
+        tab?.mutedInfo?.muted &&
+        tab.mutedInfo.reason === "extension" &&
+        tab.mutedInfo.extensionId === chrome.runtime.id;
+
+      if (mutedByThisExtension) {
+        await updateTabMuted(tabId, false);
+      }
+
+      delete trackedTabs[key];
+    }
+
+    await saveExtensionMutedTabs(trackedTabs);
+  });
+}
+
+function forgetExtensionMutedTab(tabId) {
+  return enqueueMuteUpdate(async () => {
+    const trackedTabs = await getExtensionMutedTabs();
+    const key = String(tabId);
+    if (!trackedTabs[key]) {
+      return;
+    }
+
+    delete trackedTabs[key];
+    await saveExtensionMutedTabs(trackedTabs);
+  });
+}
+
+function handleTabBlurStateChanged(tabId, active) {
+  return enqueueMuteUpdate(() =>
+    active ? muteTabForBlur(tabId) : restoreExtensionMutedTab(tabId)
+  );
 }

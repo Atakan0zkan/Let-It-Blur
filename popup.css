@@ -196,6 +196,13 @@ button {
   outline: none;
 }
 
+.eng-action[aria-pressed="true"] {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.2), 0 8px 20px rgba(37, 99, 235, 0.18);
+  color: #1e3a8a;
+}
+
 .icon {
   fill: none;
   height: 17px;
@@ -340,6 +347,11 @@ input[type="range"] {
 
 input[type="range"]:focus {
   outline: none;
+}
+
+input[type="range"]:focus-visible::-webkit-slider-runnable-track {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
