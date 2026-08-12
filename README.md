@@ -2,6 +2,8 @@
 
 A lightweight Chrome Manifest V3 extension that places a local blur curtain over web page content when the user clicks the toolbar action or when the computer becomes idle.
 
+See this project in my [software developer portfolio](https://atakanozkan.com/en/extension), alongside its product role, privacy architecture, and related browser-extension work.
+
 ## Chrome Web Store description
 
 Chrome Web Store summary:
