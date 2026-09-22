@@ -1,10 +1,12 @@
 # Let It Blur - Screen Privacy
 
+> **Project status (September 2026): Discontinued.** Let It Blur has been removed from the Chrome Web Store. Development and support have ended, and no further releases are planned. This repository preserves the source code and project history.
+
 A lightweight Chrome Manifest V3 extension that places a local blur curtain over web page content when the user clicks the toolbar action or when the computer becomes idle.
 
 See this project in my [software developer portfolio](https://atakanozkan.com/en/extension), alongside its product role, privacy architecture, and related browser-extension work.
 
-## Chrome Web Store description
+## Historical Chrome Web Store description
 
 Chrome Web Store summary:
 
@@ -62,7 +64,7 @@ Chrome extensions cannot blur the operating system desktop, Chrome toolbar, addr
 4. Select this project folder.
 5. Pin the extension and click the toolbar action to open the Let It Blur popup.
 
-## Package for Chrome Web Store
+## Historical Chrome Web Store packaging
 
 Run `package-extension-store.bat` from the project root. It creates a store-ready ZIP in `dist/` with `manifest.json` at the ZIP root. Packaging uses an exact allowlist for runtime files, icon filenames, and the single `messages.json` file in each supported locale; unexpected descendants and reparse points are rejected.
 
